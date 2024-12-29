@@ -267,6 +267,8 @@ class SolarSystemBaseView extends WatchUi.View {
 
     }
 
+    /*
+
     var offScreenBuffer_started = false;
 
     function startOffScreenBuffer (dc){ 
@@ -309,6 +311,7 @@ class SolarSystemBaseView extends WatchUi.View {
                 
             }
             */
+            /*
             offScreenBuffer_started = true;
     }
 
@@ -319,6 +322,8 @@ class SolarSystemBaseView extends WatchUi.View {
         asteroidsRendered = false;
 
     }
+
+    */
 
     //hr are in hours, so *15 to get degrees
     //drawArc start at 3'oclock & goes CCW in degrees
@@ -333,7 +338,7 @@ class SolarSystemBaseView extends WatchUi.View {
         return true;
     }
 
-
+    /*
     //dashed line 
     //Note len_line can be ZERO - in that case it just draws a single pixel/dot for each "dash"
     public function drawDashedLine (myDc,x1, y1, x2, y2, len_line, len_skip, width, color) {
@@ -358,6 +363,7 @@ class SolarSystemBaseView extends WatchUi.View {
             }
         }
     }
+    */
 
     //Triangle pointing in the direction  dir_x, dir_y to x1,y1, pointing outwards from x1,y1
     //coord = [dir_x, dir_y, x1, y1]
@@ -399,18 +405,19 @@ class SolarSystemBaseView extends WatchUi.View {
                 $.timeWasAdded = false;
                 break;*/
             case (1):  //slow-moving animated ecliptic
-                stopOffScreenBuffer();
+                //stopOffScreenBuffer();
                 largeEcliptic(dc, 0);
                 $.timeWasAdded = false;
                 if (buttonPresses<1){started = false;}
                 //if ($.started) {WatchUi.requestUpdate();}
                 break;
             case (2):  //animation moving at one frame/day; sun frozen
-                stopOffScreenBuffer();
+                //stopOffScreenBuffer();
                 largeEcliptic(dc, 0);
                 
                 //if ($.started) {WatchUi.requestUpdate();}
                 break;    
+            /*    
             case(3): //top view of center 4 planets
             case (4): //oblique
                 //time_add_inc = 24*3;
@@ -445,6 +452,7 @@ class SolarSystemBaseView extends WatchUi.View {
                 largeEcliptic(dc, 0);
                 
                 //if ($.started) {WatchUi.requestUpdate();}
+            */    
             
 
 
@@ -1368,9 +1376,11 @@ class SolarSystemBaseView extends WatchUi.View {
 
     }
     
+    /*
     var x1, y1;
 
     var scale = 1;
+    
     
     //big_small = 0 for small (selectio nof visible planets) & 1 for big (all planets)
     public function largeOrrery(dc, big_small) {
@@ -1381,9 +1391,9 @@ class SolarSystemBaseView extends WatchUi.View {
 
 
         
-        /*if (LORR_orient_horizon || 
+        //if (LORR_orient_horizon || 
             ((LORR_oh_save_time_add_hrs - time_add_hrs).toNumber()%24 == 0 ) 
-              && LORR_oh_save_ga_rad == ga_rad) {*/
+              && LORR_oh_save_ga_rad == ga_rad) {
 
         if (LORR_orient_horizon)
         {
@@ -1448,6 +1458,7 @@ class SolarSystemBaseView extends WatchUi.View {
         }
         //dc.drawText(x, y-50, Graphics.FONT_SMALL, "Bug Off", Graphics.TEXT_JUSTIFY_CENTER);
         */
+        /*
 
         //planetnames = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","Ceres","Chiron","Eris"];
         
@@ -1662,6 +1673,7 @@ class SolarSystemBaseView extends WatchUi.View {
         //var mx = Math.sqrt(max);    
 
         //System.println(" ga th " + ga_rad + " " + the_rad);
+        /*
         
         if (ga_rad.abs()>.001 || the_rad.abs() > 0.001) {
 
@@ -1743,6 +1755,7 @@ class SolarSystemBaseView extends WatchUi.View {
                         zoom_whh.addAll(sorter[j]);
                     }
                 }*/
+                /*
             }
             
             //zoom_whh = countingSort(zoom_whh, pp, 3, Math.floor(min_z * 10).toNumber(), Math.floor(max_z * 10).toNumber()); //didnt' really work out
@@ -1751,6 +1764,7 @@ class SolarSystemBaseView extends WatchUi.View {
             //deBug("RDSWC11Bwhh: ", whh);
             //System.println("whhafter: " + whh);
         }
+        
         
         //deBug("RDSWC12: ", allPlanets);
 
@@ -1807,6 +1821,7 @@ class SolarSystemBaseView extends WatchUi.View {
                     dc.drawBitmap2(0,0,_offscreenBuffer, opt);
 
                 } else { */
+                /*
 
                     dc.drawBitmap(0, 0, _offscreenBuffer);
                 
@@ -1830,6 +1845,7 @@ class SolarSystemBaseView extends WatchUi.View {
                     };
                 dc.drawBitmap2(0,0,_offscreenBuffer, opt);
                 */
+                /*
 
                 targetDc = null;
                 
@@ -1848,7 +1864,7 @@ class SolarSystemBaseView extends WatchUi.View {
 
         //drawEllipse(x as Lang.Numeric, y as Lang.Numeric, a as Lang.Numeric, b as Lang.Numeric) as Void
         
-
+        /*
         //sid = 5.5*15;
         init_findSpotRect();
         LORR_horizon_line_drawn = false;
@@ -1952,6 +1968,7 @@ class SolarSystemBaseView extends WatchUi.View {
             }
 
             */
+            /*
         }
 
         if ( !LORR_horizon_line_drawn && LORR_show_horizon_line ) {
@@ -1983,6 +2000,7 @@ class SolarSystemBaseView extends WatchUi.View {
 
 
     }
+    */
 
     var spots;    
     
@@ -2012,7 +2030,7 @@ class SolarSystemBaseView extends WatchUi.View {
 
     }
 
-    
+    /*
     var sr_x =8f;
     var sr_y = 8f;
     var spots_rect; //0 = spot unoccupied, 1 = spot occupied
@@ -2021,6 +2039,7 @@ class SolarSystemBaseView extends WatchUi.View {
     var sr_minc = 4f;
     var diffy, diffx, sr_minc2;
     
+
     (:hasByteArray)
     function init_findSpotRect(){
         sr_minc2=sr_minc*sr_minc;
@@ -2143,6 +2162,7 @@ class SolarSystemBaseView extends WatchUi.View {
             return findSpotRect_fix([x_ret, y_ret], [x,y]);
         } 
         */
+        /*
 
         //last resort
         return [x+xc/10.0, y + yc/10.0];
@@ -2163,6 +2183,7 @@ class SolarSystemBaseView extends WatchUi.View {
 
 
     }
+    */
     /*
     var helpMSG_shownTimes = 0;
     var helpMSG_current = null;
@@ -2999,7 +3020,7 @@ class SolarSystemBaseView extends WatchUi.View {
                 }
                 break;
             //"HORIZON" line in :orrery view
-            case "Earth" : 
+            /*case "Earth" : 
                 
                 if (type == :orrery && LORR_show_horizon_line) 
                 {
@@ -3010,7 +3031,8 @@ class SolarSystemBaseView extends WatchUi.View {
                     //drawDashedLine(dc, 0,y - size, 2*xc, y - size, 0, 3, 1, Graphics.COLOR_WHITE);
                     LORR_horizon_line_drawn = true;
                 }
-                break;            
+                break;    
+                */      
         }
 
         //If it might be behind the sun, draw the Sun on top...
@@ -3060,7 +3082,8 @@ class SolarSystemBaseView extends WatchUi.View {
                         dc.drawText(x2, y2, Graphics.FONT_TINY, key.substring(0,2), Graphics.TEXT_JUSTIFY_VCENTER + Graphics.TEXT_JUSTIFY_CENTER);
                         //drawAngledText(x as Lang.Numeric, y as Lang.Numeric, font as Graphics.VectorFont, text as Lang.String, justification as Graphics.TextJustification or Lang.Number, angle as Lang.Numeric) as Void
                     }
-                } else if (type == :orrery) {
+                }
+                /* else if (type == :orrery) {
                     
                     //var drawSmall = big_small==0  
                         //|| (radius > 4*b_size); //4*b_size is size of sun as drawn in orrery view
@@ -3079,11 +3102,10 @@ class SolarSystemBaseView extends WatchUi.View {
 
 
 
-                }
-            }
+                } */
         }
     }
-/*
+    /*
     public function drawHorizon(dc, horizon_pm as Lang.float, noon_adj_dg as Lang.float, final_adj_deg as Lang.float, xct as Lang.float, yct as Lang.float, radius as Lang.float, drawCircle){
 
         //deBug("drawHorizon: ", [ dc, horizon_pm, noon_adj_dg, final_adj_deg, xct, yct, radius, drawCircle]);
@@ -3317,7 +3339,7 @@ class SolarSystemBaseView extends WatchUi.View {
         //drawARC (dc, sunrise_events[:NOON][0]-0.05+ noon_adj_hrs +  12, sunrise_events[:NOON][0]+0.05+ noon_adj_hrs  + 12, xc, yc, r, 10, Graphics.COLOR_WHITE);
     }
     */
-
+    }
 
     public function drawHorizon4(dc, xct as Lang.float, yct as Lang.float, radius as Lang.float){
 

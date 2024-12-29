@@ -168,7 +168,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
 
         //if ((planetsOption_value == 0 || planetsOption_value == 3 ) && type == :helio_xyz) {
 
-            if (sin (allPlanets[15],vhh)) {ret.put (allPlanets[15], vspo_2_J2000(getEris(JD), earth, false, type));}
+            /* if (sin (allPlanets[15],vhh)) {ret.put (allPlanets[15], vspo_2_J2000(getEris(JD), earth, false, type));}
             if (sin (allPlanets[14],vhh)) {ret.put (allPlanets[14], vspo_2_J2000(getChiron(JD), earth, false, type));}
             if (sin (allPlanets[13],vhh)) {ret.put (allPlanets[13], vspo_2_J2000(getCeres(JD), earth, false, type));}
             
@@ -176,6 +176,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
             if (sin (allPlanets[17],vhh)) {ret.put (allPlanets[17], vspo_2_J2000(getQuaoar(JD), earth, false, type));}
             if (sin (allPlanets[18],vhh)) {ret.put (allPlanets[18], vspo_2_J2000(getMakemake(JD), earth, false, type));}
             if (sin (allPlanets[19],vhh)) {ret.put (allPlanets[19], vspo_2_J2000(getHaumea(JD), earth, false, type));}
+            */
         
         
          
@@ -622,7 +623,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
    }
    */
 
-      function earth_z(t){
+   function earth_z(t){
       return 0.00227822442f * Math.cos(3.41372504278f + 6283.07584999140f*t)*t;
    }
 
@@ -679,6 +680,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         var z = r_pl * Math.sin(lat2_pl);
         return [x, y, z];
    }
+   /*
    public function getEris (d){
         /*
            //A ERIS epoch  2456400.5f 2013-apr-18.0f   j2000= 2451543.5f;
@@ -692,6 +694,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         var e=0.4370835020505101f ; //EC
         var M=203.2157808586589f +  0.001759319413340421f * d_new;
         */
+        /*
 
         var EPOCH=  2457996.5f;
         var EC= .441713222152167f;
@@ -717,6 +720,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         return ret;
 
    }
+   
    public function getCeres (d){
      /*
            var ddd = d + 2451543.5 - 2455400.5;
@@ -728,6 +732,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         var e_ce=0.07913825487621974 + 1.8987E-8*ddd;
         var M_ce=113.4104433863731   + 0.21408169952325  * ddd ;
         */
+        /*
  
         var EPOCH=  2458849.5f;
      
@@ -974,6 +979,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         return ret;
 
   }
+  */
    
 
 //}

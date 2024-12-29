@@ -23,7 +23,7 @@ var vsop_cache;
 var allOrbitParms = null;
     //var view_mode = [0, 1,2,3,4,5]; //manual move ecl, minuts ecl, day ecl, inner orr, mid orr, full orr
     var view_mode = 1;
-    var num_view_modes = 9;
+    var num_view_modes = 3;
 
     //unit is HOUR
     //all are chosen to be WHOLE DAYS however, to make the sun stand still when moving forward on the eliptical screens
@@ -72,8 +72,8 @@ var solarSystemView_class as SolarSystemBaseView?; //saved instance of main clas
 //can just remove it or add another interspersed, but give the new one a new unique VALUE.
 enum {changeMode_enum= 0,
         resetDate_enum= 1,
-        orrZoomOption_enum= 2,
-        thetaOption_enum= 3,
+        //orrZoomOption_enum= 2,
+        //thetaOption_enum= 3,
         labelDisplayOption_enum= 4,
         refreshOption_enum= 5,
         gpsOption_enum= 15, //giving these new numbers so they won't read anything old in the storage
@@ -115,7 +115,7 @@ class SolarSystemBaseApp extends Application.AppBase {
 
         //These  2 must be done AFTER View class is inited
         readStorageValues();
-        _solarSystemView.setInitPosition();
+        _solarSystemView.setInitPosition(); //this must be done AFTER readStorageValues()
 
         //sunrise_cache = new sunRiseSet_cache2();        //works fine but not using it now..
         System.println("inited...");
@@ -219,18 +219,19 @@ class SolarSystemBaseApp extends Application.AppBase {
 
         loadPlanetsOpt();
       
-        readAStorageValue("orrZoomOption", orrZoomOption_default, orrZoomOption_size );
+        //readAStorageValue("orrZoomOption", orrZoomOption_default, orrZoomOption_size );
 
         //readAStorageValue(orrZoomOption, thetaOption_default, thetaOption_size );
 
-        $.Options_Dict[thetaOption_enum] = 0; //just always default to TIME INTERVAL here.
+        //$.Options_Dict[thetaOption_enum] = 0; //just always default to TIME INTERVAL here.
 
         readAStorageValue(labelDisplayOption_enum,labelDisplayOption_default, labelDisplayOption_size );
 
         readAStorageValue(refreshOption_enum,refreshOption_default, refreshOption_size );
+        
         readAStorageValue(latOption_enum,latOption_default, latOption_size );
 
-        readAStorageValue(refreshOption_enum,refreshOption_default, refreshOption_size );
+        //readAStorageValue(refreshOption_enum,refreshOption_default, refreshOption_size );
         readAStorageValue(lonOption_enum,lonOption_default, lonOption_size );
 
         //readAStorageValue("Screen0 Move Option",screen0MoveOption_default, screen0MoveOption_size );
@@ -244,7 +245,7 @@ class SolarSystemBaseApp extends Application.AppBase {
         readAStorageValue("resetDots", resetDots_default, resetDots_size );
         */
 
-        readAStorageValue(planetsOption_enum, planetsOption_default, planetsOption_size );        
+        //readAStorageValue(planetsOption_enum, planetsOption_default, planetsOption_size );        
 
         //if you scramble up the order of the enums it will change which enum gets which value
         //so, best not to change the order, or come up with some scheme to check it or whatever
@@ -292,7 +293,7 @@ class SolarSystemBaseApp extends Application.AppBase {
         */
 
         //##### Display all or only planets
-        planetsOption_value = $.Options_Dict[planetsOption_enum]; //the number not the array (unusual) 
+        //planetsOption_value = $.Options_Dict[planetsOption_enum]; //the number not the array (unusual) 
 
         /* //Sample binary option
         temp = Storage.getValue("Show Battery");

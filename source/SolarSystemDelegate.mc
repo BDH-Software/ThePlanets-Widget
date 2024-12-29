@@ -27,7 +27,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
 
         $.buttonPresses++;
         $.timeWasAdded=true;
-        $.LORR_show_horizon_line = false;
+        //$.LORR_show_horizon_line = false;
         $.last_button_time_sec = $.time_now.value();
         //$.exiting_back_button_firstpress=false;
         if (buttonPresses == 1) {return true;} //1st buttonpress just gets out of intro titles
@@ -119,7 +119,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
     public function onBack() as Boolean {
         $.buttonPresses++;
         $.timeWasAdded=true;
-        $.LORR_show_horizon_line = false;
+        //$.LORR_show_horizon_line = false;
         $.last_button_time_sec = $.time_now.value();
         $.change_mode_select_button_firstpress = false;
         if (buttonPresses == 1) {return true;} //1st buttonpress just gets out of intro titles
@@ -236,7 +236,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
             $.timeWasAdded=true;
             //WatchUi.requestUpdate();
         } else if (in == 1 || in ==2 || (in > 2 && od ==0)){
-            $.LORR_show_horizon_line = false;
+            //$.LORR_show_horizon_line = false;
             //deBug("HI MOM!", []);
             if (started)  {
                 $.speeds_index +=  mult;
@@ -267,6 +267,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         */
 
         //Handle the ROTATE VIEW modes
+        /*
         if (in>2 && od ==1 ) {
             if (type == :next) { the_rad += mult * Math.PI/18.0;}
             else { 
@@ -277,6 +278,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
             $.speedWasChanged = true;
            
         }
+        */
 
             if ($.speeds_index<0)  {$.speeds_index=0; }
             $.show_intvl = 0;
@@ -388,10 +390,10 @@ function changeModes(previousMode){
         $.timeWasAdded = true; //forces draw of screen in mode 0...
         $.animSinceModeChange = 0;
         $.show_intvl = 0; //used by showDate to decide when/how long to show (5 min) type labels
-        $.LORR_orient_horizon = true; //tells large_orrery to orient the graph so earth's horizon is horizontal & meridian is UP in the viewpoint.  which we do only the first time LORR is run.
-        $.LORR_show_horizon_line = true;
+        //$.LORR_orient_horizon = true; //tells large_orrery to orient the graph so earth's horizon is horizontal & meridian is UP in the viewpoint.  which we do only the first time LORR is run.
+        //$.LORR_show_horizon_line = true;
         //$.time_add_hrs = .5; //reset to present time //NOW Do this, or not, individually per MODE below
-        $.Options_Dict[orrZoomOption_enum] = orrZoomOption_default;
+        //$.Options_Dict[orrZoomOption_enum] = orrZoomOption_default;
         //var UUD = "Use Up/Down/";
         //var SS="Start/Stop";
         var dMsg = toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
@@ -444,7 +446,8 @@ function changeModes(previousMode){
                 else {
                     solarSystemView_class.sendMessage(2, [null, changeModeOption_short[2], "", null]);
                 }
-                break;                
+                break;  
+                /*              
             case(3):
                 //vsop_cache = null;
                 //time_add_inc = 24*3; //1 day
@@ -456,8 +459,8 @@ function changeModes(previousMode){
                 else {
                     solarSystemView_class.sendMessage(2, [null, changeModeOption_short[3],"", null, null]);
                 }
-                /* sunrise_events = sunrise_cache.fetch($.now_info.year, $.now_info.month, $.now_info.day, $.now.timeZoneOffset/3600, $.now.dst, time_add_hrs, lastLoc[0], lastLoc[1]);
-                sunrise_events[:NOON][0] + noon_adj_hrs */
+                //sunrise_events = sunrise_cache.fetch($.now_info.year, $.now_info.month, $.now_info.day, $.now.timeZoneOffset/3600, $.now.dst, time_add_hrs, lastLoc[0], lastLoc[1]);
+                //sunrise_events[:NOON][0] + noon_adj_hrs 
 
                 ga_rad = 0 ; //rotation around the disk; viewpoint
                 the_rad = Math.PI; //angles above the disk; altitude. radians.  0,0 is flat from the top.
@@ -562,6 +565,7 @@ function changeModes(previousMode){
                 break;                
             default:
               speeds_index = 41; //2 mins
+              */
 
 
         }

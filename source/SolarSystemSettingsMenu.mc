@@ -115,6 +115,7 @@ class SolarSystemSettingsMenu extends WatchUi.Menu2 {
         
         //deBug("1", []);
 
+        /*
         if ($.Options_Dict[orrZoomOption_enum] == null) { $.Options_Dict[orrZoomOption_enum] = $.orrZoomOption_default; }
         Menu2.addItem(new WatchUi.MenuItem("Solar System Zoom?",
         orrZoomOption[$.Options_Dict[orrZoomOption_enum]],orrZoomOption_enum,{}));   
@@ -122,6 +123,7 @@ class SolarSystemSettingsMenu extends WatchUi.Menu2 {
         if ($.Options_Dict[thetaOption_enum] == null) { $.Options_Dict[thetaOption_enum] = $.thetaOption_default; }
         Menu2.addItem(new WatchUi.MenuItem("UP/DOWN/Swipe controls:",
         ($.thetaOption[$.Options_Dict[thetaOption_enum]]),thetaOption_enum,{}));
+        */
 
         //deBug("2", []);
 
@@ -280,6 +282,7 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             } else
         */
 
+        /*
         if(id.equals(orrZoomOption_enum)) {
         $.Options_Dict[id]=($.Options_Dict[id]+1)%orrZoomOption_size;
         menuItem.setSubLabel(orrZoomOption[$.Options_Dict[id]]);
@@ -299,6 +302,7 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             //$.newModeOrZoom = true; //makes the scale in orrery re-set, and re-display the time interval & re-start dots
         
         }
+        */
 
 
             if(id.equals(planetsOption_enum)) {

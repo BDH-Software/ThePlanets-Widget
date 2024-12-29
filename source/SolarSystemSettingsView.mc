@@ -23,7 +23,7 @@ import Toybox.WatchUi;
      "128X in", 
 ];*/
 
-var orrZoomOption_values=[];
+//var orrZoomOption_values=[];
 
 /*var orrZoomOption_values=[
     0.25,
@@ -39,8 +39,8 @@ var orrZoomOption_values=[];
 
 ];
 */
-var orrZoomOption_size = 10;
-var orrZoomOption_default = 2;
+//var orrZoomOption_size = 10;
+//var orrZoomOption_default = 2;
 
 /*var planetsOption=[
      "All objects" , 
@@ -157,8 +157,8 @@ var screen0MoveOption_default = 6;
     //"Both" 
 ];*/
 
-var thetaOption_size = 2;
-var thetaOption_default = 0;
+//var thetaOption_size = 2;
+//var thetaOption_default = 0;
 
 /*var planetSizeOption=[
      "XX Small" , 
