@@ -271,14 +271,15 @@ import Toybox.Lang;
 
     */
     
-
+    
     function sind (deg)  {
         return Math.sin(Math.toRadians(deg));
     }
-    
+    /*
     function cosd (deg)  {
         return Math.cos(Math.toRadians(deg));
     }
+    */
 
 
 
@@ -414,6 +415,7 @@ function countingSort(kys, dict, n, min_z, max_z) {
 }
 */
 
+/*
 // Given a dict with keys = kys & values an array [1,2,3,4,5...]
 // and separate send the keys kys (or perhaps they are a separate array...)
 // will return an array with the keys sorted ascending on the nth value of the array
@@ -466,6 +468,7 @@ function quickSort(kys, dict, n) {
     //kys_qs = null;
     
 }
+*/
 
 //isNumber: 0 string, 1 Number, 2 Float
 function toArray(text, delimiter, isNumber)
@@ -542,6 +545,7 @@ function deBug(label, ary) {
     System.println("");*/
 }
 
+/*
 function intersect_array (a, b) {
     var result = [];
     for (var i = 0; i < a.size(); i++) {
@@ -552,3 +556,4 @@ function intersect_array (a, b) {
     return result;            
 
 }
+*/

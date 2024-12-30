@@ -62,6 +62,8 @@ var helpOption = [
 //var changeModeOption;
 var orrZoomOption,labelDisplayOption,planetsOption,planetSizeOption,thetaOption,refreshOption;
 
+
+/*
 function cleanUpSettingsOpt(){
     //changeModeOption = null;
     orrZoomOption = null;
@@ -86,10 +88,12 @@ class SolarSystemSettingsMenu extends WatchUi.Menu2 {
         //deBug("loadSettingsOpt",[]);
         //changeModeOption = toArray(WatchUi.loadResource($.Rez.Strings.changeModeOption) as String,  "|", 0);
         //changeModeOption_size = changeModeOption.size();
-        orrZoomOption = toArray(WatchUi.loadResource($.Rez.Strings.orrzoom) as String,  "|", 0);
+        //orrZoomOption = toArray(WatchUi.loadResource($.Rez.Strings.orrzoom) as String,  "|", 0);
         labelDisplayOption = toArray(WatchUi.loadResource($.Rez.Strings.labelDisplayOption) as String,  "|", 0);
         refreshOption = toArray(WatchUi.loadResource($.Rez.Strings.refreshOption) as String,  "|", 0);
-        thetaOption = toArray(WatchUi.loadResource($.Rez.Strings.thetaOption) as String,  "|", 0);planetSizeOption = toArray(WatchUi.loadResource($.Rez.Strings.planetSizeOption) as String,  "|", 0);planetsOption = toArray(WatchUi.loadResource($.Rez.Strings.planetsOption) as String,  "|", 0);
+        //thetaOption = toArray(WatchUi.loadResource($.Rez.Strings.thetaOption) as String,  "|", 0);
+        planetSizeOption = toArray(WatchUi.loadResource($.Rez.Strings.planetSizeOption) as String,  "|", 0);
+        planetsOption = toArray(WatchUi.loadResource($.Rez.Strings.planetsOption) as String,  "|", 0);
         //deBug("loadSettingsOpt finished",[]);
     }
 
@@ -110,7 +114,8 @@ class SolarSystemSettingsMenu extends WatchUi.Menu2 {
         Menu2.addItem(new WatchUi.MenuItem("Change mode:",
         changeModeOption[$.view_mode],changeMode_enum,{}));  
         */ 
-
+        
+        /*
         Menu2.addItem(new WatchUi.ToggleMenuItem("Reset to Current Time", null, resetDate_enum, false, null));
         
         //deBug("1", []);
@@ -126,7 +131,7 @@ class SolarSystemSettingsMenu extends WatchUi.Menu2 {
         */
 
         //deBug("2", []);
-
+        /*
         if ($.Options_Dict[planetsOption_enum] == null) { $.Options_Dict[planetsOption_enum] = $.planetsOption_default; }
         Menu2.addItem(new WatchUi.MenuItem("Objects to show in Solar System?",
         $.planetsOption[$.Options_Dict[planetsOption_enum]],planetsOption_enum,{}));  
@@ -138,7 +143,7 @@ class SolarSystemSettingsMenu extends WatchUi.Menu2 {
         */
 
 
-        
+        /*
         if ($.Options_Dict[planetSizeOption_enum] == null) { $.Options_Dict[planetSizeOption_enum] = $.planetSizeOption_default; }
         Menu2.addItem(new WatchUi.MenuItem("Planet Display Size?",
         $.planetSizeOption[$.Options_Dict[planetSizeOption_enum]],planetSizeOption_enum,{}));   
@@ -159,6 +164,7 @@ class SolarSystemSettingsMenu extends WatchUi.Menu2 {
         Menu2.addItem(new WatchUi.MenuItem("Reset Orbit Dots when speed changed?",
         $.resetDots[$.Options_Dict["resetDots"]],"resetDots",{}));   
     */
+    /*
         if ($.Options_Dict[labelDisplayOption_enum] == null) { $.Options_Dict[labelDisplayOption_enum] = $.labelDisplayOption_default; }
         Menu2.addItem(new WatchUi.MenuItem("Display Planet Labels?",
             $.labelDisplayOption[$.Options_Dict[labelDisplayOption_enum]],labelDisplayOption_enum,{}));
@@ -199,10 +205,11 @@ class SolarSystemSettingsMenu extends WatchUi.Menu2 {
         helpOption[$.Options_Dict["helpOption"]],"helpOption",{}));       */
 
         //deBug("5", []);
-
+/*
     }
 }
-
+*/
+/*
 //! Input handler for the app settings menu
 class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
 
@@ -232,6 +239,7 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
 
             //deBug("retmenu:", [ret]);
            
+           /*
             if (ret != null && ret.equals(resetDate_enum)) {
                 $.time_add_hrs = 0;
                 $.started=false;
@@ -250,6 +258,7 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
                 $.run_oneTime = true;
                 $.LORR_show_horizon_line = true;
                 */
+                /*
                 Storage.setValue(ret, menuItem.isEnabled());
                 $.Options_Dict[ret] = menuItem.isEnabled();
                 $.solarSystemView_class.setInitPosition();
@@ -303,7 +312,7 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         
         }
         */
-
+        /*
 
             if(id.equals(planetsOption_enum)) {
             $.Options_Dict[id]=($.Options_Dict[id]+1)%planetsOption_size;
@@ -407,7 +416,7 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         */
 
 
-    }
+   // }
     /*
     //! Handle a menu item being selected
     //! @param menuItem The menu item selected
@@ -461,6 +470,7 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         
     }
     */
+    /*
     function onBack() {
 
         //cleanUpSettingsOpt(); //don't need this as the class is just destroyed on exit
@@ -482,11 +492,13 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         }
         */
 
-        
+        /*
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         WatchUi.requestUpdate();
         //return false;
     }
+    */
+    /*
 
     //! Update the current position
     //! @param info Position information
@@ -498,6 +510,7 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
 
 
 }
+*/
 /*function cleanUpPlanetsOpt(){
         return;
         for (var i = 0; i<planetsOption_values.size() ; i++ ){
@@ -505,6 +518,8 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             planetsOption_values[i] = null;
         }
 } */
+
+/*
 function loadPlanetsOpt(){
     //var po1 = toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
     //var po2 = toArray(WatchUi.loadResource($.Rez.Strings.planets_Options2) as String,  "|", 0);
@@ -514,9 +529,10 @@ function loadPlanetsOpt(){
     allPlanets = toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
     //deBug("lpo after: ", allPlanets);
 
-}
+}*/
 
 
+/*
 
 var planetAbbreviation_index = 0;
 // Function to generate planet abbreviation and name
@@ -530,6 +546,7 @@ function getPlanetAbbreviation(index) {
     }
     return ["", index];
 }
+*/
 
 function makePlanetsOpt(val){
     //deBug("mpo: ", allPlanets);

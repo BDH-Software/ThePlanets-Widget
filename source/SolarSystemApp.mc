@@ -1,8 +1,8 @@
-//!
-//! Copyright 2015-2021 by Garmin Ltd. or its subsidiaries.
-//! Subject to Garmin SDK License Agreement and Wearables
-//! Application Developer Agreement.
-//!
+//Copyright Brent Hugh
+//License available at project GitHub page:
+//https://github.com/BDH-Software/ThePlanets-Widget
+
+//Garmin App UUID for current version in IQ Store: 574f47c5-2ad5-45b3-bc11-cbb517cf58b4
 
 import Toybox.Application;
 import Toybox.Lang;
@@ -17,6 +17,8 @@ var pages_total = 25;
 //var geo_cache;
 //var sunrise_cache;
 //var moon;
+
+var Options_Dict = {};
 
 var vspo87a;
 var vsop_cache;
@@ -70,6 +72,7 @@ var solarSystemView_class as SolarSystemBaseView?; //saved instance of main clas
 //By specifying values here, they will not change so ie the program STORAGE will not get messed up
 //if we add a new enum.  Never change the VALUE of an enum once established.  YOu
 //can just remove it or add another interspersed, but give the new one a new unique VALUE.
+/*
 enum {changeMode_enum= 0,
         resetDate_enum= 1,
         //orrZoomOption_enum= 2,
@@ -85,6 +88,7 @@ enum {changeMode_enum= 0,
         helpBanners_enum= 9,
         lastLoc_enum = 10,
         } //screen0MoveOption_enum, 
+        */
 
 
 class SolarSystemBaseApp extends Application.AppBase {
@@ -114,9 +118,27 @@ class SolarSystemBaseApp extends Application.AppBase {
         _solarSystemDelegate = new $.SolarSystemBaseDelegate(_solarSystemView);
 
         //These  2 must be done AFTER View class is inited
-        readStorageValues();
-        _solarSystemView.setInitPosition(); //this must be done AFTER readStorageValues()
+        //readStorageValues();
+        if (!(Application has :Storage)) {
+            $.Options_Dict = defOptions;
+            return;
+        }
+        for (var i = 0; i < numOptions; i++) {
+            var ret = Storage.getValue(Options[i]);  
+            if (ret != null) { $.Options_Dict.put (Options[i], ret);}
+            else {
+                deBug("OD", [ Options[i], ret, defOptions[Options[i]]]);
+                $.Options_Dict.put (0, false);
+                $.Options_Dict.put (Options[i], defOptions[Options[i]]);
+                
+                }
+        }
+        var ret = Storage.getValue(lastLoc_saved);
+        if (ret != null) { $.Options_Dict.put(lastLoc_saved,ret);}
 
+        _solarSystemView.setInitPosition(); //this must be done AFTER readStorageValues()
+        
+        allPlanets = toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
         //sunrise_cache = new sunRiseSet_cache2();        //works fine but not using it now..
         System.println("inited...");
         view_mode=0;
@@ -156,10 +178,11 @@ class SolarSystemBaseApp extends Application.AppBase {
     //! Handle app shutdown
     //! @param state Shutdown arguments
     public function onStop(state as Dictionary?) as Void {
-        System.println ("onStop at " 
+        /*System.println ("onStop at " 
             +  $.now.hour.format("%02d") + ":" +
             $.now.min.format("%02d") + ":" +
             $.now.sec.format("%02d"));
+            */
         _solarSystemView.stopAnimationTimer();
         started = false;
         Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
@@ -173,7 +196,7 @@ class SolarSystemBaseApp extends Application.AppBase {
     //! Update the current position
     //! @param info Position information
     public function onPosition(info as Info) as Void {
-        System.println("onPosition... count: " + $.count);
+        //System.println("onPosition... count: " + $.count);
         _solarSystemView.setPosition(info);
 
     }
@@ -198,6 +221,7 @@ class SolarSystemBaseApp extends Application.AppBase {
     }
     */
 
+/*
     public function readAStorageValue(name, defoolt, size  ) {
         if (!(Application has :Storage)) {
             $.Options_Dict[name] = defoolt;
@@ -211,7 +235,8 @@ class SolarSystemBaseApp extends Application.AppBase {
         if ($.Options_Dict[name]<0) {$.Options_Dict[name] = defoolt;}
         Storage.setValue(name,$.Options_Dict[name]);
     }
-
+    */
+/*
     //read stored settings & set default values if nothing stored
     public function readStorageValues() as Void {
 
@@ -246,7 +271,7 @@ class SolarSystemBaseApp extends Application.AppBase {
         */
 
         //readAStorageValue(planetsOption_enum, planetsOption_default, planetsOption_size );        
-
+/*
         //if you scramble up the order of the enums it will change which enum gets which value
         //so, best not to change the order, or come up with some scheme to check it or whatever
         var temp = Storage.getValue(helpBanners_enum);
@@ -268,7 +293,7 @@ class SolarSystemBaseApp extends Application.AppBase {
         //#####SCREEN0 MOVE
         $.screen0Move_index = screen0MoveOption_values[$.Options_Dict["Screen0 Move Option"]];
         */
-
+/*
         //###### REFRESH RATE
         $.hz = refreshOption_values[$.Options_Dict[refreshOption_enum]];                
         _solarSystemView.startAnimationTimer($.hz);           
@@ -303,10 +328,11 @@ class SolarSystemBaseApp extends Application.AppBase {
 
      
         
-    }
+   // }
 
 
 }
+
 
 /*  SAMPLEs..
 class SolarSystemInputDelegate extends WatchUi.InputDelegate {

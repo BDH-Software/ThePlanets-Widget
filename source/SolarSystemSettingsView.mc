@@ -66,7 +66,7 @@ var planetsOption_value = planetsOption_default; //use the NUMBER not the VALUES
 
 
 //TODO: User could tweak size of PLANETS & also radius of circle/overall scale
-var Options_Dict = {  };
+//var Options_Dict = {  };
 /*var labelDisplayOption=[ "Always On", "Always Off", "Frequent Flash", "Infrequent Flash", "Random Flash"]; */
 var labelDisplayOption_size = 5;
 var labelDisplayOption_default = 2;
@@ -108,7 +108,7 @@ var latOption_default = 90;
 var lonOption_size = 362;  //ranges 0 to 360; lat is value-180
 var lonOption_default = 180;
 
-var latlonOption_value= [90,180];                
+var latlonOption_value= [38,-94];                
 
 /*
 var screen0MoveOption=[
@@ -266,6 +266,7 @@ var dawnDuskOptions_size = 5;
 var dawnDuskOptions_default = 0;
 */
 
+/*
 //! Initial app settings view
 class SolarSystemSettingsView extends WatchUi.View {
 
@@ -296,6 +297,7 @@ class SolarSystemSettingsView extends WatchUi.View {
         //System.println("onShow...");
 
                 //Some watches dont have Menu2, in that case teh Menu 
+        /*        
         //key just becomes EXIT...
         if (!(WatchUi has :Menu2)) {
             System.exit();
@@ -352,9 +354,10 @@ class SolarSystemSettingsView extends WatchUi.View {
             WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         } 
         */
-    }
-}
+    //}
+//}
 
+/*
 //! Input handler for the initial app settings view
 class SolarSystemSettingsDelegate extends WatchUi.BehaviorDelegate {
 
@@ -375,4 +378,5 @@ class SolarSystemSettingsDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 }
+*/
 

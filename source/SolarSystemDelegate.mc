@@ -43,6 +43,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         }
         last_animation_count=_mainview.animation_count;
 
+        /*
         if ($.exiting_back_button_firstpress)
         {
             $.exiting_back_button_firstpress=false;
@@ -57,7 +58,10 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
 
                 $.changeModes(old_index);  
 
-        } else {
+        } else 
+        */
+        
+        {
 
         
             //if stopped, it starts playing (whatever mode we're in)
@@ -114,15 +118,23 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         //! Handle the select button
     //! @return true if handled, false otherwise
 
-    //if stopped, moved back one mode
-    //if started, stop.
+    //if in view_mode 1, go to 2
+    //if in 2, EXIT
     public function onBack() as Boolean {
         $.buttonPresses++;
         $.timeWasAdded=true;
         //$.LORR_show_horizon_line = false;
         $.last_button_time_sec = $.time_now.value();
-        $.change_mode_select_button_firstpress = false;
+        //$.change_mode_select_button_firstpress = false;
         if (buttonPresses == 1) {return true;} //1st buttonpress just gets out of intro titles
+
+        if ($.view_mode > 1) { return false;} // just exit
+
+        $.view_mode=2;
+        $.timeWasAdded=true; //makes the message appear/one screenredraw, like when pressing up/down & started==false
+        $.time_add_hrs +=0.0000001;
+        $.run_oneTime = true;
+        changeModes(1);
 
         //$.show_intvl = 0; //This makes screen clear of orbits, not good
         //if (!started || $.view_mode == 0) {
@@ -137,13 +149,17 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
             $.changeModes(old_index);  
             */
             //EXIT APP on 2nd push of BACK BUTTONG
+            /*
             if ($.exiting_back_button_firstpress) {
 
                 WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
                 System.exit();
 
             }
+            */
+
             //solarSystemView_class.sendMessage(1000000, ["==THE PLANETS==", "SELECT: Next mode", "BACK: Exit", "or: UP/DOWN", ""]);
+            /*
             var dMsg = toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
             solarSystemView_class.sendMessage(1000000, [dMsg[0], dMsg[1], dMsg[2], dMsg[3], ""]);
 
@@ -156,8 +172,10 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
              $.timeWasAdded=true; //makes the message appear/one screenredraw, like when pressing up/down & started==false
              $.time_add_hrs +=0.000001;
              $.run_oneTime = true;
+             
 
             WatchUi.requestUpdate(); //when pressing back button, often the screen doesn't update at new MODE, trying to correct that
+            */
         /* } else {
             started = false;
 
@@ -227,7 +245,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         if (buttonPresses == 1) {return;} //1st buttonpress just gets out of intro titles
 
         var in = $.view_mode;
-        var od = $.Options_Dict[thetaOption_enum]; //od 0 change time intv, 1 = altitude (theta), 2 = direction (gamma)
+        //var od = $.Options_Dict[thetaOption_enum]; //od 0 change time intv, 1 = altitude (theta), 2 = direction (gamma)
 
         //System.println("onNextPage... od:" + od + " in:" + in + " type==next: " + ( type == :next));
 
@@ -235,7 +253,8 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
             $.time_add_hrs += mult *$.speeds[$.speeds_index];
             $.timeWasAdded=true;
             //WatchUi.requestUpdate();
-        } else if (in == 1 || in ==2 || (in > 2 && od ==0)){
+        //} else if (in == 1 || in ==2 || (in > 2 && od ==0)){
+        } else if (in == 1 || in ==2 ){
             //$.LORR_show_horizon_line = false;
             //deBug("HI MOM!", []);
             if (started)  {
@@ -364,14 +383,16 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
 
         if (keyvent == 7) {
 
-            $.buttonPresses++;
-            $.last_button_time_sec = $.time_now.value();
+            //$.buttonPresses++;
+            //$.last_button_time_sec = $.time_now.value();
             $.exiting_back_button_firstpress=false;
             $.change_mode_select_button_firstpress = false;
-            settings_view = new $.SolarSystemSettingsView();
-            settings_delegate = new $.SolarSystemSettingsDelegate();
+            //settings_view = new $.SolarSystemSettingsView();
+            //settings_delegate = new $.SolarSystemSettingsDelegate();
         
-            pushView(settings_view, settings_delegate, WatchUi.SLIDE_IMMEDIATE);
+            //pushView(settings_view, settings_delegate, WatchUi.SLIDE_IMMEDIATE);
+            pushView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
+
 
 
             return true;
@@ -380,6 +401,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         
         
     }
+    
     
 }
 
@@ -402,7 +424,7 @@ function changeModes(previousMode){
 
         var changeModeOption_short = toArray(WatchUi.loadResource($.Rez.Strings.changeModeOption_short) as String,  "|", 0);
 
-        switch($.view_mode){
+        
            /* case (0):
                 if (vsop_cache == null)  {vsop_cache = new VSOP87_cache();}
                 $.countWhenMode0Started = $.animation_count;
@@ -415,9 +437,9 @@ function changeModes(previousMode){
                 //speeds_index = screen0Move_index; //15 mins or whatever the person has set
                 if ($.Options_Dict[helpBanners_enum]){solarSystemView_class.sendMessage(5, ["Manual Mode", "Use Up/Down", "", null]);}
                 break;*/
-            case (0):    
-                $.view_mode = 1;
-            case (1):
+            if ($.view_mode ==0) {$.view_mode = 1;}    
+                
+            if ($.view_mode ==1){
                 //if (vsop_cache == null)  {vsop_cache = new VSOP87_cache();}
                 //time_add_inc=1;
                 //DON'T reset to present time here bec. we're usually coming from mode 0 or mode 2& can just continue seamlessly
@@ -428,12 +450,12 @@ function changeModes(previousMode){
                 speeds_index = 39; //10 mins
                 started = false;
                 //if ($.Options_Dict[helpBanners_enum]){solarSystemView_class.sendMessage(5, ["==Current Sky (by hr)==", UUD, SS, null]);} 
-                if ($.Options_Dict[helpBanners_enum]){solarSystemView_class.sendMessage(5, [dMsg[12], UUD, SS, null]);} 
+                if (!$.Options_Dict[smallerBanners]){solarSystemView_class.sendMessage(5, [dMsg[12], UUD, SS, null]);} 
                 else {
                     solarSystemView_class.sendMessage(2, [null, changeModeOption_short[1],"", null, null]);
                 }
-                break;
-            case(2):
+            } 
+            else {
                 //if (vsop_cache == null)  {vsop_cache = new VSOP87_cache();}
                 //time_add_inc = 24*3; //1 day
                 //DON'T reset to present time here bec. we're usually coming from mode 0 or mode 2& can just continue seamlessly
@@ -442,11 +464,11 @@ function changeModes(previousMode){
                 }
                 speeds_index = 48; //1 day or 24 hrs
                 started = false;
-                if ($.Options_Dict[helpBanners_enum]){solarSystemView_class.sendMessage(5, [dMsg[13], UUD, SS,null]);}
+                if ($.Options_Dict[smallerBanners]){solarSystemView_class.sendMessage(5, [dMsg[13], UUD, SS,null]);}
                 else {
                     solarSystemView_class.sendMessage(2, [null, changeModeOption_short[2], "", null]);
                 }
-                break;  
+            }
                 /*              
             case(3):
                 //vsop_cache = null;
@@ -568,7 +590,7 @@ function changeModes(previousMode){
               */
 
 
-        }
+        
 
         changeModeOption_short = null;
         

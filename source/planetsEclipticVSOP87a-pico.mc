@@ -3,8 +3,8 @@ import Toybox.System;
 import Toybox.Lang; 
 
 
-var storRand = {};
-var storLastR = {};
+//var storRand = {};
+//var storLastR = {};
 /*
 class VSOP87_cache{
 
@@ -314,6 +314,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
 
       return temp;
    }
+   /*
 
    function getEmb(t){
       var temp=[0.0f, 0.0f, 0.0f];
@@ -323,6 +324,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
 
       return temp;
    }
+   */
 
    function getMoon(earth, emb){
       var temp=[0.0f, 0.0f, 0,0];
@@ -582,6 +584,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
       return jupiter_x_0;
    }
 
+/*
    function emb_z(t){
       return 0;
    }
@@ -600,6 +603,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
       emb_x_0 += 0.99982927460f * Math.cos(1.75348568475f + 6283.07584999140f*t);
       return emb_x_0;
    }
+   */
 
    /// ORIGINAL PICO
    /*
