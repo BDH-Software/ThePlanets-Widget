@@ -907,17 +907,17 @@ class SolarSystemBaseView extends WatchUi.View {
         //whh = allPlanets.slice(0,4).add(allPlanets[5].addAll(allPlanets.slice(9,14))
         //whh = allPlanets; //
         
-        deBug("allpl", allPlanets);
+        //deBug("allpl", allPlanets);
         whh = ["Ecliptic0", "Ecliptic90", "Ecliptic180", "Ecliptic270",allPlanets[4]]; //put first so they are UNDER the planets.  Moon is next so planets will go in front of it (it's large)
         whh.addAll( allPlanets.slice(0,3)); ///so, array2 = array1 only passes a REFERENCE to the array, they are both still the same array with different names.  AARRGGgH!!
-        f.deBug("ap1", whh);
+        //f.deBug("ap1", whh);
         whh.addAll(allPlanets.slice(5,7));
-        f.deBug("ap2", whh);
+        //f.deBug("ap2", whh);
         if (Options_Dict[extraPlanets]) {
             whh.addAll(allPlanets.slice(8,11));
         }
 
-        f.deBug("ap3", [whh, Options_Dict[extraPlanets], Options_Dict]);
+        //f.deBug("ap3", [whh, Options_Dict[extraPlanets], Options_Dict]);
 
          //we add these last so they show up on top of planets etc
         

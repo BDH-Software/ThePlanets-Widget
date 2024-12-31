@@ -136,7 +136,7 @@ var sm;
             }
             //f.deBug("ky", [i,ky, hitsun]);     
             if (hitsun) {
-                f.deBug("norm1", [f.normalize(pp[ky] - sun_ang), pp[ky], ky, sun_ang]);
+                //f.deBug("norm1", [f.normalize(pp[ky] - sun_ang), pp[ky], ky, sun_ang]);
                 if (f.normalize(pp[ky] - sun_ang) < 300) 
                 {
                   am += ky.substring(0,3) + " "; 
