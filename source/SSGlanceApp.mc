@@ -216,7 +216,7 @@ var sm;
         var fontsize = 3;
         for (var i = 1; i<5; i++) { //next fonts > 4 are number only 
             var w = dc.getTextWidthInPixels(testStr, i);
-            f.deBug("width", [i, w]);
+            //f.deBug("width", [i, w]);
             if (w > screenwidth) {
                 fontsize = i-1;
                 break;
