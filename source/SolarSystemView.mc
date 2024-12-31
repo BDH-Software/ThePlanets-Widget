@@ -824,8 +824,9 @@ class SolarSystemBaseView extends WatchUi.View {
         //System.println("Sunrise_set: " + sunrise_events);
 
         //lastLoc = [59.00894, -94.44008]; //for testing
-
-        sunrise_events2 = srs.getRiseSetfromDate_hr($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs,lastLoc[0], lastLoc[1], pp["Sun"]);
+        var sr = new srs();
+        sunrise_events2 = sr.getRiseSetfromDate_hr($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs,lastLoc[0], lastLoc[1], pp["Sun"]);
+        
 
         //System.println("Sunrise_set2%%%%%%%: " + sunrise_events2);
         //deBug("Sunrise_set2%: ", [sunrise_events2[:SUNRISE][0] , sunrise_events2[:SUNRISE][1] , sunrise_events2[:NOON] , sunrise_events2[:HORIZON][0] , sunrise_events2[:HORIZON][1] ]);
@@ -842,7 +843,9 @@ class SolarSystemBaseView extends WatchUi.View {
         //sun_adj_deg = (270 - pp["Sun"][0]);// 
 
         //&&&&&&&&&&&&&&&&&&&&&&&&
-        sun_adj_deg = (270 - srs.equatorialLong2eclipticLong_deg(pp["Sun"][0], obliq_deg));// 
+        sun_adj_deg = (270 - sr.equatorialLong2eclipticLong_deg(pp["Sun"][0], obliq_deg));// 
+
+        sr = null;
 
         //sun_adj_deg = 270 - pp["Sun"][0];// 
         
@@ -907,7 +910,14 @@ class SolarSystemBaseView extends WatchUi.View {
         deBug("allpl", allPlanets);
         whh = ["Ecliptic0", "Ecliptic90", "Ecliptic180", "Ecliptic270",allPlanets[4]]; //put first so they are UNDER the planets.  Moon is next so planets will go in front of it (it's large)
         whh.addAll( allPlanets.slice(0,3)); ///so, array2 = array1 only passes a REFERENCE to the array, they are both still the same array with different names.  AARRGGgH!!
-        whh.addAll([allPlanets[5],allPlanets[8],allPlanets[9]]);
+        f.deBug("ap1", whh);
+        whh.addAll(allPlanets.slice(5,7));
+        f.deBug("ap2", whh);
+        if (Options_Dict[extraPlanets]) {
+            whh.addAll(allPlanets.slice(8,11));
+        }
+
+        f.deBug("ap3", [whh, Options_Dict[extraPlanets], Options_Dict]);
 
          //we add these last so they show up on top of planets etc
         
@@ -972,8 +982,9 @@ class SolarSystemBaseView extends WatchUi.View {
 
         //deBug("moon_infe: ", [$.now.hour, $.now.min, $.now.sec, $.now_info.day, $.now_info.month, $.now_info.year, $.time_now.value(), $.now_info, $.run_oneTime, $.time_add_hrs, $.speeds, $.speeds_index]);
         
-
-        moon_info3 = simpleMoon.eclipticPos_moon ($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs); 
+        var sm = new simpleMoon();
+        moon_info3 = sm.eclipticPos_moon ($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs); 
+        sm = null;
 
         //deBug("moon_inf", moon_info3);
 
@@ -991,8 +1002,11 @@ class SolarSystemBaseView extends WatchUi.View {
         //vspo87a = new vsop87a_pico();
         //pp = vspo87a.planetCoord($.now_info, $.now.timeZoneOffset, $.now.dst, :ecliptic_latlon);
         //pp = vsop_cache.fetch($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs, :ecliptic_latlon, whh);   
-
-        pp = vs.planetCoord($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs, :ecliptic_latlon, whh);   
+        
+        
+        var v = new vs();
+        pp = v.planetCoord($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs, :ecliptic_latlon, whh);   
+        v = null;
         
         //vspo87a = null;
 
@@ -1217,7 +1231,9 @@ class SolarSystemBaseView extends WatchUi.View {
             //&&&&&&&&&&&&&&&&&&&&&&&&
             //ang_deg =  -pp[key][0] - final_adj_deg;
             //ang_rad = Math.toRadians(ang_deg);
-            ang_rad =  -srs.equatorialLong2eclipticLong_rad(Math.toRadians(pp[key][0]) , Math.toRadians(obliq_deg)) - final_adj_rad;
+            var sr = new srs();
+            ang_rad =  -sr.equatorialLong2eclipticLong_rad(Math.toRadians(pp[key][0]) , Math.toRadians(obliq_deg)) - final_adj_rad;
+            sr = null;
 
             //var ang_rad2 = -Math.toRadians(pp[key][0]) - final_adj_rad;
 
@@ -3226,7 +3242,7 @@ class SolarSystemBaseView extends WatchUi.View {
 
 
             //deBug("hor_ang_rad, final_adj, ECLIP_HOR, EH*sid, max_hor, min_hor, norm180: ", [Math.toDegrees(hor_ang_rad), final_adj_deg, Math.toDegrees(sunrise_events2[:ECLIP_HORIZON][1]),  Math.toDegrees(sunrise_events2[:ECLIP_HORIZON][1] * sidereal_to_solar), (max_hor_ang), (min_hor_ang), temp, temp]);
-            var refract_add = - Math.toRadians(srs.sunEventData[:SUNRISE]);//The horizon is set to -0.5667 degrees to account for refraction.  We';re setting :SUNRISE equal to :HORIZON (making sunrise at center of sun rather than very top as is customary)
+            var refract_add = -Math.toRadians(-.56667);// - Math.toRadians(sr.sunEventData[:SUNRISE]);//The horizon is set to -0.5667 degrees to account for refraction.  We';re setting :SUNRISE equal to :HORIZON (making sunrise at center of sun rather than very top as is customary)
             //So that is NOT accounted for in  sunrise_events2[:ECLIP_HORIZON][1] . . . but IS in the drawn ARC sun events.
             //Also, below is all in the garmin native graphics, 0,0 in top left corner, so 0 degree is 3 o'clock position but then positive degrees
             //is CW (downwards) from there, so the reverse direction of standard.

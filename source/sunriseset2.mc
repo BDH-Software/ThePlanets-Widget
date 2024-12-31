@@ -103,7 +103,7 @@ class sunRiseSet_cache2{
 */
 
 
-module srs {
+class srs {
     enum {
         GMST_MID_HR,
         TRANSIT_GMT_HR,

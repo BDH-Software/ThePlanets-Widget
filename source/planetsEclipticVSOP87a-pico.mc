@@ -119,7 +119,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
 class vs {
 
 
-    var j2000= 2451543.5f; //epoch used for some calculations (Pluto) from Ioannis
+    public var j2000= 2451543.5f; //epoch used for some calculations (Pluto) from Ioannis
 
     // types are :ecliptic_latlon and :helio_xyz
     public function planetCoord (now_info, timeZoneOffset_sec, dst, timeAdd_hrs as Lang.double, type, req_array) {
@@ -162,12 +162,16 @@ class vs {
             if (sin (allPlanets[2],vhh)) {ret.put (allPlanets[2], vspo_2_J2000(getVenus(t), earth, true, type));} 
             //if (sin ("Mercury",vhh)) {"Earth" => vspo_2_J2000(getEarth(t), earth, true, type));}  */
             if (sin (allPlanets[5],vhh)) {ret.put (allPlanets[5], vspo_2_J2000(getMars(t), earth, true, type));} 
-            if (sin (allPlanets[8],vhh)) {ret.put (allPlanets[8], vspo_2_J2000(getJupiter(t), earth, true, type));} 
-            if (sin (allPlanets[9],vhh)) {ret.put (allPlanets[9], vspo_2_J2000(getSaturn(t), earth, true, type));} 
-            if (sin (allPlanets[10],vhh)) {ret.put (allPlanets[10], vspo_2_J2000(getUranus(t), earth, true, type));} 
-            if (sin (allPlanets[11],vhh)) {ret.put (allPlanets[11], vspo_2_J2000(getNeptune(t), earth, true, type));}
+            if (sin (allPlanets[6],vhh)) {ret.put (allPlanets[6], vspo_2_J2000(getJupiter(t), earth, true, type));} 
+            if (sin (allPlanets[7],vhh)) {ret.put (allPlanets[7], vspo_2_J2000(getSaturn(t), earth, true, type));}
+
+            var v2 = new vs2(); 
+            if (sin (allPlanets[8],vhh)) {ret.put (allPlanets[8], vspo_2_J2000(v2.getUranus(t), earth, true, type));} 
+            if (sin (allPlanets[9],vhh)) {ret.put (allPlanets[9], vspo_2_J2000(v2.getNeptune(t), earth, true, type));}
             if (sin (allPlanets[0],vhh)) {ret.put (allPlanets[0], vspo_2_J2000([0,0,0], earth, true, type));} //SUN
-            if (sin (allPlanets[12],vhh)) {ret.put (allPlanets[12], vspo_2_J2000(getPluto(JD), earth, false, type));}
+            if (sin (allPlanets[10],vhh)) {ret.put (allPlanets[10], vspo_2_J2000(v2.getPluto(JD), earth, false, type));}
+
+            v2 = null;
         
         
 
@@ -175,8 +179,9 @@ class vs {
 
             /* if (sin (allPlanets[15],vhh)) {ret.put (allPlanets[15], vspo_2_J2000(getEris(JD), earth, false, type));}
             if (sin (allPlanets[14],vhh)) {ret.put (allPlanets[14], vspo_2_J2000(getChiron(JD), earth, false, type));}
-            if (sin (allPlanets[13],vhh)) {ret.put (allPlanets[13], vspo_2_J2000(getCeres(JD), earth, false, type));}
             
+            if (sin (allPlanets[13],vhh)) {ret.put (allPlanets[11], vspo_2_J2000(getCeres(JD), earth, false, type));}
+                        
             if (sin (allPlanets[16],vhh)) {ret.put (allPlanets[16], vspo_2_J2000(getGonggong(JD), earth, false, type));}
             if (sin (allPlanets[17],vhh)) {ret.put (allPlanets[17], vspo_2_J2000(getQuaoar(JD), earth, false, type));}
             if (sin (allPlanets[18],vhh)) {ret.put (allPlanets[18], vspo_2_J2000(getMakemake(JD), earth, false, type));}
@@ -569,7 +574,7 @@ class vs {
 }
 
 
-module vs2 {
+class vs2 {
 
 
  function getUranus(t){
@@ -672,7 +677,7 @@ function uranus_z(t){
    public function getPluto (d) {
 
            //ploutonas - Pluto
-        d = d - j2000;
+        d = d - vs.j2000;
 
         var S_pl  = Math.toRadians(  50.03f  +  0.033459652f *  d);
         var P_pl  = Math.toRadians( 238.95f  +  0.003968789f *  d);

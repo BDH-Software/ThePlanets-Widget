@@ -36,13 +36,13 @@ var lonOption_default = 180;
 var latlonOption_value;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 173; @position = 4; ]
 var planetSizeOption_values;
-[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 183; @position = 4; ]
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 186; @position = 4; ]
 var planetSizeOption_size = 7;
-[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 184; @position = 4; ]
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 187; @position = 4; ]
 var planetSizeOption_default = 3;
-[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 185; @position = 4; ]
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 188; @position = 4; ]
 var planetSizeFactor = 1.0;
-[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 215; @position = 4; ]
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 218; @position = 4; ]
 var eclipticSizeFactor = 1.0;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 7; ]
 <init> {
@@ -79,28 +79,4 @@ var eclipticSizeFactor = 1.0;
     %tmp.25 = dup %tmp.23;
     %tmp.26 = aputv %tmp.25 1 %tmp.24;
     putv self :latlonOption_value %tmp.26;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc" 173 4 ]
-    %tmp.27 = newa 7;
-    %tmp.28 = 0.5;
-    %tmp.29 = dup %tmp.27;
-    %tmp.30 = aputv %tmp.29 0 %tmp.28;
-    %tmp.31 = 0.75;
-    %tmp.32 = dup %tmp.30;
-    %tmp.33 = aputv %tmp.32 1 %tmp.31;
-    %tmp.34 = 1.0;
-    %tmp.35 = dup %tmp.33;
-    %tmp.36 = aputv %tmp.35 2 %tmp.34;
-    %tmp.37 = 1.5;
-    %tmp.38 = dup %tmp.36;
-    %tmp.39 = aputv %tmp.38 3 %tmp.37;
-    %tmp.40 = 2.0;
-    %tmp.41 = dup %tmp.39;
-    %tmp.42 = aputv %tmp.41 4 %tmp.40;
-    %tmp.43 = 3.0;
-    %tmp.44 = dup %tmp.42;
-    %tmp.45 = aputv %tmp.44 5 %tmp.43;
-    %tmp.46 = 3.5;
-    %tmp.47 = dup %tmp.45;
-    %tmp.48 = aputv %tmp.47 6 %tmp.46;
-    putv self :planetSizeOption_values %tmp.48;
 }

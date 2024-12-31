@@ -23,6 +23,12 @@ import Toybox.Lang;
     var FN_obliq_deg as Lang.float = 23.4392911;
     var FN_obliq_save_time_add_hrs = null;
 
+    var J2000_0= 2451543.5d; // 2000 Jan 0.0 TDT, which is the same as 1999 Dec 31.0 TDT, i.e. precisely at midnight TDT  (Jan 0.0 is not the first day of January but rather the LAST day of December, so a full day before Jan 1.0)
+    //This is actually NOT the same as J2000, which is 1 Jan 2000 at noon, Julian Date 2451545, or 2000 Jan 1.5.
+    //This MIGHT be a mistake by someone who was trying to use J2000 but missed by a little?  In obliquity of ecliptic calc below the difference will be negligible.
+
+    var J2000 = 2451545d; //start of J2000 epoch
+
 (:glance)
 module f {
 
@@ -121,11 +127,7 @@ module f {
 
         
 
-    const J2000_0= 2451543.5d; // 2000 Jan 0.0 TDT, which is the same as 1999 Dec 31.0 TDT, i.e. precisely at midnight TDT  (Jan 0.0 is not the first day of January but rather the LAST day of December, so a full day before Jan 1.0)
-    //This is actually NOT the same as J2000, which is 1 Jan 2000 at noon, Julian Date 2451545, or 2000 Jan 1.5.
-    //This MIGHT be a mistake by someone who was trying to use J2000 but missed by a little?  In obliquity of ecliptic calc below the difference will be negligible.
 
-    const J2000 = 2451545d; //start of J2000 epoch
 
 
     //Julians MUST be double or they have accuracy of only .25 day even in 2024 already.
