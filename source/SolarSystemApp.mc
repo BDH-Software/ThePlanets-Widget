@@ -171,10 +171,12 @@ class SolarSystemBaseApp extends Application.AppBase {
     public function getInitialView() as [Views] or [Views, InputDelegates] {
         deBug("initialview",[]);
 
-        Options = [extraPlanets, planetLabels, smallerBanners, planetSizeL, planetSizeS];
+        Options = [extraPlanets, planetLabels,
+            // smallerBanners, 
+            planetSizeL, planetSizeS];
         defOptions = {extraPlanets => false,
                   planetLabels => true,      
-                    smallerBanners => true,
+                    //smallerBanners => true,
                     planetSizeL => false,
                     planetSizeS => false,
                     lastLoc_saved => [38, -94],

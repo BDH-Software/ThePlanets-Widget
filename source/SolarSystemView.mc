@@ -1216,6 +1216,12 @@ class SolarSystemBaseView extends WatchUi.View {
         //System.println("SID approx " + sid_old + "SIDEREAL_TIME" + sid + "daily: " + sunrise_events[SIDEREAL_TIME][0]);
 
         sid = 0;
+        
+        eclipticSizeFactor = 1.0;
+        planetSizeFactor = 1.5;
+        if ( $.Options_Dict[planetSizeS]) {planetSizeFactor = 0.75;}    
+        else if ( $.Options_Dict[planetSizeL] ) { planetSizeFactor = 3.0;}
+        if (planetSizeFactor> 2.0) {eclipticSizeFactor = .8; }
 
         //sid = 5.5*15;
         init_findSpot();
@@ -2107,6 +2113,7 @@ class SolarSystemBaseView extends WatchUi.View {
         if ($.buttonPresses < 1) {
             var intro_msg = f.toArray(WatchUi.loadResource($.Rez.Strings.introMessages) as String,  "|", 0);
             var tp = intro_msg[0];
+            /*
             if (!$.Options_Dict[smallerBanners]) {
                 //making all timings 1/2 the rate because it is so much
                 //slower on real watch vs simulator.  But needs a better solution involving actual clock time probably
@@ -2122,8 +2129,11 @@ class SolarSystemBaseView extends WatchUi.View {
                     msg = [$.time_now.value() + 1, tp," ", intro_msg[(switcher - 1) *3  +1 ],intro_msg[(switcher - 1) *3 +2], intro_msg[(switcher - 1) *3 +3]];
                 }
                                
-            } else if ( ($.time_now.value() - $.start_time_sec) < 3 ) {
-                msg = [$.time_now.value() + 1," ", tp.substring(0,3),tp.substring(4,tp.length()), " ", " "];    
+            } else 
+            */
+
+            if ( ($.time_now.value() - $.start_time_sec) < 4 ) {
+                msg = [$.time_now.value() + 1, tp.substring(0,3),tp.substring(4,tp.length()), " ", "Now..."];    
             } else {
                 $.buttonPresses ++; //if we are in "no help banners" mode & the banner disappears, then we no longer want to trap that very first buttonpress
             }

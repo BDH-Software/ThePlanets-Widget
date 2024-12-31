@@ -466,10 +466,10 @@ function changeModes(previousMode){
                 speeds_index = 39; //10 mins
                 started = false;
                 //if ($.Options_Dict[helpBanners_enum]){solarSystemView_class.sendMessage(5, ["==Current Sky (by hr)==", UUD, SS, null]);} 
-                if (!$.Options_Dict[smallerBanners]){solarSystemView_class.sendMessage(5, [dMsg[12], UUD, SS, null]);} 
-                else {
+                //if (!$.Options_Dict[smallerBanners]){solarSystemView_class.sendMessage(5, [dMsg[12], UUD, SS, null]);} 
+                //else {
                     solarSystemView_class.sendMessage(2, [null, changeModeOption_short[1],"", null, null]);
-                }
+                //}
             } 
             else {
                 //if (vsop_cache == null)  {vsop_cache = new VSOP87_cache();}
@@ -480,10 +480,10 @@ function changeModes(previousMode){
                 }
                 speeds_index = 48; //1 day or 24 hrs
                 started = false;
-                if ($.Options_Dict[smallerBanners]){solarSystemView_class.sendMessage(5, [dMsg[13], UUD, SS,null]);}
-                else {
-                    solarSystemView_class.sendMessage(2, [null, changeModeOption_short[2], "", null]);
-                }
+                //if ($.Options_Dict[smallerBanners]){solarSystemView_class.sendMessage(5, [dMsg[13], UUD, SS,null]);}
+                //else {
+                    solarSystemView_class.sendMessage(4, [changeModeOption_short[3], changeModeOption_short[2], null, null]);
+                //}
             }
                 /*              
             case(3):

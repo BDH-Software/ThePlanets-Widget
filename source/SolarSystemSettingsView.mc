@@ -183,9 +183,9 @@ var planetSizeOption_values;//inited in View.mc/initialize()
 
 ]; */
 
-var planetSizeOption_size = 7;
-var planetSizeOption_default = 3;
-var planetSizeFactor = 1.0;
+//var planetSizeOption_size = 7;
+//var planetSizeOption_default = 3;
+var planetSizeFactor = 1.5;
 
 /*
 var eclipticSizeOption=[
