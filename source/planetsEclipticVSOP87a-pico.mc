@@ -37,7 +37,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
 
 
 
-        var time_mod = Math.round(0.0f + timeAdd_hrs/24.0f + julianDate(now_info.year, now_info.month, now_info.day, 0, 0, timeZoneOffset_sec/3600.0f, dst)).toNumber();
+        var time_f.mod = Math.round(0.0f + timeAdd_hrs/24.0f + f.julianDate(now_info.year, now_info.month, now_info.day, 0, 0, timeZoneOffset_sec/3600.0f, dst)).toNumber();
 
 
         var index = time_mod + "|"+ typ;
@@ -115,6 +115,8 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
 //https://github.com/gmiller123456/vsop87-multilang/blob/master/Languages/JavaScript/vsop87a_pico.js
 
 //class vsop87a_pico{
+(:glance)
+class vs {
 
 
     var j2000= 2451543.5f; //epoch used for some calculations (Pluto) from Ioannis
@@ -123,8 +125,8 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
     public function planetCoord (now_info, timeZoneOffset_sec, dst, timeAdd_hrs as Lang.double, type, req_array) {
 
         //var sml_days  = synodicMonthLength_days(now_info, timeZoneOffset_sec, dst );
-        //var base_JD = julianDate (2025, 1, 29 , 12, 36, 0, 0);
-        var JD1 = julianDate (now_info.year, now_info.month, now_info.day,now_info.hour, now_info.min, timeZoneOffset_sec/3600d, dst);
+        //var base_JD = f.julianDate (2025, 1, 29 , 12, 36, 0, 0);
+        var JD1 = f.julianDate (now_info.year, now_info.month, now_info.day,now_info.hour, now_info.min, timeZoneOffset_sec/3600d, dst);
         var JD = JD1 + timeAdd_hrs/24.0d;
 
         var t=(JD - 2451545.0d) / 365250.0d;
@@ -140,9 +142,12 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         
         var ret = {};
         //var vhh = $.planetsOption_values[planetsOption_value];
-        var vhh = makePlanetsOpt(planetsOption_value);
-        if (type != :helio_xyz) { vhh =makePlanetsOpt(1);}
+        var vhh = {};
         if (req_array != null) {vhh = req_array;}
+        else {
+          makePlanetsOpt(planetsOption_value);
+          if (type != :helio_xyz) { vhh =makePlanetsOpt(1);}
+        }
 
         
 
@@ -297,23 +302,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
       return temp;
    }
 
-   function getUranus(t){
-      var temp=[0.0f, 0.0f, 0.0f];
-      temp[0]=uranus_x(t);
-      temp[1]=uranus_y(t);
-      temp[2]=uranus_z(t);
-
-      return temp;
-   }
-
-   function getNeptune(t){
-      var temp=[0.0f, 0.0f, 0.0f];
-      temp[0]=neptune_x(t);
-      temp[1]=neptune_y(t);
-      temp[2]=neptune_z(t);
-
-      return temp;
-   }
+  
    /*
 
    function getEmb(t){
@@ -360,47 +349,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
       return venus_x_0;
    }
 
-   function uranus_z(t){
-      var uranus_z_0 = 0.0f;
-
-      uranus_z_0 += 0.01774318778f * Math.cos(3.14159265359f + 0.00000000000f*t);
-      uranus_z_0 += 0.25878127698f * Math.cos(2.61861272578f + 74.78159856730f*t);
-      return uranus_z_0;
-   }
-
-   function uranus_y(t){
-      var uranus_y_1 = 0.0f;
-
-      uranus_y_1 += 0.02157896385f * Math.cos(0.00000000000f + 0.00000000000f*t);
-      uranus_y_1=uranus_y_1*t;
-
-      var uranus_y_0 = 0.0f;
-
-      uranus_y_0 += 0.01442356575f * Math.cos(1.08004542712f + 148.07872442630f*t);
-      uranus_y_0 += 0.01542668264f * Math.cos(2.55040539213f + 224.34479570190f*t);
-      uranus_y_0 += 0.06250078231f * Math.cos(3.56960243857f + 1.48447270830f*t);
-      uranus_y_0 += 0.14123958128f * Math.cos(2.82486076549f + 76.26607127560f*t);
-      uranus_y_0 += 0.14755940186f * Math.cos(1.85423280679f + 73.29712585900f*t);
-      uranus_y_0 += 0.16256125476f * Math.cos(3.14159265359f + 0.00000000000f*t);
-      uranus_y_0 += 0.44390465203f * Math.cos(0.08884111329f + 149.56319713460f*t);
-      uranus_y_0 += 19.16518231584f * Math.cos(3.91045677002f + 74.78159856730f*t);
-      return uranus_y_1+uranus_y_0;
-   }
-
-   function uranus_x(t){
-      var uranus_x_0 = 0.0f;
-
-      uranus_x_0 += 0.01444216660f * Math.cos(2.65117115201f + 148.07872442630f*t);
-      uranus_x_0 += 0.01542951343f * Math.cos(4.12121838072f + 224.34479570190f*t);
-      uranus_x_0 += 0.06201106178f * Math.cos(5.14043574125f + 1.48447270830f*t);
-      uranus_x_0 += 0.14130269479f * Math.cos(4.39572927934f + 76.26607127560f*t);
-      uranus_x_0 += 0.14668209481f * Math.cos(3.42395862804f + 73.29712585900f*t);
-      uranus_x_0 += 0.44402496796f * Math.cos(1.65967519586f + 149.56319713460f*t);
-      uranus_x_0 += 1.32272523872f * Math.cos(0.00000000000f + 0.00000000000f*t);
-      uranus_x_0 += 19.17370730359f * Math.cos(5.48133416489f + 74.78159856730f*t);
-      return uranus_x_0;
-   }
-
+   
    function saturn_z(t){
       var saturn_z_1 = 0.0f;
 
@@ -461,40 +410,7 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
       return saturn_x_1+saturn_x_0;
    }
 
-   function neptune_z(t){
-      var neptune_z_0 = 0.0f;
-
-      neptune_z_0 += 0.01245978462f * Math.cos(0.00000000000f + 0.00000000000f*t);
-      neptune_z_0 += 0.92866054405f * Math.cos(1.44103930278f + 38.13303563780f*t);
-      return neptune_z_0;
-   }
-
-   function neptune_y(t){
-      var neptune_y_0 = 0.0f;
-
-      neptune_y_0 += 0.01073739772f * Math.cos(3.81371728533f + 74.78159856730f*t);
-      neptune_y_0 += 0.02584250749f * Math.cos(0.42549700754f + 1.48447270830f*t);
-      neptune_y_0 += 0.14936165806f * Math.cos(5.79694900665f + 39.61750834610f*t);
-      neptune_y_0 += 0.15706589373f * Math.cos(4.82539970129f + 36.64856292950f*t);
-      neptune_y_0 += 0.13506391797f * Math.cos(1.92953034883f + 76.26607127560f*t);
-      neptune_y_0 += 0.30205857683f * Math.cos(3.14159265359f + 0.00000000000f*t);
-      neptune_y_0 += 30.06056351665f * Math.cos(3.74086294714f + 38.13303563780f*t);
-      return neptune_y_0;
-   }
-
-   function neptune_x(t){
-      var neptune_x_0 = 0.0f;
-
-      neptune_x_0 += 0.01074040708f * Math.cos(5.38502938672f + 74.78159856730f*t);
-      neptune_x_0 += 0.02597313814f * Math.cos(1.99590301412f + 1.48447270830f*t);
-      neptune_x_0 += 0.14935120126f * Math.cos(1.08499403018f + 39.61750834610f*t);
-      neptune_x_0 += 0.15726094556f * Math.cos(0.11319072675f + 36.64856292950f*t);
-      neptune_x_0 += 0.13505661755f * Math.cos(3.50078975634f + 76.26607127560f*t);
-      neptune_x_0 += 0.27080164222f * Math.cos(3.14159265359f + 0.00000000000f*t);
-      neptune_x_0 += 30.05890004476f * Math.cos(5.31211340029f + 38.13303563780f*t);
-      return neptune_x_0;
-   }
-
+   
    function mercury_z(t){
       var mercury_z_0 = 0.0f;
 
@@ -649,6 +565,109 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
       return x;
    }
 
+
+}
+
+
+module vs2 {
+
+
+ function getUranus(t){
+      var temp=[0.0f, 0.0f, 0.0f];
+      temp[0]=uranus_x(t);
+      temp[1]=uranus_y(t);
+      temp[2]=uranus_z(t);
+
+      return temp;
+   }
+
+   function getNeptune(t){
+      var temp=[0.0f, 0.0f, 0.0f];
+      temp[0]=neptune_x(t);
+      temp[1]=neptune_y(t);
+      temp[2]=neptune_z(t);
+
+      return temp;
+   }
+
+   function neptune_z(t){
+      var neptune_z_0 = 0.0f;
+
+      neptune_z_0 += 0.01245978462f * Math.cos(0.00000000000f + 0.00000000000f*t);
+      neptune_z_0 += 0.92866054405f * Math.cos(1.44103930278f + 38.13303563780f*t);
+      return neptune_z_0;
+   }
+
+   function neptune_y(t){
+      var neptune_y_0 = 0.0f;
+
+      neptune_y_0 += 0.01073739772f * Math.cos(3.81371728533f + 74.78159856730f*t);
+      neptune_y_0 += 0.02584250749f * Math.cos(0.42549700754f + 1.48447270830f*t);
+      neptune_y_0 += 0.14936165806f * Math.cos(5.79694900665f + 39.61750834610f*t);
+      neptune_y_0 += 0.15706589373f * Math.cos(4.82539970129f + 36.64856292950f*t);
+      neptune_y_0 += 0.13506391797f * Math.cos(1.92953034883f + 76.26607127560f*t);
+      neptune_y_0 += 0.30205857683f * Math.cos(3.14159265359f + 0.00000000000f*t);
+      neptune_y_0 += 30.06056351665f * Math.cos(3.74086294714f + 38.13303563780f*t);
+      return neptune_y_0;
+   }
+
+   function neptune_x(t){
+      var neptune_x_0 = 0.0f;
+
+      neptune_x_0 += 0.01074040708f * Math.cos(5.38502938672f + 74.78159856730f*t);
+      neptune_x_0 += 0.02597313814f * Math.cos(1.99590301412f + 1.48447270830f*t);
+      neptune_x_0 += 0.14935120126f * Math.cos(1.08499403018f + 39.61750834610f*t);
+      neptune_x_0 += 0.15726094556f * Math.cos(0.11319072675f + 36.64856292950f*t);
+      neptune_x_0 += 0.13505661755f * Math.cos(3.50078975634f + 76.26607127560f*t);
+      neptune_x_0 += 0.27080164222f * Math.cos(3.14159265359f + 0.00000000000f*t);
+      neptune_x_0 += 30.05890004476f * Math.cos(5.31211340029f + 38.13303563780f*t);
+      return neptune_x_0;
+   }
+
+
+
+function uranus_z(t){
+      var uranus_z_0 = 0.0f;
+
+      uranus_z_0 += 0.01774318778f * Math.cos(3.14159265359f + 0.00000000000f*t);
+      uranus_z_0 += 0.25878127698f * Math.cos(2.61861272578f + 74.78159856730f*t);
+      return uranus_z_0;
+   }
+
+   function uranus_y(t){
+      var uranus_y_1 = 0.0f;
+
+      uranus_y_1 += 0.02157896385f * Math.cos(0.00000000000f + 0.00000000000f*t);
+      uranus_y_1=uranus_y_1*t;
+
+      var uranus_y_0 = 0.0f;
+
+      uranus_y_0 += 0.01442356575f * Math.cos(1.08004542712f + 148.07872442630f*t);
+      uranus_y_0 += 0.01542668264f * Math.cos(2.55040539213f + 224.34479570190f*t);
+      uranus_y_0 += 0.06250078231f * Math.cos(3.56960243857f + 1.48447270830f*t);
+      uranus_y_0 += 0.14123958128f * Math.cos(2.82486076549f + 76.26607127560f*t);
+      uranus_y_0 += 0.14755940186f * Math.cos(1.85423280679f + 73.29712585900f*t);
+      uranus_y_0 += 0.16256125476f * Math.cos(3.14159265359f + 0.00000000000f*t);
+      uranus_y_0 += 0.44390465203f * Math.cos(0.08884111329f + 149.56319713460f*t);
+      uranus_y_0 += 19.16518231584f * Math.cos(3.91045677002f + 74.78159856730f*t);
+      return uranus_y_1+uranus_y_0;
+   }
+
+   function uranus_x(t){
+      var uranus_x_0 = 0.0f;
+
+      uranus_x_0 += 0.01444216660f * Math.cos(2.65117115201f + 148.07872442630f*t);
+      uranus_x_0 += 0.01542951343f * Math.cos(4.12121838072f + 224.34479570190f*t);
+      uranus_x_0 += 0.06201106178f * Math.cos(5.14043574125f + 1.48447270830f*t);
+      uranus_x_0 += 0.14130269479f * Math.cos(4.39572927934f + 76.26607127560f*t);
+      uranus_x_0 += 0.14668209481f * Math.cos(3.42395862804f + 73.29712585900f*t);
+      uranus_x_0 += 0.44402496796f * Math.cos(1.65967519586f + 149.56319713460f*t);
+      uranus_x_0 += 1.32272523872f * Math.cos(0.00000000000f + 0.00000000000f*t);
+      uranus_x_0 += 19.17370730359f * Math.cos(5.48133416489f + 74.78159856730f*t);
+      return uranus_x_0;
+   }
+
+
    
    public function getPluto (d) {
 
@@ -716,9 +735,9 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         var d_new= d - EPOCH;
         var M = MA + N * d_new;
         
-        M=normalize(M);
+        M=f.normalize(M);
 
-        var ret = Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
+        var ret = f.Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
         $.storLastR ["Eris"] = Math.sqrt(ret[0]*ret[0] + ret[1]*ret[1] + ret[2]*ret[2]);
         //System.println("XYZ: " + ret[0] + " " + ret[1] + " " + ret[2]);
         return ret;
@@ -759,9 +778,9 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         var d_new= d - EPOCH;
         var M = MA + N * d_new;
         
-        M=normalize(M);
+        M=f.normalize(M);
 
-        var ret = Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
+        var ret = f.Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
         $.storLastR ["Ceres"] = Math.sqrt(ret[0]*ret[0] + ret[1]*ret[1] + ret[2]*ret[2]);
         //System.println("XYZ: " + ret[0] + " " + ret[1] + " " + ret[2]);
         return ret;
@@ -791,11 +810,11 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         var d_new= d - EPOCH;
         var M = MA + N * d_new;
         
-        M=normalize(M);
+        M=f.normalize(M);
 
-        //return Planet_Sun(M, EC, A, QR, W, IN);
+        //return f.Planet_Sun(M, EC, A, QR, W, IN);
 
-        var ret = Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
+        var ret = f.Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
         $.storLastR ["Chiron"] = Math.sqrt(ret[0]*ret[0] + ret[1]*ret[1] + ret[2]*ret[2]);
         //System.println("XYZ: " + ret[0] + " " + ret[1] + " " + ret[2]);
         return ret;
@@ -822,9 +841,9 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         var d_new= d - EPOCH;
         var M = newE[:MA] + N * d_new;
         
-        M=normalize(M);
+        M=f.normalize(M);
 
-        var ret = Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
+        var ret = f.Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
         $.storLastR ["Gonggong"] = Math.sqrt(ret[0]*ret[0] + ret[1]*ret[1] + ret[2]*ret[2]);
         //System.println("XYZ: " + ret[0] + " " + ret[1] + " " + ret[2]);
         return ret;
@@ -854,9 +873,9 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
       var d_new= d - EPOCH;
       var M = newE[:MA] + N * d_new;
             
-         M=normalize(M);
+         M=f.normalize(M);
 
-         var ret = Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
+         var ret = f.Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
          $.storLastR [name] = Math.sqrt(ret[0]*ret[0] + ret[1]*ret[1] + ret[2]*ret[2]);
          //System.println("XYZ: " + ret[0] + " " + ret[1] + " " + ret[2]);
          return ret;
@@ -885,9 +904,9 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         var d_new= d - EPOCH;
         var M = newE[:MA] + N * d_new;
         
-        M=normalize(M);
+        M=f.normalize(M);
 
-        var ret = Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
+        var ret = f.Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
         $.storLastR ["Makemake"] = Math.sqrt(ret[0]*ret[0] + ret[1]*ret[1] + ret[2]*ret[2]);
         //System.println("XYZ: " + ret[0] + " " + ret[1] + " " + ret[2]);
         return ret;
@@ -913,9 +932,9 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
         var d_new= d - EPOCH;
         var M = newE[:MA] + N * d_new;
         
-        M=normalize(M);
+        M=f.normalize(M);
 
-        var ret = Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
+        var ret = f.Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
         $.storLastR ["Haumea"] = Math.sqrt(ret[0]*ret[0] + ret[1]*ret[1] + ret[2]*ret[2]);
         //System.println("XYZ: " + ret[0] + " " + ret[1] + " " + ret[2]);
         return ret;
@@ -987,3 +1006,5 @@ function fetch (now_info, timeZoneOffset_sec, dst, timeAdd_hrs, type, req_array)
    
 
 //}
+
+}

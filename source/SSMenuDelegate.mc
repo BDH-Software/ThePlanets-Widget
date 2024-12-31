@@ -14,20 +14,15 @@ enum {
     lastLoc_saved = 99,
 }
 
-var Options = [extraPlanets, planetLabels, smallerBanners, planetSizeL, planetSizeS];
-var OptionsLabels = ["Show extra planets?", "Show planet labels?", "Show smaller banners?", "Larger planets?", "Smaller planets?"];
-var defOptions = {extraPlanets => false,
-                  planetLabels => false,      
-                    smallerBanners => false,
-                    planetSizeL => false,
-                    planetSizeS => false,
-                    lastLoc_saved => [38, -94],
-                    };
+var Options; //values added in getInitialView
+
+var defOptions; //values added in getInitialView
 
 var numOptions = 5;
 
 class SSMenu extends WatchUi.Menu2{
     public function initialize(){
+        var OptionsLabels = ["Show extra planets?", "Show planet labels?", "Show smaller banners?", "Larger planets?", "Smaller planets?"];
 
         for (var i = 0; i < numOptions; i++) {
         Menu2.addItem(new WatchUi.ToggleMenuItem(OptionsLabels[i], null, Options[i], $.Options_Dict[Options[i]]==true, null));

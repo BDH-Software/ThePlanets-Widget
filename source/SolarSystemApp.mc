@@ -31,17 +31,7 @@ var allOrbitParms = null;
     //all are chosen to be WHOLE DAYS however, to make the sun stand still when moving forward on the eliptical screens
     //But also closest unit to WHOLE YEARS (ie 183 instead of 180 or 182.621187, 61 instead of 60 or 60.873729)
     //Adde synodic month & solar yr as exact time options
-    var speeds = [-24*365*10, -24*365*7, -24*365*4, -24*365*2,-24*365.2422, -24*365, //0; year multiples (added 0)
-                -24*183, -24*122, -24*91, -24*61, -24*31, -29.53059*24, -24*15, //6; 1/2, 1/4, 1/12, 1/24 of a year (added 1)
-                -24*7,-24*5, -24*3, -24*2-15/60.0, -24*2, -24*2+15/60.0, -24-15/60.0, -24, -24+15/60.0, //11; Days up to a week, with 1&2 days +1/-1 hrsso you can adjust them easily
-                -12,-6,-4,-2, -1, //22;Hours (added 1)
-                -30/60.0,-15/60.0,-10/60.0, -5/60.0, -3/60.0, -2/60.0, -1/60.0,  //27; minutes (added 0)
-                1/600000.0,  //34; Zero ( but still has very slight movement, also avoids /0 just in case)
-                1/60.0, 2/60.0, 3/60.0, 5/60.0, 10/60.0, 15/60.0, 30/60.0,  //35; minutes (added 0)
-                1,2,4,6,12,  //42; Hours (added 1)
-                24-15/60.0, 24,24+15/60.0, 24*2-15/60.0, 24*2,24*2+15/60.0, 24*3,24*5, 24*7, //47; Days up to a week (added 0)
-                24*15,29.53059*24, 24*31, 24*61, 24*91, 24*122, 24*183, 24*300, //56;300 days 1/2, 1/4, 1/12, 1/24 of a year (added 1)
-                24*365,24*365.2422, 24 * 400, 24 * 500, 24*365*2, 24*365*4, 24*365 * 7, 24*365 * 10]; //64; year multiples (added 0)
+    var speeds; //values loaded in .Delegate/initialize()
 var speeds_index; //the currently used speed that will be added to TIME @ each update of screen  //
 //var screen0Move_index = 33;
 
@@ -90,7 +80,7 @@ enum {changeMode_enum= 0,
         } //screen0MoveOption_enum, 
         */
 
-
+(:glance)
 class SolarSystemBaseApp extends Application.AppBase {
 
     //enum {ECLIPTIC_STATIC, ECLIPTIC_MOVE, SMALL_ORRERY, MED_ORRERY, LARGE_ORRERY}
@@ -111,6 +101,84 @@ class SolarSystemBaseApp extends Application.AppBase {
         $.time_now = Time.now();
         $.now_info = Time.Gregorian.info($.time_now, Time.FORMAT_SHORT);
         $.start_time_sec = $.time_now.value(); //start time of app in unix seconds
+
+        
+        
+        //allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
+        //sunrise_cache = new sunRiseSet_cache2();        //works fine but not using it now..
+        System.println("inited...");
+        
+
+
+        //System.println("ARR" + toArray("HI|THERE FRED|M<SYUEIJFJ |FIEJKDF:LKJF|SKDJFF|SDLKJSDFLKJ|THIESNEK|FJIEKJF","|",0));
+        
+        
+
+    }
+
+    //! Handle app startup
+    //! @param state Startup arguments
+    public function onStart(state as Dictionary?) as Void { 
+        f.deBug("onstart",[]); 
+        //System.println("onStart...");
+        $.started = false;
+        $.run_oneTime = true;
+        $.timeWasAdded = true;
+        $.buttonPresses = 0;
+        $.animation_count = 0;
+        $.countWhenMode0Started = 0;
+        $.now = System.getClockTime(); //before ANY routines or functions run, so all can have access if necessary        
+        $.time_now = Time.now();
+        $.now_info = Time.Gregorian.info($.time_now, Time.FORMAT_SHORT);
+        System.println ("onStart at " 
+            +  $.now.hour.format("%02d") + ":" +
+            $.now.min.format("%02d") + ":" +
+            $.now.sec.format("%02d") + " " + now_info.year + "-" + now_info.month + "-" + now_info.day);
+        
+
+        //readStorageValues();
+        Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onPosition));
+    }
+
+    //! Handle app shutdown
+    //! @param state Shutdown arguments
+    public function onStop(state as Dictionary?) as Void {
+        /*System.println ("onStop at " 
+            +  $.now.hour.format("%02d") + ":" +
+            $.now.min.format("%02d") + ":" +
+            $.now.sec.format("%02d"));
+            */
+        //_solarSystemView.stopAnimationTimer();
+        started = false;
+        Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
+        _solarSystemView = null;
+        _solarSystemDelegate = null;
+        settings_view = null;
+        settings_delegate = null;
+
+    }
+
+    //! Update the current position
+    //! @param info Position information
+    public function onPosition(info as Info) as Void {
+        //System.println("onPosition... count: " + $.count);
+        _solarSystemView.setPosition(info);
+
+    }
+
+    //! Return the initial view for the app
+    //! @return Array [View]
+    public function getInitialView() as [Views] or [Views, InputDelegates] {
+        deBug("initialview",[]);
+
+        Options = [extraPlanets, planetLabels, smallerBanners, planetSizeL, planetSizeS];
+        defOptions = {extraPlanets => false,
+                  planetLabels => true,      
+                    smallerBanners => true,
+                    planetSizeL => false,
+                    planetSizeS => false,
+                    lastLoc_saved => [38, -94],
+                    };
 
         //do this AFTER getting time & reading init storage values
         _solarSystemView = new $.SolarSystemBaseView();
@@ -137,73 +205,11 @@ class SolarSystemBaseApp extends Application.AppBase {
         if (ret != null) { $.Options_Dict.put(lastLoc_saved,ret);}
 
         _solarSystemView.setInitPosition(); //this must be done AFTER readStorageValues()
-        
-        allPlanets = toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
-        //sunrise_cache = new sunRiseSet_cache2();        //works fine but not using it now..
-        System.println("inited...");
+        _solarSystemView.startAnimationTimer($.hz);
+
         view_mode=0;
         $.changeModes(null); //inits speeds_index properly        
 
-
-        //System.println("ARR" + toArray("HI|THERE FRED|M<SYUEIJFJ |FIEJKDF:LKJF|SKDJFF|SDLKJSDFLKJ|THIESNEK|FJIEKJF","|",0));
-        
-        
-
-    }
-
-    //! Handle app startup
-    //! @param state Startup arguments
-    public function onStart(state as Dictionary?) as Void {  
-        //System.println("onStart...");
-        $.started = false;
-        $.run_oneTime = true;
-        $.timeWasAdded = true;
-        $.buttonPresses = 0;
-        $.animation_count = 0;
-        $.countWhenMode0Started = 0;
-        $.now = System.getClockTime(); //before ANY routines or functions run, so all can have access if necessary        
-        $.time_now = Time.now();
-        $.now_info = Time.Gregorian.info($.time_now, Time.FORMAT_SHORT);
-        System.println ("onStart at " 
-            +  $.now.hour.format("%02d") + ":" +
-            $.now.min.format("%02d") + ":" +
-            $.now.sec.format("%02d") + " " + now_info.year + "-" + now_info.month + "-" + now_info.day);
-        _solarSystemView.startAnimationTimer($.hz);
-        
-
-        //readStorageValues();
-        Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onPosition));
-    }
-
-    //! Handle app shutdown
-    //! @param state Shutdown arguments
-    public function onStop(state as Dictionary?) as Void {
-        /*System.println ("onStop at " 
-            +  $.now.hour.format("%02d") + ":" +
-            $.now.min.format("%02d") + ":" +
-            $.now.sec.format("%02d"));
-            */
-        _solarSystemView.stopAnimationTimer();
-        started = false;
-        Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
-        _solarSystemView = null;
-        _solarSystemDelegate = null;
-        settings_view = null;
-        settings_delegate = null;
-
-    }
-
-    //! Update the current position
-    //! @param info Position information
-    public function onPosition(info as Info) as Void {
-        //System.println("onPosition... count: " + $.count);
-        _solarSystemView.setPosition(info);
-
-    }
-
-    //! Return the initial view for the app
-    //! @return Array [View]
-    public function getInitialView() as [Views] or [Views, InputDelegates] {
         /*System.println ("getInitialView at " 
             +  now.hour.format("%02d") + ":" +
             now.min.format("%02d") + ":" +
@@ -212,6 +218,11 @@ class SolarSystemBaseApp extends Application.AppBase {
         _solarSystemDelegate = null;
         _solarSystemView = null;
 
+    }
+
+    function getGlanceView() {
+        f.deBug("getglanceview",[]);
+        return [ new SSGlanceView() ];
     }
     /*
     // settingsview works only for watch faces & data fields (?)

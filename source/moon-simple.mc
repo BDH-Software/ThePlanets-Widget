@@ -12,7 +12,10 @@
 
 import Toybox.Math;
 import Toybox.System;
-import Toybox.Lang; 
+import Toybox.Lang;
+
+(:glance)
+class simpleMoon {
 
 //class simpleMoon {
    /*
@@ -24,7 +27,7 @@ import Toybox.Lang;
         if (dst == null) {dst = 0;}
 
 
-        var JD = julianDate (now_info.year, now_info.month, now_info.day, now_info.hour, now_info.min, timeZoneOffset_sec/3600, dst);
+        var JD = f.julianDate (now_info.year, now_info.month, now_info.day, now_info.hour, now_info.min, timeZoneOffset_sec/3600, dst);
 
         var T = (JD - 2451545.0)/36525f;
 
@@ -42,12 +45,12 @@ import Toybox.Lang;
     public function lunarPhase (now_info, timeZoneOffset_sec, dst) {
 
         var sml_days  = synodicMonthLength_days(now_info, timeZoneOffset_sec, dst );
-        var base_JD = julianDate (2025, 1, 29 , 12, 36, 0, 0);
-        var current_JD = julianDate (now_info.year, now_info.month, now_info.day,now_info.hour, now_info.min, timeZoneOffset_sec/3600, dst);
+        var base_JD = f.julianDate (2025, 1, 29 , 12, 36, 0, 0);
+        var current_JD = f.julianDate (now_info.year, now_info.month, now_info.day,now_info.hour, now_info.min, timeZoneOffset_sec/3600, dst);
 
         var difference = current_JD - base_JD;
 
-        var lunar_day = mod (difference, sml_days);
+        var lunar_day = f.mod (difference, sml_days);
 
         var lunar_phase = lunar_day/sml_days;
 
@@ -60,10 +63,11 @@ import Toybox.Lang;
 
         //deBug("moonret: ", [now_info, timeZoneOffset_sec, dst, addTime_hrs]);
         //var sml_days  = synodicMonthLength_days(now_info, timeZoneOffset_sec, dst );
-        //var base_JD = julianDate (2025, 1, 29 , 12, 36, 0, 0);
-        var current_JD = julianDate (now_info.year, now_info.month, now_info.day,now_info.hour, now_info.min, timeZoneOffset_sec/3600, dst);
+        //var base_JD = f.julianDate (2025, 1, 29 , 12, 36, 0, 0);
+        var current_JD = f.julianDate (now_info.year, now_info.month, now_info.day,now_info.hour, now_info.min, timeZoneOffset_sec/3600, dst);
         current_JD += addTime_hrs/24.0;
-        return getGeocentricMoonPos(current_JD);
+        var ret = getGeocentricMoonPos(current_JD);
+        return ret;
     }
 
     // Low Precision Moon Position
@@ -74,23 +78,24 @@ import Toybox.Lang;
     //Output: Ecliptical Long, Lat in degrees
     // (rem-ed out portion converts this to geocentric RA & Decl)
 
-    function getGeocentricMoonPos(jd){
+    
+    public function getGeocentricMoonPos(jd){
 	var T = ((jd-2451545)/36525).toFloat();
-	var L = 218.32f + 481267.881f*T + 6.29f*sind(135.0f + 477198.87f*T) - 1.27f*sind(259.3 - 413335.36f*T) + 0.66f*sind(235.7f + 890534.22f*T) + 0.21f*sind(269.9f + 954397.74f*T) - 0.19f*sind(357.5f + 35999.05f*T) - 0.11f*sind(186.5f + 966404.03f*T);
-	var B = 5.13f*sind( 93.3f + 483202.02f*T) + 0.28f*sind(228.2f + 960400.89f*T) - 0.28f*sind(318.3f + 6003.15f*T) - 0.17f*sind(217.6f - 407332.21f*T);
+	var L = 218.32f + 481267.881f*T + 6.29f*f.sind(135.0f + 477198.87f*T) - 1.27f*f.sind(259.3 - 413335.36f*T) + 0.66f*f.sind(235.7f + 890534.22f*T) + 0.21f*f.sind(269.9f + 954397.74f*T) - 0.19f*f.sind(357.5f + 35999.05f*T) - 0.11f*f.sind(186.5f + 966404.03f*T);
+	var B = 5.13f*f.sind( 93.3f + 483202.02f*T) + 0.28f*f.sind(228.2f + 960400.89f*T) - 0.28f*f.sind(318.3f + 6003.15f*T) - 0.17f*f.sind(217.6f - 407332.21f*T);
 	//var P = 0.9508 + 0.0518*cosd(135.0 + 477198.87*T) + 0.0095*cosd(259.3 - 413335.36*T) + 0.0078*cosd(235.7 + 890534.22*T) + 0.0028*cosd(269.9 + 954397.74*T);
-    var ret = [(normalize(L)).toFloat(),(normalize(B)).toFloat()];
+    var ret = [(f.normalize(L)).toFloat(),(f.normalize(B)).toFloat()];
     //deBug("moonret: ", [jd]);
     return ret;
 
     /*
     //convert to geocentric ra & decl
 	var SD=0.2724*P;
-	var r=1/sind(P);
+	var r=1/f.sind(P);
 
 	var l = cosd(B) * cosd(L);
-	var m = 0.9175*cosd(B)*sind(L) - 0.3978*sind(B);
-	var n = 0.3978*cosd(B)*sind(L) + 0.9175*sind(B);
+	var m = 0.9175*cosd(B)*f.sind(L) - 0.3978*f.sind(B);
+	var n = 0.3978*cosd(B)*f.sind(L) + 0.9175*f.sind(B);
 
 	var ra=Math.atan2(m,l);
 	if(ra<0){ra+=2*Math.PI;}
@@ -100,3 +105,4 @@ import Toybox.Lang;
     }
 
 //}
+}

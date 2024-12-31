@@ -31,15 +31,15 @@ class ELP82 {
     //Output is geocentric ecliptic longitude, latitude in degrees and distance in km
     //lon=-lon; //ALERT!!!!  Meeus considers West longitudes to be positive, which is the opposite of how everything else uses it. !!!!!!!!!!!!!!
     public function elp82(T){  
-        var Lp = normalize(218.3164477d + 481267.88123421d*T - 0.0015786d*T*T + 1.0/538841.0*T*T*T - 1.0/65194000.0d*T*T*T*T)*toRad;
-        var D = normalize(297.8501921d + 445267.1114034*T - 0.0018819d*T*T + 1.0/545868.0*T*T*T - 1.0/113065000.0d*T*T*T*T)*toRad;
-        var M = normalize(357.5291092d + 35999.0502909*T - 0.0001536d*T*T + 1.0/24490000.0*T*T*T)*toRad;
-        var Mp = normalize(134.9633964d + 477198.8675055d*T + 0.0087414d*T*T + 1.0/69699.0*T*T*T - 1.0/14712000.0d*T*T*T*T)*toRad;
-        var F = normalize(93.2720950d + 483202.0175233d*T - 0.0036539d*T*T - 1.0/3526000.0*T*T*T + 1.0/863310000.0d*T*T*T*T)*toRad;
+        var Lp = f.normalize(218.3164477d + 481267.88123421d*T - 0.0015786d*T*T + 1.0/538841.0*T*T*T - 1.0/65194000.0d*T*T*T*T)*toRad;
+        var D = f.normalize(297.8501921d + 445267.1114034*T - 0.0018819d*T*T + 1.0/545868.0*T*T*T - 1.0/113065000.0d*T*T*T*T)*toRad;
+        var M = f.normalize(357.5291092d + 35999.0502909*T - 0.0001536d*T*T + 1.0/24490000.0*T*T*T)*toRad;
+        var Mp = f.normalize(134.9633964d + 477198.8675055d*T + 0.0087414d*T*T + 1.0/69699.0*T*T*T - 1.0/14712000.0d*T*T*T*T)*toRad;
+        var F = f.normalize(93.2720950d + 483202.0175233d*T - 0.0036539d*T*T - 1.0/3526000.0*T*T*T + 1.0/863310000.0d*T*T*T*T)*toRad;
         var E = 1 - .002516*T - 0.0000074d*T*T;
-        var A1=normalize(119.75d + 131.849d*T)*toRad;
-        var A2=normalize(53.09d + 479264.290d*T)*toRad;
-        var A3=normalize(313.45d + 481266.484d*T)*toRad;
+        var A1=f.normalize(119.75d + 131.849d*T)*toRad;
+        var A2=f.normalize(53.09d + 479264.290d*T)*toRad;
+        var A3=f.normalize(313.45d + 481266.484d*T)*toRad;
 
         var LongitudeRadius = [ 
             //D   M  Mp   F    Long     Radius
@@ -204,7 +204,7 @@ class ELP82 {
         return [Lon,Lat,Radius];
     }
 
-    //use normalize instead/doesn't work in monkey c
+    //use f.normalize instead/doesn't work in monkey c
 
     /*
     private function constrain(d){

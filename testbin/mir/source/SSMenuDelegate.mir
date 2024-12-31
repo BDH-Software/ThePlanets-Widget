@@ -219,11 +219,11 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSMenu
     %tmp.84 = dup %tmp.80;
     %tmp.85 = aputv %tmp.84 %tmp.82 %tmp.83;
     %tmp.87 = getv ? :planetLabels;
-    %tmp.88 = false;
+    %tmp.88 = true;
     %tmp.89 = dup %tmp.85;
     %tmp.90 = aputv %tmp.89 %tmp.87 %tmp.88;
     %tmp.92 = getv ? :smallerBanners;
-    %tmp.93 = false;
+    %tmp.93 = true;
     %tmp.94 = dup %tmp.90;
     %tmp.95 = aputv %tmp.94 %tmp.92 %tmp.93;
     %tmp.97 = getv ? :planetSizeL;

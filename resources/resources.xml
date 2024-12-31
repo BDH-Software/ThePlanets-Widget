@@ -1,5 +1,5 @@
 <resources>
-    <bitmap id="LauncherIcon" filename="images/jupiter-cassini-icon-70x70.png" />
+    <bitmap id="LauncherIcon" filename="images/jupiter-cassini-icon-brighter-60x60.png" />
     
     <!--
     <checkbox-menu id="pMenu" title="Options">

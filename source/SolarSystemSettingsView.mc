@@ -170,7 +170,9 @@ var screen0MoveOption_default = 6;
      "XXLarge",      
 ];*/
 
-var planetSizeOption_values=[
+var planetSizeOption_values;//inited in View.mc/initialize()
+
+/*=[
     0.5, 
     0.75, 
     1.0, 
@@ -179,7 +181,8 @@ var planetSizeOption_values=[
     3.0,
     3.5
 
-];
+]; */
+
 var planetSizeOption_size = 7;
 var planetSizeOption_default = 3;
 var planetSizeFactor = 1.0;

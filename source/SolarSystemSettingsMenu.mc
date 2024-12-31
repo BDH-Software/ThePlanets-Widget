@@ -86,14 +86,14 @@ class SolarSystemSettingsMenu extends WatchUi.Menu2 {
     
     function loadSettingsOpt(){
         //deBug("loadSettingsOpt",[]);
-        //changeModeOption = toArray(WatchUi.loadResource($.Rez.Strings.changeModeOption) as String,  "|", 0);
+        //changeModeOption = f.toArray(WatchUi.loadResource($.Rez.Strings.changeModeOption) as String,  "|", 0);
         //changeModeOption_size = changeModeOption.size();
-        //orrZoomOption = toArray(WatchUi.loadResource($.Rez.Strings.orrzoom) as String,  "|", 0);
-        labelDisplayOption = toArray(WatchUi.loadResource($.Rez.Strings.labelDisplayOption) as String,  "|", 0);
-        refreshOption = toArray(WatchUi.loadResource($.Rez.Strings.refreshOption) as String,  "|", 0);
-        //thetaOption = toArray(WatchUi.loadResource($.Rez.Strings.thetaOption) as String,  "|", 0);
-        planetSizeOption = toArray(WatchUi.loadResource($.Rez.Strings.planetSizeOption) as String,  "|", 0);
-        planetsOption = toArray(WatchUi.loadResource($.Rez.Strings.planetsOption) as String,  "|", 0);
+        //orrZoomOption = f.toArray(WatchUi.loadResource($.Rez.Strings.orrzoom) as String,  "|", 0);
+        labelDisplayOption = f.toArray(WatchUi.loadResource($.Rez.Strings.labelDisplayOption) as String,  "|", 0);
+        refreshOption = f.toArray(WatchUi.loadResource($.Rez.Strings.refreshOption) as String,  "|", 0);
+        //thetaOption = f.toArray(WatchUi.loadResource($.Rez.Strings.thetaOption) as String,  "|", 0);
+        planetSizeOption = f.toArray(WatchUi.loadResource($.Rez.Strings.planetSizeOption) as String,  "|", 0);
+        planetsOption = f.toArray(WatchUi.loadResource($.Rez.Strings.planetsOption) as String,  "|", 0);
         //deBug("loadSettingsOpt finished",[]);
     }
 
@@ -521,12 +521,12 @@ class SolarSystemSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
 
 /*
 function loadPlanetsOpt(){
-    //var po1 = toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
-    //var po2 = toArray(WatchUi.loadResource($.Rez.Strings.planets_Options2) as String,  "|", 0);
-    //var po3 = toArray(WatchUi.loadResource($.Rez.Strings.planets_Options3) as String,  "|", 0);
+    //var po1 = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
+    //var po2 = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options2) as String,  "|", 0);
+    //var po3 = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options3) as String,  "|", 0);
     //planetsOption_values=[po1, po2, po3];
     //deBug("lpo before: ", allPlanets);
-    allPlanets = toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
+    allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
     //deBug("lpo after: ", allPlanets);
 
 }*/
@@ -548,35 +548,38 @@ function getPlanetAbbreviation(index) {
 }
 */
 
+module mpo {
+
 function makePlanetsOpt(val){
-    //deBug("mpo: ", allPlanets);
-    //deBug("mpo2: ", [val, planetsOption_value]);
-    var ret = []; //so, array2 = array1 only passes a REFERENCE to the array, they are both still the same array with different names.  AARRGGgH!!
-    //So if you DON'T want this you need to do some tricks
-    if (val == 2) {
-                ret = [   //option #3, dwarf planets
-        allPlanets[0],
-        allPlanets[1],
-        allPlanets[3],
-        allPlanets[4],
-        allPlanets[6],
-        allPlanets[7],
-        ];
-        //deBug("mpo3: ", ret);
-        ret.addAll(allPlanets.slice(-7, null));
+        //deBug("mpo: ", allPlanets);
+        //deBug("mpo2: ", [val, planetsOption_value]);
+        var ret = []; //so, array2 = array1 only passes a REFERENCE to the array, they are both still the same array with different names.  AARRGGgH!!
+        //So if you DON'T want this you need to do some tricks
+        if (val == 2) {
+                    ret = [   //option #3, dwarf planets
+            allPlanets[0],
+            allPlanets[1],
+            allPlanets[3],
+            allPlanets[4],
+            allPlanets[6],
+            allPlanets[7],
+            ];
+            //deBug("mpo3: ", ret);
+            ret.addAll(allPlanets.slice(-7, null));
 
-        } //all objects
-    if (val ==1 ) {
-        ret.addAll(allPlanets.slice(0,13));
-    } //Sun thru Pluto,  trad. planets
-     else {
-        
-        ret.addAll(allPlanets); //to ensure it is a COPY just just a reference to same array
+            } //all objects
+        if (val ==1 ) {
+            ret.addAll(allPlanets.slice(0,13));
+        } //Sun thru Pluto,  trad. planets
+        else {
+            
+            ret.addAll(allPlanets); //to ensure it is a COPY just just a reference to same array
 
-     }
-    
-    
-    //deBug("mpo4: ", ret);
-    return ret;
+        }
         
+        
+        //deBug("mpo4: ", ret);
+        return ret;
+            
+    }
 }

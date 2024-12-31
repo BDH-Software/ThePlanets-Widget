@@ -14,7 +14,7 @@ import Toybox.System;
 import Toybox.Lang;    
 //degree_sign= u'\N{DEGREE SIGN}';
 
-//module SSFunc {
+
 
     const sidereal_to_solar = 1.00273790935; //sidereal to solar time ratio 86400/86164.0905
 
@@ -22,6 +22,9 @@ import Toybox.Lang;
 
     var FN_obliq_deg as Lang.float = 23.4392911;
     var FN_obliq_save_time_add_hrs = null;
+
+(:glance)
+module f {
 
     function normalize(degrees) {  
         /*
@@ -531,19 +534,7 @@ public function isSafeValue(x as Number or Long or Float or Double) as Boolean {
 */
 
 
-function deBug(label, ary) {
-    System.println (label + ": " + ary);
-    //if (ary == null) {System.println(" NULL!"); return;}
 
-    /*if (ary instanceof Lang.Array) {
-        for (var i = 0; i< ary.size(); i++) {
-        System.print(ary[i] + " : ");
-        } 
-    }else {
-        System.print(ary);
-    }
-    System.println("");*/
-}
 
 /*
 function intersect_array (a, b) {
@@ -557,3 +548,31 @@ function intersect_array (a, b) {
 
 }
 */
+function deBug(label, ary) {
+    System.println (label + ": " + ary);
+    //if (ary == null) {System.println(" NULL!"); return;}
+
+    /*if (ary instanceof Lang.Array) {
+        for (var i = 0; i< ary.size(); i++) {
+        System.print(ary[i] + " : ");
+        } 
+    }else {
+        System.print(ary);
+    }
+    System.println("");*/
+}
+}
+
+function deBug(label, ary) {
+    System.println (label + ": " + ary);
+    //if (ary == null) {System.println(" NULL!"); return;}
+
+    /*if (ary instanceof Lang.Array) {
+        for (var i = 0; i< ary.size(); i++) {
+        System.print(ary[i] + " : ");
+        } 
+    }else {
+        System.print(ary);
+    }
+    System.println("");*/
+}

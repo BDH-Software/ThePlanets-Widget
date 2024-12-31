@@ -10,12 +10,25 @@ var EBBF_next_mode = 1;
 
 //! Handle input on initial view
 class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
-    private var _mainview;
+    private var _mainview as SolarSystemBaseView?;
     //! Constructor
     public function initialize(view) {
         BehaviorDelegate.initialize();
         //System.println("delegate initl..");
         _mainview = view;
+        $.speeds = [-24*365*10, -24*365*7, -24*365*4, -24*365*2,-24*365.2422, -24*365, //0; year multiples (added 0)
+                -24*183, -24*122, -24*91, -24*61, -24*31, -29.53059*24, -24*15, //6; 1/2, 1/4, 1/12, 1/24 of a year (added 1)
+                -24*7,-24*5, -24*3, -24*2-15/60.0, -24*2, -24*2+15/60.0, -24-15/60.0, -24, -24+15/60.0, //11; Days up to a week, with 1&2 days +1/-1 hrsso you can adjust them easily
+                -12,-6,-4,-2, -1, //22;Hours (added 1)
+                -30/60.0,-15/60.0,-10/60.0, -5/60.0, -3/60.0, -2/60.0, -1/60.0,  //27; minutes (added 0)
+                1/600000.0,  //34; Zero ( but still has very slight movement, also avoids /0 just in case)
+                1/60.0, 2/60.0, 3/60.0, 5/60.0, 10/60.0, 15/60.0, 30/60.0,  //35; minutes (added 0)
+                1,2,4,6,12,  //42; Hours (added 1)
+                24-15/60.0, 24,24+15/60.0, 24*2-15/60.0, 24*2,24*2+15/60.0, 24*3,24*5, 24*7, //47; Days up to a week (added 0)
+                24*15,29.53059*24, 24*31, 24*61, 24*91, 24*122, 24*183, 24*300, //56;300 days 1/2, 1/4, 1/12, 1/24 of a year (added 1)
+                24*365,24*365.2422, 24 * 400, 24 * 500, 24*365*2, 24*365*4, 24*365 * 7, 24*365 * 10]; //64; year multiples (added 0)
+var speeds_index; //the currently used speed that will be added to TIME @ each update of screen  //
+//var screen0Move_index = 33;
     }
     var last_animation_count = 0;
     var animation_retry_tally = 0;
@@ -160,7 +173,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
 
             //solarSystemView_class.sendMessage(1000000, ["==THE PLANETS==", "SELECT: Next mode", "BACK: Exit", "or: UP/DOWN", ""]);
             /*
-            var dMsg = toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
+            var dMsg = f.toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
             solarSystemView_class.sendMessage(1000000, [dMsg[0], dMsg[1], dMsg[2], dMsg[3], ""]);
 
             $.EBBF_next_mode = ($.view_mode + 1) % $.num_view_modes; 
@@ -204,6 +217,8 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         $.buttonPresses++; 
         $.last_button_time_sec = $.time_now.value();
 
+        /*
+
         if ($.exiting_back_button_firstpress) {
 
             $.EBBF_next_mode = ($.EBBF_next_mode + mult) % $.num_view_modes; 
@@ -216,30 +231,31 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
 
             
             
-            var changeModeOption = toArray(WatchUi.loadResource($.Rez.Strings.changeModeOption) as String,  "|", 0);
-            var changeModeOption_size = changeModeOption.size();
-            if ($.EBBF_next_mode > changeModeOption_size) {$.EBBF_next_mode = changeModeOption_size;}
+            //var changeModeOption = f.toArray(WatchUi.loadResource($.Rez.Strings.changeModeOption) as String,  "|", 0);
+            //var changeModeOption_size = changeModeOption.size();
+            //if ($.EBBF_next_mode > changeModeOption_size) {$.EBBF_next_mode = changeModeOption_size;}
 
-            var nm = changeModeOption[$.EBBF_next_mode];
+            //var nm = changeModeOption[$.EBBF_next_mode];
 
-            var dMsg = toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
+            var dMsg = f.toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
             //if ($.EBBF_next_mode == view_mode) {nm = "Current (" + nm.substring(0,6) + "...)";}
             //if ($.EBBF_next_mode == view_mode + 1) {nm = "Next (" + nm.substring(0,6) + "...)";}
-            if ($.EBBF_next_mode == view_mode) {nm = dMsg[4] + nm.substring(0,6) + dMsg[6];}
-            if ($.EBBF_next_mode == view_mode + 1) {nm = dMsg[5] + nm.substring(0,6) + dMsg[6];}
+            //if ($.EBBF_next_mode == view_mode) {nm = dMsg[4] + nm.substring(0,6) + dMsg[6];}
+            //if ($.EBBF_next_mode == view_mode + 1) {nm = dMsg[5] + nm.substring(0,6) + dMsg[6];}
 
 
             //solarSystemView_class.sendMessage(1000000, ["==THE PLANETS==", "SEL: " + nm, "BACK: Exit", "or: UP/DOWN", ""]);
-            solarSystemView_class.sendMessage(1000000, [dMsg[0], dMsg[7] + nm, dMsg[8], dMsg[9], ""]);
+            solarSystemView_class.sendMessage(1000000, [dMsg[0], dMsg[7], dMsg[8], dMsg[9], ""]);
 
             //$.exiting_back_button_firstpress=false;
             //$.change_mode_select_button_firstpress = false;  
-            changeModeOption = null; 
+            //changeModeOption = null; 
             return; 
         }
+        */
 
-        $.exiting_back_button_firstpress=false;
-        $.change_mode_select_button_firstpress = false;
+        //$.exiting_back_button_firstpress=false;
+        //$.change_mode_select_button_firstpress = false;
         
         $.run_oneTime = true; //in case we're stopped, it will run just once
         if (buttonPresses == 1) {return;} //1st buttonpress just gets out of intro titles
@@ -418,11 +434,11 @@ function changeModes(previousMode){
         //$.Options_Dict[orrZoomOption_enum] = orrZoomOption_default;
         //var UUD = "Use Up/Down/";
         //var SS="Start/Stop";
-        var dMsg = toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
+        var dMsg = f.toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
         var UUD = dMsg[10];
         var SS = dMsg[11];
 
-        var changeModeOption_short = toArray(WatchUi.loadResource($.Rez.Strings.changeModeOption_short) as String,  "|", 0);
+        var changeModeOption_short = f.toArray(WatchUi.loadResource($.Rez.Strings.changeModeOption_short) as String,  "|", 0);
 
         
            /* case (0):
