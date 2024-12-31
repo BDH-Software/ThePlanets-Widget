@@ -1005,7 +1005,7 @@ class SolarSystemBaseView extends WatchUi.View {
         
         
         var v = new vs();
-        pp = v.planetCoord($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs, :ecliptic_latlon, whh);   
+        pp = v.planetCoord($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs, :ecliptic_latlon, whh, :widget);   
         v = null;
         
         //vspo87a = null;
@@ -2111,8 +2111,8 @@ class SolarSystemBaseView extends WatchUi.View {
     function showMessage(dc, jstify) {
         var msg = message;
         if ($.buttonPresses < 1) {
-            var intro_msg = f.toArray(WatchUi.loadResource($.Rez.Strings.introMessages) as String,  "|", 0);
-            var tp = intro_msg[0];
+            //var intro_msg = f.toArray(WatchUi.loadResource($.Rez.Strings.introMessages) as String,  "|", 0);
+            //var tp = intro_msg[0];
             /*
             if (!$.Options_Dict[smallerBanners]) {
                 //making all timings 1/2 the rate because it is so much
@@ -2133,7 +2133,7 @@ class SolarSystemBaseView extends WatchUi.View {
             */
 
             if ( ($.time_now.value() - $.start_time_sec) < 4 ) {
-                msg = [$.time_now.value() + 1, tp.substring(0,3),tp.substring(4,tp.length()), " ", "Now..."];    
+                msg = [$.time_now.value() + 1, "THE", "PLANETS", " ", "Now..."];    
             } else {
                 $.buttonPresses ++; //if we are in "no help banners" mode & the banner disappears, then we no longer want to trap that very first buttonpress
             }

@@ -122,7 +122,7 @@ class vs {
     public var j2000= 2451543.5f; //epoch used for some calculations (Pluto) from Ioannis
 
     // types are :ecliptic_latlon and :helio_xyz
-    public function planetCoord (now_info, timeZoneOffset_sec, dst, timeAdd_hrs as Lang.double, type, req_array) {
+    public function planetCoord (now_info, timeZoneOffset_sec, dst, timeAdd_hrs as Lang.double, type, req_array, context) {
 
         //var sml_days  = synodicMonthLength_days(now_info, timeZoneOffset_sec, dst );
         //var base_JD = f.julianDate (2025, 1, 29 , 12, 36, 0, 0);
@@ -144,10 +144,10 @@ class vs {
         //var vhh = $.planetsOption_values[planetsOption_value];
         var vhh = {};
         if (req_array != null) {vhh = req_array;}
-        else {
+        /*else {
           makePlanetsOpt(planetsOption_value);
           if (type != :helio_xyz) { vhh =makePlanetsOpt(1);}
-        }
+        }*/
 
         
 
@@ -165,13 +165,17 @@ class vs {
             if (sin (allPlanets[6],vhh)) {ret.put (allPlanets[6], vspo_2_J2000(getJupiter(t), earth, true, type));} 
             if (sin (allPlanets[7],vhh)) {ret.put (allPlanets[7], vspo_2_J2000(getSaturn(t), earth, true, type));}
 
-            var v2 = new vs2(); 
-            if (sin (allPlanets[8],vhh)) {ret.put (allPlanets[8], vspo_2_J2000(v2.getUranus(t), earth, true, type));} 
-            if (sin (allPlanets[9],vhh)) {ret.put (allPlanets[9], vspo_2_J2000(v2.getNeptune(t), earth, true, type));}
             if (sin (allPlanets[0],vhh)) {ret.put (allPlanets[0], vspo_2_J2000([0,0,0], earth, true, type));} //SUN
-            if (sin (allPlanets[10],vhh)) {ret.put (allPlanets[10], vspo_2_J2000(v2.getPluto(JD), earth, false, type));}
 
-            v2 = null;
+            if (context != :glance) {
+               var v2 = new vs2(); 
+               if (sin (allPlanets[8],vhh)) {ret.put (allPlanets[8], vspo_2_J2000(v2.getUranus(t), earth, true, type));} 
+               if (sin (allPlanets[9],vhh)) {ret.put (allPlanets[9], vspo_2_J2000(v2.getNeptune(t), earth, true, type));}
+               
+               if (sin (allPlanets[10],vhh)) {ret.put (allPlanets[10], vspo_2_J2000(v2.getPluto(JD), earth, false, type));}
+
+               v2 = null;
+            }
         
         
 

@@ -67,7 +67,7 @@ var sm;
 
         allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
         var v = new vs();
-        pp = v.planetCoord($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs, :ecliptic_latlon, allPlanets.slice(0,10));
+        pp = v.planetCoord($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs, :ecliptic_latlon, allPlanets.slice(0,10), :glance);
         v = null;
         allPlanets = null;
 

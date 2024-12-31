@@ -71,4 +71,9 @@ class SSMenuDel extends WatchUi.Menu2InputDelegate {
 
         }
     }
+
+    function onBack() {
+        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.requestUpdate(); //often the screen is black after return from Menu, at least in the sim
+    }
 }

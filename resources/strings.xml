@@ -22,14 +22,14 @@
 <!-- <string id="changeModeOption">Exit App|Sky, by hr|Sky, by day</string> -->
 
 <!--<string id="changeModeOption_short">Exit|Sky(hr)|Sky(day)|InnerSS(top)|InnerSS(side)|OuterSS(top)|OuterSS(side)|FarSS(top)|FarSS(side)</string> -->
-<string id="changeModeOption_short">Exit|Sky (now)|(Use SEL/UP/DOWN):|Move by 24 hrs</string>
+<string id="changeModeOption_short">Exit|Sky (now)|(Use SEL/UP/DOWN):|Time incr 24 hrs</string>
 <!-- var labelDisplayOption=[ "Always On", "Always Off", "Frequent Flash", "Infrequent Flash", "Random Flash"]; -->
-<string id="labelDisplayOption">Always On|Always Off|Frequent Flash|Infrequent Flash|Random Flash</string>
-<string id="refreshOption">10 per sec.|5 per sec.|4 per sec.| 3 per sec.|2 per sec.</string>
+<!-- <string id="labelDisplayOption">Always On|Always Off|Frequent Flash|Infrequent Flash|Random Flash</string>
+<string id="refreshOption">10 per sec.|5 per sec.|4 per sec.| 3 per sec.|2 per sec.</string> -->
 <!-- <string id="thetaOption">[T]ime Step|[V]iewpoint</string> -->
-<string id="planetSizeOption">XX Small|Very Small|Small|Normal|Large|Very Large|XXLarge</string>
+<!-- <string id="planetSizeOption">XX Small|Very Small|Small|Normal|Large|Very Large|XXLarge</string> -->
 <string id="planetsOption">All objects|Only visible planets</string>
-<string id="introMessages">THE PLANETS|UP/DOWN/SWIPE:|Time Forward|/Back|UP/DOWN/SWIPE:|OR: Time Faster|/Slower|SELECT/TAP|Start/Stop|Time|BACK:|Change Modes|or Exit|MENU:|Change Options, Help|or Reset Time</string>
+<!-- <string id="introMessages">THE PLANETS|UP/DOWN/SWIPE:|Time Forward|/Back|UP/DOWN/SWIPE:|OR: Time Faster|/Slower|SELECT/TAP|Start/Stop|Time|BACK:|Change Modes|or Exit|MENU:|Change Options, Help|or Reset Time</string> -->
 
 <!-- <string id="delegateMessages">==THE PLANETS==|SELECT: Next mode|BACK: Exit|or: UP/DOWN|Current (|Next (|...)|SEL: |BACK: Exit|or: UP/DOWN|(Use Up/|Down/Start)|==Current Sky (by hr)==|==Current Sky (by day)==|==Inner Solar==|==System-Top View==|==System-Side View==|==Outer Solar==|==Far Outer==|==Solar System-Top==|==Solar System-Side==</string> -->
 
