@@ -5,7 +5,7 @@ using Toybox.System;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\sunriseset2.mc"; @line = 17; ]
 import Toybox.Lang;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\sunriseset2.mc"; @line = 106; ]
-module srs {
+class srs{
     [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\sunriseset2.mc"; @line = 106; ]
     <init> {
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\sunriseset2.mc" 172 19 ]
@@ -36,7 +36,12 @@ module srs {
         %tmp.31 = aputv %tmp.30 %tmp.28 %tmp.29;
         putv self :sunEventData %tmp.31;
     }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\sunriseset2.mc"; @line = 106; ]
+    static
+    <init> {
+    }
     [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\sunriseset2.mc"; @line = 107; ]
+    static
     enum {
         [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\sunriseset2.mc"; @line = 108; @position = 8; ]
         GMST_MID_HR,
@@ -56,6 +61,7 @@ module srs {
         NOON
     }
     [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\sunriseset2.mc"; @line = 172; @position = 19; ]
+    public
     var sunEventData;
     [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\sunriseset2.mc"; @line = 230; ]
     function constrain(v) {

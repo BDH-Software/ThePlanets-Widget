@@ -46,18 +46,18 @@ class SSMenuDel extends WatchUi.Menu2InputDelegate {
         if (menuItem instanceof ToggleMenuItem) {
             
             var ret = menuItem.getId();  
-            deBug("menret", [ret, menuItem]);
+            //deBug("menret", [ret, menuItem]);
             $.Options_Dict[ret] = menuItem.isEnabled();
             Storage.setValue(ret, menuItem.isEnabled());   
 
-            f.deBug("menu", [Options_Dict[extraPlanets], Options_Dict]);   
+            //f.deBug("menu", [Options_Dict[extraPlanets], Options_Dict]);   
             if (ret == planetSizeL && menuItem.isEnabled) {                
                 $.Options_Dict[planetSizeS] =false;
                 Storage.setValue(planetSizeS, false);
                 var r2 =  save_menu.findItemById(planetSizeS);
-                f.deBug("r2", r2);
+                //f.deBug("r2", r2);
                 var x = save_menu.getItem(r2);
-                f.deBug("xr2", x);
+                //f.deBug("xr2", x);
                 x.setEnabled(false);
             }   
             if (ret == planetSizeS && menuItem.isEnabled) {                

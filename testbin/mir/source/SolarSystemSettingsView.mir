@@ -36,12 +36,8 @@ var lonOption_default = 180;
 var latlonOption_value;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 173; @position = 4; ]
 var planetSizeOption_values;
-[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 186; @position = 4; ]
-var planetSizeOption_size = 7;
-[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 187; @position = 4; ]
-var planetSizeOption_default = 3;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 188; @position = 4; ]
-var planetSizeFactor = 1.0;
+var planetSizeFactor = 1.5;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 218; @position = 4; ]
 var eclipticSizeFactor = 1.0;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 7; ]

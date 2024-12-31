@@ -98,13 +98,13 @@ var sm;
 
                 for (var j=0;j<=sorted_ang.size();j++) {
                     var myStats = System.getSystemStats();
-                    System.println("Mem" + myStats.totalMemory + " " + myStats.usedMemory + " " + myStats.freeMemory);
-                    f.deBug("PP", [keys, ky, pp[ky], j, sorted_ang]);
+                    //System.println("Mem" + myStats.totalMemory + " " + myStats.usedMemory + " " + myStats.freeMemory);
+                    //f.deBug("PP", [keys, ky, pp[ky], j, sorted_ang]);
                     if (sorted_ang[j] == null || pp[ky] < pp[keys[sorted_ang[j]]]) {
 
                         var s1 = sorted_ang.slice(0,j);
                         var s2 = sorted_ang.slice(j,sorted_ang.size()-1);
-                        f.deBug("SRT", [s1, s2, i, j]);
+                        //f.deBug("SRT", [s1, s2, i, j]);
                         sorted_ang = s1;
                         sorted_ang.add(i);
                         sorted_ang.addAll(s2);
@@ -116,7 +116,7 @@ var sm;
             
 
         }
-        f.deBug("angs", [sorted_ang, pp]);
+        //f.deBug("angs", [sorted_ang, pp]);
         am = "A:";
         pm = "P:";
         var hitsun = false;
@@ -125,7 +125,7 @@ var sm;
         for (var i = 0; i < sorted_ang.size() * 2; i++) {
             var ky = keys[sorted_ang[i % sorted_ang.size()]];
             //var ang_rad = -srs.equatorialLong2eclipticLong_rad(Math.to Radians(pp[ky][0]), Math.toRadians(obliq_deg));  
-            f.deBug("ky", [i,ky]);     
+            //f.deBug("ky", [i,ky]);     
 
             if (ky.equals("Sun")) {
                 if (hitsun) {break;}
@@ -134,18 +134,18 @@ var sm;
                 sun = i;
                 continue;
             }
-            f.deBug("ky", [i,ky, hitsun]);     
+            //f.deBug("ky", [i,ky, hitsun]);     
             if (hitsun) {
                 f.deBug("norm1", [f.normalize(pp[ky] - sun_ang), pp[ky], ky, sun_ang]);
                 if (f.normalize(pp[ky] - sun_ang) < 300) 
                 {
-                  am += ky.substring(0,2); 
+                  am += ky.substring(0,3) + " "; 
                 }
-                f.deBug("sas", (sun - i - 1 + 2* sorted_ang.size()) % sorted_ang.size());
+                //f.deBug("sas", (sun - i - 1 + 2* sorted_ang.size()) % sorted_ang.size());
                 var k2= (2*sun - i + 2* sorted_ang.size())%sorted_ang.size();
-                f.deBug("norm2", [f.normalize(sun_ang - pp [keys[sorted_ang[k2]]]), pp[keys[sorted_ang[k2]]], k2, sun_ang, keys[sorted_ang[k2]]]);
+                //f.deBug("norm2", [f.normalize(sun_ang - pp [keys[sorted_ang[k2]]]), pp[keys[sorted_ang[k2]]], k2, sun_ang, keys[sorted_ang[k2]]]);
                 if ( f.normalize(sun_ang - pp[keys[sorted_ang[k2]]]) < 300) {
-                    pm += keys[sorted_ang[k2]].substring(0,2);
+                    pm += keys[sorted_ang[k2]].substring(0,3) + " ";
                 }
             }
         }
@@ -185,7 +185,7 @@ var sm;
 
         //var pp = vs.planetCoord($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs, :ecliptic_latlon, ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn"]); 
 
-        f.deBug("ap", allPlanets);
+        //f.deBug("ap", allPlanets);
 
         
         //allPlanets = null; 
@@ -208,11 +208,26 @@ var sm;
         
 
 
+        var testStr = am;
+        if (pm.length()>am.length()) {testStr = pm;}
+        testStr = testStr.substring(0,16);
+        var screenwidth = dc.getWidth();
 
+        var fontsize = 3;
+        for (var i = 1; i<5; i++) { //next fonts > 4 are number only 
+            var w = dc.getTextWidthInPixels(testStr, i);
+            f.deBug("width", [i, w]);
+            if (w > screenwidth) {
+                fontsize = i-1;
+                break;
+            }
 
-
+        }
         
         //var angs ={};
+
+        
+        //var textWidth = getTextWidthInPixels(text as Lang.String, font as Graphics.FontType   
         
         
 
@@ -221,8 +236,9 @@ var sm;
         
 
         dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(0,0, Graphics.FONT_SMALL, am, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(0,dc.getFontHeight(Graphics.FONT_SMALL), Graphics.FONT_SMALL, pm, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(0,0, fontsize, am, Graphics.TEXT_JUSTIFY_LEFT );
+        //dc.drawText(0,dc.getFontHeight(Graphics.FONT_MEDIUM), Graphics.FONT_MEDIUM, pm, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(0,dc.getHeight()/2.0, fontsize, pm, Graphics.TEXT_JUSTIFY_LEFT );
 
 
 

@@ -1218,10 +1218,11 @@ class SolarSystemBaseView extends WatchUi.View {
         sid = 0;
         
         eclipticSizeFactor = 1.0;
-        planetSizeFactor = 1.5;
-        if ( $.Options_Dict[planetSizeS]) {planetSizeFactor = 0.75;}    
-        else if ( $.Options_Dict[planetSizeL] ) { planetSizeFactor = 3.0;}
-        if (planetSizeFactor> 2.0) {eclipticSizeFactor = .8; }
+        planetSizeFactor = 1.75;
+        if ( $.Options_Dict[planetSizeS]) {planetSizeFactor = 0.95;}    
+        else if ( $.Options_Dict[planetSizeL] ) { planetSizeFactor = 2.5;}
+        if (planetSizeFactor> 2.0) {eclipticSizeFactor = .9; }
+        else if (planetSizeFactor>= 1.5) {eclipticSizeFactor = .95; }
 
         //sid = 5.5*15;
         init_findSpot();

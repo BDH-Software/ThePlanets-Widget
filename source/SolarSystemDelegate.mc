@@ -27,7 +27,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
                 24-15/60.0, 24,24+15/60.0, 24*2-15/60.0, 24*2,24*2+15/60.0, 24*3,24*5, 24*7, //47; Days up to a week (added 0)
                 24*15,29.53059*24, 24*31, 24*61, 24*91, 24*122, 24*183, 24*300, //56;300 days 1/2, 1/4, 1/12, 1/24 of a year (added 1)
                 24*365,24*365.2422, 24 * 400, 24 * 500, 24*365*2, 24*365*4, 24*365 * 7, 24*365 * 10]; //64; year multiples (added 0)
-var speeds_index; //the currently used speed that will be added to TIME @ each update of screen  //
+//var speeds_index; //the currently used speed that will be added to TIME @ each update of screen  //
 //var screen0Move_index = 33;
     }
     var last_animation_count = 0;
@@ -435,8 +435,8 @@ function changeModes(previousMode){
         //var UUD = "Use Up/Down/";
         //var SS="Start/Stop";
         var dMsg = f.toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
-        var UUD = dMsg[10];
-        var SS = dMsg[11];
+        //var UUD = dMsg[10];
+        //var SS = dMsg[11];
 
         var changeModeOption_short = f.toArray(WatchUi.loadResource($.Rez.Strings.changeModeOption_short) as String,  "|", 0);
 
