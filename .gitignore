@@ -2,4 +2,8 @@
 !/bin/*.prg
 !/bin/*.iq
 !/bin/*.debug.xml
-
+/test-bin/*
+/testbin/*
+!/testbin/*.prg
+!/testbin/*.iq
+!/testbin/*.debug.xml
