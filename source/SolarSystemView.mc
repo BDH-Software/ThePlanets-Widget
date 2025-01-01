@@ -582,7 +582,7 @@ class SolarSystemBaseView extends WatchUi.View {
         $.time_now = Time.now();
         
         //In case a button hasn't been pressed in X seconds, stop.  So as to preserve battery.
-        if ($.time_now.value() > $.last_button_time_sec + 300 ) {
+        if ($.time_now.value() > $.last_button_time_sec + 60 ) {
         //if ($.time_now.value() > $.last_button_time_sec + 30 ) {  //for testing
             $.started = false;
             $.run_oneTime = true;
