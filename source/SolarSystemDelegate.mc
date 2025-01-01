@@ -401,13 +401,23 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
 
             //$.buttonPresses++;
             //$.last_button_time_sec = $.time_now.value();
-            $.exiting_back_button_firstpress=false;
+            $.exiting_back_button_firstpress=false;\
             $.change_mode_select_button_firstpress = false;
             //settings_view = new $.SolarSystemSettingsView();
             //settings_delegate = new $.SolarSystemSettingsDelegate();
         
             //pushView(settings_view, settings_delegate, WatchUi.SLIDE_IMMEDIATE);
-            pushView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
+            //var b = new SSMenuDel();
+            //var a = new SSMenu();
+            
+            //pushView(a, b, WatchUi.SLIDE_IMMEDIATE);
+
+            //for devices that can't handle Menu2, pushing menu just does nothing.
+            if ((WatchUi has :Menu2)) {
+               //System.exit();
+               pushView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
+            }
+            
 
 
 

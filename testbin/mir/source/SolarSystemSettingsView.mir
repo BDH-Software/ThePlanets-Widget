@@ -6,8 +6,6 @@ import Toybox.Graphics;
 import Toybox.Lang;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 10; ]
 import Toybox.WatchUi;
-[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 52; @position = 4; ]
-var allPlanets;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 62; @position = 4; ]
 var planetsOption_size = 3;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 63; @position = 4; ]
@@ -42,37 +40,34 @@ var planetSizeFactor = 1.5;
 var eclipticSizeFactor = 1.0;
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc"; @line = 7; ]
 <init> {
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc" 52 4 ]
-    %tmp.1 = newa 0;
-    putv self :allPlanets %tmp.1;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc" 64 4 ]
-    %tmp.3 = getv ? :planetsOption_default;
-    putv self :planetsOption_value %tmp.3;
+    %tmp.2 = getv ? :planetsOption_default;
+    putv self :planetsOption_value %tmp.2;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc" 89 4 ]
-    %tmp.4 = newa 5;
-    %tmp.5 = 10.0;
-    %tmp.6 = dup %tmp.4;
-    %tmp.7 = aputv %tmp.6 0 %tmp.5;
-    %tmp.8 = 5.0;
-    %tmp.9 = dup %tmp.7;
-    %tmp.10 = aputv %tmp.9 1 %tmp.8;
-    %tmp.11 = 4.0;
-    %tmp.12 = dup %tmp.10;
-    %tmp.13 = aputv %tmp.12 2 %tmp.11;
-    %tmp.14 = 3.0;
-    %tmp.15 = dup %tmp.13;
-    %tmp.16 = aputv %tmp.15 3 %tmp.14;
-    %tmp.17 = 2.0;
-    %tmp.18 = dup %tmp.16;
-    %tmp.19 = aputv %tmp.18 4 %tmp.17;
-    putv self :refreshOption_values %tmp.19;
+    %tmp.3 = newa 5;
+    %tmp.4 = 10.0;
+    %tmp.5 = dup %tmp.3;
+    %tmp.6 = aputv %tmp.5 0 %tmp.4;
+    %tmp.7 = 5.0;
+    %tmp.8 = dup %tmp.6;
+    %tmp.9 = aputv %tmp.8 1 %tmp.7;
+    %tmp.10 = 4.0;
+    %tmp.11 = dup %tmp.9;
+    %tmp.12 = aputv %tmp.11 2 %tmp.10;
+    %tmp.13 = 3.0;
+    %tmp.14 = dup %tmp.12;
+    %tmp.15 = aputv %tmp.14 3 %tmp.13;
+    %tmp.16 = 2.0;
+    %tmp.17 = dup %tmp.15;
+    %tmp.18 = aputv %tmp.17 4 %tmp.16;
+    putv self :refreshOption_values %tmp.18;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemSettingsView.mc" 111 4 ]
-    %tmp.20 = newa 2;
-    %tmp.21 = 38;
-    %tmp.22 = dup %tmp.20;
-    %tmp.23 = aputv %tmp.22 0 %tmp.21;
-    %tmp.24 = -94;
-    %tmp.25 = dup %tmp.23;
-    %tmp.26 = aputv %tmp.25 1 %tmp.24;
-    putv self :latlonOption_value %tmp.26;
+    %tmp.19 = newa 2;
+    %tmp.20 = 38;
+    %tmp.21 = dup %tmp.19;
+    %tmp.22 = aputv %tmp.21 0 %tmp.20;
+    %tmp.23 = -94;
+    %tmp.24 = dup %tmp.22;
+    %tmp.25 = aputv %tmp.24 1 %tmp.23;
+    putv self :latlonOption_value %tmp.25;
 }

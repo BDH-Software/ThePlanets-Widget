@@ -7,7 +7,7 @@ import Toybox.Math;
 import Toybox.System;
 import Toybox.Application.Storage;
 
-var _planetIcon as BitmapResource?;
+//var _planetIcon as BitmapResource?;
 var newModeOrZoom = false;
 var speedWasChanged = false;
 var timeWasAdded = true; //helpful if this is true to make sure we DRAW SOMETHING at the start.
@@ -75,8 +75,8 @@ class SolarSystemBaseView extends WatchUi.View {
 
     
 
-        _planetIcon = WatchUi.loadResource($.Rez.Drawables.Jupiter) as BitmapResource;
-        allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
+        //_planetIcon = WatchUi.loadResource($.Rez.Drawables.Jupiter) as BitmapResource;        
+        //allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
 
         planetSizeOption_values=[
             0.5, 
@@ -604,7 +604,7 @@ class SolarSystemBaseView extends WatchUi.View {
         textDisplay_count ++;
         $.reset_date_stop = false;
         $.drawPlanetCount =0; //incremented when drawing each planet; refreshed on each new screen draw
-        if($.buttonPresses>0) {_planetIcon = null;}
+        //if($.buttonPresses>0) {_planetIcon = null;}
         planetRand = Math.rand(); //1 new random number for drawPlanet, per screen refresh
 
         if ($.view_mode != old_mode) {
@@ -906,16 +906,20 @@ class SolarSystemBaseView extends WatchUi.View {
         //whh = whh0;
         //whh = allPlanets.slice(0,4).add(allPlanets[5].addAll(allPlanets.slice(9,14))
         //whh = allPlanets; //
-        
+
+        var allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
+
         //deBug("allpl", allPlanets);
         whh = ["Ecliptic0", "Ecliptic90", "Ecliptic180", "Ecliptic270",allPlanets[4]]; //put first so they are UNDER the planets.  Moon is next so planets will go in front of it (it's large)
+        
         whh.addAll( allPlanets.slice(0,3)); ///so, array2 = array1 only passes a REFERENCE to the array, they are both still the same array with different names.  AARRGGgH!!
         //f.deBug("ap1", whh);
         whh.addAll(allPlanets.slice(5,8));
         //f.deBug("ap2", whh);
         if (Options_Dict[extraPlanets]) {
-            whh.addAll(allPlanets.slice(8,11));
+            whh.addAll(allPlanets.slice(8,12));
         }
+        allPlanets = null;
 
         //f.deBug("ap3", [whh, Options_Dict[extraPlanets], Options_Dict]);
 
@@ -2189,8 +2193,11 @@ class SolarSystemBaseView extends WatchUi.View {
         font = Graphics.FONT_TINY;
 
         var lineHeight = textHeight;
+        
+        var planetIcon = WatchUi.loadResource($.Rez.Drawables.Jupiter) as BitmapResource;
 
-        var hgt = _planetIcon == null ? lineHeight : _planetIcon.getHeight();
+        var hgt = planetIcon == null ? lineHeight : planetIcon.getHeight();
+        //var hgt = lineHeight;
 
         if (hgt>lineHeight) {lineHeight = (lineHeight + hgt)/2.0 ;}
 
@@ -2221,15 +2228,18 @@ class SolarSystemBaseView extends WatchUi.View {
                 
                 if (i>2 && msg[i-2]!=null &&  msg[i-2].find("THE") != null) { //"THE PLANETS" or "PLANETS"
                     //deBug("drawing0", [i, msg,[i-2], msg[i-1], msg[i]]);
-                    if (_planetIcon != null) {
+
+                    if (planetIcon != null) {
                         //deBug("drawing", [msg[i], msg[i+1], msg[i-1]]);
                         
-                        //var hgt = _planetIcon.getHeight();
-                        var wdt = _planetIcon.getWidth();
+                        //var hgt = planetIcon.getHeight();
+                        var wdt = planetIcon.getWidth();
                         //System.println("Hgt " + hgt);
                         //var ht = (2*lineHeight-2 - hgt)/2.0;//40=height of icon
                         var ht =(i-1)*lineHeight;//40=height of icon  "THE"
                         //var xtart = xc;
+
+                        /* //skip this for widget
                         if (msg[i-2].length()>8) { //"THE PLANETS"
                             ht = (i-1.9) * lineHeight;
                             if (hgt>=textHeight) {
@@ -2237,9 +2247,11 @@ class SolarSystemBaseView extends WatchUi.View {
                             }
                             //xtart = 0.2*xc;
                         }
+                        */
+
                         if (ht<0) {ht=0;}
                         //dc.setClip (0, ystart+2 + (i-1)*lineHeight,  2*xc,  (i+3)* lineHeight -2  );
-                        dc.drawBitmap(xstart - wdt/2.0, ht + ystart +2, _planetIcon);
+                        dc.drawBitmap(xstart - wdt/2.0, ht + ystart +2, planetIcon);
                         //deBug("drawing", [xstart - wdt/2.0, ht + ystart + 2]);
                         dc.clearClip();
                     }
@@ -2787,6 +2799,13 @@ class SolarSystemBaseView extends WatchUi.View {
                 //dc.drawLine(x-size/3.0, y+3*size/4, x-size/3.0, y-3*size/4);                      
                 drawARC (dc, 10, 27, x+size/10.0, y-size/6,size/2.8, pen, null);
                 break;
+            case "Ceres" :
+                
+                //dc.drawLine(x, y+4*size/5, x, y-4*size/5);
+                //dc.drawLine(x-size/7.0, y+2*size/4, x-size/7.0, y-2*size/4);                      
+                //dc.drawLine(x-size/3.0, y+3*size/4, x-size/3.0, y-3*size/4);                      
+                drawARC (dc, 10,2.5, x-size/30, y,size/1.9, pen, null);
+                break;       
 
              /*
              case "Chiron" :
@@ -3666,7 +3685,7 @@ class SolarSystemBaseView extends WatchUi.View {
         //System.println ("lastLoc: " + new_lastLoc );
 
         if (new_lastLoc != null && new_lastLoc.size()>1) {
-            $.Options_Dict.put(:lastLoc, new_lastLoc);            
+            $.Options_Dict.put(lastLoc_saved, new_lastLoc);            
             Storage.setValue(lastLoc_saved, new_lastLoc); //:lastLoc ==99, for some reason it won't take the symbol directly
         }
         

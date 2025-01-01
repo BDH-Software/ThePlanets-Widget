@@ -157,6 +157,8 @@ class vs {
         deBug("VSOP4: ", [$.planetsOption_value,$.planetsOption_values]);*/
 
         //if (planetsOption_value == 0 || planetsOption_value == 2 || type != :helio_xyz)
+
+        var allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
          
             if (sin (allPlanets[1],vhh)) {ret.put (allPlanets[1], vspo_2_J2000(getMercury(t), earth, true, type));}
             if (sin (allPlanets[2],vhh)) {ret.put (allPlanets[2], vspo_2_J2000(getVenus(t), earth, true, type));} 

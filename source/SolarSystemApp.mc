@@ -203,6 +203,7 @@ class SolarSystemBaseApp extends Application.AppBase {
                 
                 }
         }
+        defOptions = null;
         var ret = Storage.getValue(lastLoc_saved);
         if (ret != null) { $.Options_Dict.put(lastLoc_saved,ret);}
 

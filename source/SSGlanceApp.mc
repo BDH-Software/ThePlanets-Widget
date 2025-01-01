@@ -65,7 +65,7 @@ var sm;
 
         obliq_deg=  f.calc_obliq_deg ($.now_info, $.now);
 
-        allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
+        var allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
         var v = new vs();
         pp = v.planetCoord($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs, :ecliptic_latlon, allPlanets.slice(0,10), :glance);
         v = null;
@@ -139,13 +139,13 @@ var sm;
                 //f.deBug("norm1", [f.normalize(pp[ky] - sun_ang), pp[ky], ky, sun_ang]);
                 if (f.normalize(pp[ky] - sun_ang) < 300) 
                 {
-                  am += ky.substring(0,3) + " "; 
+                  am += ky.substring(0,2) + " "; 
                 }
                 //f.deBug("sas", (sun - i - 1 + 2* sorted_ang.size()) % sorted_ang.size());
                 var k2= (2*sun - i + 2* sorted_ang.size())%sorted_ang.size();
                 //f.deBug("norm2", [f.normalize(sun_ang - pp [keys[sorted_ang[k2]]]), pp[keys[sorted_ang[k2]]], k2, sun_ang, keys[sorted_ang[k2]]]);
                 if ( f.normalize(sun_ang - pp[keys[sorted_ang[k2]]]) < 300) {
-                    pm += keys[sorted_ang[k2]].substring(0,3) + " ";
+                    pm += keys[sorted_ang[k2]].substring(0,2) + " ";
                 }
             }
         }
@@ -210,7 +210,7 @@ var sm;
 
         var testStr = am;
         if (pm.length()>am.length()) {testStr = pm;}
-        testStr = testStr.substring(0,16);
+        testStr = testStr.substring(0,14);
         var screenwidth = dc.getWidth();
 
         var fontsize = 3;

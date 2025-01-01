@@ -33,9 +33,9 @@ class SSMenu extends WatchUi.Menu2{
         Menu2.addItem(new WatchUi.ToggleMenuItem(OptionsLabels[i], null, Options[i], $.Options_Dict[Options[i]]==true, null));
         }
 
-        planetAbbreviation_index = -1;
+        planetAbbreviation_index = 0;
         var pA = getPlanetAbbreviation();
-        Menu2.addItem(new WatchUi.MenuItem("Help & Planet Abbreviations", pA,helpOption_enum, {}));
+        Menu2.addItem(new WatchUi.MenuItem(pA[0], pA[1],helpOption_enum, {}));
         save_menu = self;
     }
 
@@ -43,17 +43,18 @@ class SSMenu extends WatchUi.Menu2{
     
     // Function to generate planet abbreviation and name
     function getPlanetAbbreviation() {
-        var helpSTR = f.toArray(WatchUi.loadResource($.Rez.Strings.help_strings) as String,  "|", 0);
-        planetAbbreviation_index = (planetAbbreviation_index + 1) %(allPlanets.size() + helpSTR.size() - 1); //-1 bec we are skipping SU=SUN
+        var allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
+        var helpSTR = (f.toArray(WatchUi.loadResource($.Rez.Strings.help_strings) as String,  "|", 0)).addAll(allPlanets.slice(1,15)); //start @ 1 to skip sun
+        if (helpSTR.size()%2==1) { helpSTR.add(""); }
+        
+        var t1 = (planetAbbreviation_index<helpSTR.size()-allPlanets.size()) ? helpSTR[planetAbbreviation_index]: helpSTR[planetAbbreviation_index].substring(0,2) + " " + helpSTR[planetAbbreviation_index];
 
-        //return the info from HelpSTR
-        if (planetAbbreviation_index < helpSTR.size()) {
-            return helpSTR[planetAbbreviation_index];
-        }   
-        //Otherwise, return it from the list of all planets
-        var tIndex = planetAbbreviation_index - helpSTR.size() + 1; //+1 bec we are skipping SU=SUN
-        var planetName = allPlanets[tIndex];
-        return planetName.substring(0, 2) + " " + planetName;
+        var t2 = (planetAbbreviation_index + 1 <helpSTR.size()-allPlanets.size()) ? helpSTR[planetAbbreviation_index + 1]: helpSTR[planetAbbreviation_index + 1].substring(0,2) + " " + helpSTR[planetAbbreviation_index + 1];
+
+        planetAbbreviation_index = (planetAbbreviation_index + 2) % (helpSTR.size()); //
+
+        return [t1, t2];
+        
         
     }
 }
@@ -98,13 +99,17 @@ class SSMenuDel extends WatchUi.Menu2InputDelegate {
         } else {
             //helpOption
             if(ret.equals(helpOption_enum)) {
-                //var index = $.Options_Dict[id] |0;                                          
-                menuItem.setSubLabel(save_menu.getPlanetAbbreviation());
+                //var index = $.Options_Dict[id] |0;                   
+                var pA = save_menu.getPlanetAbbreviation();
+                menuItem.setLabel(pA[0]);
+                menuItem.setSubLabel(pA[1]);
             }
         }
     }
 
     function onBack() {
+        save_menu = null;
+
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         WatchUi.requestUpdate(); //often the screen is black after return from Menu, at least in the sim
     }

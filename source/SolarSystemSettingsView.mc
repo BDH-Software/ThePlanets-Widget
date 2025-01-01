@@ -49,7 +49,7 @@ import Toybox.WatchUi;
      
 ];*/
 
-var allPlanets = [];
+//var allPlanets = [];
 /*
 var planetsOption_values=[
     ["Sun", "Mercury","Venus","Earth", "Moon","Mars","AsteroidA", "AsteroidB","Jupiter","Saturn","Uranus","Neptune","Pluto","Ceres","Chiron","Eris", "Gonggong","Quaoar", "Makemake", "Haumea"],
