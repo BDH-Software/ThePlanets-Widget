@@ -585,7 +585,7 @@ class SolarSystemBaseView extends WatchUi.View {
         if ($.time_now.value() > $.last_button_time_sec + 60 ) {
         //if ($.time_now.value() > $.last_button_time_sec + 30 ) {  //for testing
             $.started = false;
-            $.run_oneTime = true;
+            //$.run_oneTime = true;
         }
 
         //$.time_now = now; //for testing
