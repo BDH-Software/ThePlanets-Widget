@@ -10,15 +10,15 @@ This is the glance/widget version of The Planets.
  * _BACK_ moves to 2nd screen (time increment 24 hrs) and then _EXITS_
  * _START_ starts & stops time
  * _UP/DOWN_ move time forward/backward OR, if time is _STARTED_, makes time move faster/slower
- * _MENU_ allows you to change several options & see help/planet abbreviations
+ * _MENU_ allows you to change several options & see help/planet abbreviations, including: Show more or fewer planets, make planet size larger or smaller, show planet labels or not, view help tips & planet abbreviations.
 
 **HOW THE GLANCE WORKS**
  - Glance shows a two-line summary of which planets are up in the evening (P:) and the morning (A:).  Something like this:
    - _A:Me Ma Ju Sa_
    - _P:Mo Ve Sa Ju Ma_
-    -That means: In the morning, just before dawn, Mercury, Mars, Jupiter, and Saturn will be up (planets in order closest to the Sun to furthest).
-    -In the evening, just after sunset, the Moon, Venus, Saturn, Jupiter, and Mars will be out. Again, planets are in order from  the one closest to the sun to furthest. In this situation, at sunset the Moon, Venus, and Saturn, are in the west near the sunset, Jupiter has just risen in the east, and Mars will rise in the east in a couple of hours.
-   -If you want the exact details, tap Select or Start to move on to the widget, which will show a graphical representation of exactly where all the planets are now and will be in the morning or any other future time.
+    - That means: In the morning, just before dawn, Mercury, Mars, Jupiter, and Saturn will be up (planets in order closest to the Sun to furthest).
+    - In the evening, just after sunset, the Moon, Venus, Saturn, Jupiter, and Mars will be out. Again, planets are in order from  the one closest to the sun to furthest. In this situation, at sunset the Moon, Venus, and Saturn, are in the west near the sunset, Jupiter has just risen in the east, and Mars will rise in the east in a couple of hours.
+   - If you want the exact details of where the planets are & when the will rise, tap Select or Start to move on to the widget, which will show a graphical representation of exactly where all the planets are now and will be in the morning or any other future time.
 
 **HOW THE WIDGET WORKS**   
  - The Widget shows the ecliptic with all the visible planets (or some additional planets, including Neptune, Uranus, Pluto & Ceres) as a solar clock. You can instantly see which planets are up now, and then UP/DOWN/START to move time ahead or back and see what will be up later tonight or in the morning.  Or next week, next month, next year, next century, or millenium.
