@@ -4,13 +4,23 @@ It's a planetarium & naked-eye/binocular astronomy viewing guide on your wrist: 
 
 Additional markings on the Widget Solar Clock view show sunrise, sunset, moon phase, season - solstice, equinox - as seen from your location today and tonight, all viewable at a glance.  
 
-This is the glance/widget version of The Planets:
+This is the glance/widget version of The Planets.
+
+**BUTTONS**
+ *BACK moves to 2nd screen (time increment 24 hrs) and then EXITS
+ *START starts & stops time
+ *UP/DOWN move time forward/backward OR, if time is STARTED, makes time move faster/slower
+ *MENU allows you to change several options & see help/planet abbreviations
+
+**HOW THE GLANCE WORKS**
  - Glance shows a two-line summary of which planets are up in the evening (P:) and the morning (A:).  Something like this:
    -A:Me Ma Ju Sa
    -P:Mo Ve Sa Ju Ma
     -That means: In the morning, just before dawn, Mercury, Mars, Jupiter, and Saturn will be up  (planets in order closest to the Sun to furthest).
     -In the evening, just after sunset, the Moon, Venus, Saturn, Jupiter, and Mars will be out. Again, planets are in order from  the one closest to the sun to furthest. In this situation, the Moon, Venus, and Saturn, are in the west near the sunset, Jupiter has just risen in the east, and Mars will rise in the east in a couple of hours.
    -If you want the exact details, tap Select or Start to move on to the widget.
+
+**HOW THE WIDGET WORKS**   
  - The Widget shows the ecliptic with all the visible planets (or some additional planets, including Neptune, Uranus, Pluto & Ceres) as a solar clock. You can instantly see which planets are up now, and then UP/DOWN/START to move time ahead or back and see what will be up later tonight or in the morning.  Or next week, next month, next year, next century, or millenium.
 
 Watch tonight's sky, or the outer Solar System over the next 4000 years, unfold in beautiful animations and graphics.
