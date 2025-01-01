@@ -174,6 +174,8 @@ class vs {
                
                if (sin (allPlanets[10],vhh)) {ret.put (allPlanets[10], vspo_2_J2000(v2.getPluto(JD), earth, false, type));}
 
+               if (sin (allPlanets[11],vhh)) {ret.put (allPlanets[11], vspo_2_J2000(v2.getCeres(JD), earth, false, type));}
+
                v2 = null;
             }
         
@@ -752,6 +754,7 @@ function uranus_z(t){
         return ret;
 
    }
+   */
    
    public function getCeres (d){
      /*
@@ -764,7 +767,7 @@ function uranus_z(t){
         var e_ce=0.07913825487621974 + 1.8987E-8*ddd;
         var M_ce=113.4104433863731   + 0.21408169952325  * ddd ;
         */
-        /*
+        
  
         var EPOCH=  2458849.5f;
      
@@ -780,7 +783,7 @@ function uranus_z(t){
         //var  PER= 4.60851f;
         var N= .213870844f;
 
-        var newE = randomizeOrbit ("Ceres", EC, QR, W, IN, A, MA, d);
+        //var newE = randomizeOrbit ("Ceres", EC, QR, W, IN, A, MA, d);
 
 
 
@@ -789,12 +792,15 @@ function uranus_z(t){
         
         M=f.normalize(M);
 
-        var ret = f.Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
-        $.storLastR ["Ceres"] = Math.sqrt(ret[0]*ret[0] + ret[1]*ret[1] + ret[2]*ret[2]);
+        var ret = f.Planet_Sun(M, EC, A, QR, W, IN);
+
+        //var ret = f.Planet_Sun(M, newE[:EC], newE[:A], newE[:QR], newE[:W], newE[:IN]);
+        //$.storLastR ["Ceres"] = Math.sqrt(ret[0]*ret[0] + ret[1]*ret[1] + ret[2]*ret[2]);
         //System.println("XYZ: " + ret[0] + " " + ret[1] + " " + ret[2]);
         return ret;
 
    }
+   /*
 
    public function getChiron (d){
 
