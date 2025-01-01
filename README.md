@@ -1,5 +1,10 @@
 A planetarium on your Garmin smart watch - shows positions of sun & planets in the sky, and a moving top-down views of the solar system from close, medium, and wide views.  Includes several of the largest asteroids & dwarf planets.  
 
+This is the glance/widget version of The Planets:
+ - Glance shows a two-line summary of which planets are up in the evening (P:) and the morning (A:)
+ - 
+ - Widget shows the ecliptic with all the visible planets (or optionally all major planets) as a solar clock - you can instantly see which planets are up now, and then UP/DOWN/START to move time ahead or back and see what will be up later tonight or in the morning.  Or next week, next month, next year, next century, ormillenium.
+
 It's a planetarium & naked-eye/binocular astronomy viewing guide on your wrist: What is up tonight or right now? at a glance.
 
 Sunrise, sunset, moon phase, season - solstice, equinox - as seen from your location today and tonight, all viewable at a glance.  
@@ -22,13 +27,6 @@ The planetary motion model is based on algorithms from the sophisticated VSOP mo
  * Ur Uranus 
  * Ne Neptune     
  * Pl Pluto      
- * Er Eris (dwarf planet) 
- * Ha Haumea (dwarf planet) 
- * Ma Makemake (dwarf planet) 
- * Go Gonggong (dwarf planet) 
- * Qu Quaoar (ringed dwarf planet) 
- * Ce Ceres (dwarf planet/asteroid) 
- * Ch Chiron (ringed dwarf planet)
 
 This encompasses all of the Solar System planets and most of the larger dwarf planets.
 
