@@ -611,31 +611,19 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlan
         %tmp.33 = lgetv %i.4;
         %tmp.34 = invoke %tmp.28 %tmp.29(%tmp.31, %tmp.33);
         lputv %w.5 %tmp.34;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SSGlanceApp.mc" 219 12 ]
-        %tmp.36 = getv ? :f;
-        %tmp.37 = getv function %tmp.36 :deBug;
-        %tmp.38 = "width";
-        %tmp.39 = newa 2;
-        %tmp.41 = lgetv %i.4;
-        %tmp.42 = dup %tmp.39;
-        %tmp.43 = aputv %tmp.42 0 %tmp.41;
-        %tmp.45 = lgetv %w.5;
-        %tmp.46 = dup %tmp.43;
-        %tmp.47 = aputv %tmp.46 1 %tmp.45;
-        invoke %tmp.36 %tmp.37(%tmp.38, %tmp.47);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SSGlanceApp.mc" 220 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_220_12_223_12_if_stmt:
-        %tmp.49 = lgetv %w.5;
-        %tmp.51 = lgetv %screenwidth.2;
-        %tmp.52 = gt %tmp.49 %tmp.51;
-        bf %tmp.52 @E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_220_12_223_12_if_end;
+        %tmp.36 = lgetv %w.5;
+        %tmp.38 = lgetv %screenwidth.2;
+        %tmp.39 = gt %tmp.36 %tmp.38;
+        bf %tmp.39 @E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_220_12_223_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_220_12_223_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_220_33_223_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SSGlanceApp.mc" 221 16 ]
-        %tmp.54 = lgetv %i.4;
-        %tmp.55 = 1;
-        %tmp.56 = sub %tmp.54 %tmp.55;
-        lputv %fontsize.3 %tmp.56;
+        %tmp.41 = lgetv %i.4;
+        %tmp.42 = 1;
+        %tmp.43 = sub %tmp.41 %tmp.42;
+        lputv %fontsize.3 %tmp.43;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SSGlanceApp.mc" 222 16 ]
         goto break @E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_217_8_225_8_for_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_220_33_223_12_stop:
@@ -644,43 +632,43 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlan
 E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_217_34_225_8_stop:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_217_8_225_8_for_incr:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SSGlanceApp.mc" 217 ]
-        %tmp.59 = lgetv %i.4;
-        %tmp.60 = add %tmp.59 1;
-        lputv %i.4 %tmp.60;
+        %tmp.46 = lgetv %i.4;
+        %tmp.47 = add %tmp.46 1;
+        lputv %i.4 %tmp.47;
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_217_8_225_8_for_test;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_217_8_225_8_for_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SSGlanceApp.mc" 238 8 ]
-        %tmp.61 = lgetv %dc;
-        %tmp.62 = getv function %tmp.61 :setColor;
-        %tmp.64 = getv ? :Graphics;
-        %tmp.65 = getv %tmp.64 :COLOR_BLUE;
-        %tmp.67 = getv ? :Graphics;
-        %tmp.68 = getv %tmp.67 :COLOR_TRANSPARENT;
-        invoke %tmp.61 %tmp.62(%tmp.65, %tmp.68);
+        %tmp.48 = lgetv %dc;
+        %tmp.49 = getv function %tmp.48 :setColor;
+        %tmp.51 = getv ? :Graphics;
+        %tmp.52 = getv %tmp.51 :COLOR_BLUE;
+        %tmp.54 = getv ? :Graphics;
+        %tmp.55 = getv %tmp.54 :COLOR_TRANSPARENT;
+        invoke %tmp.48 %tmp.49(%tmp.52, %tmp.55);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SSGlanceApp.mc" 239 8 ]
-        %tmp.69 = lgetv %dc;
-        %tmp.70 = getv function %tmp.69 :drawText;
-        %tmp.71 = 0;
-        %tmp.72 = 0;
-        %tmp.74 = lgetv %fontsize.3;
-        %tmp.76 = getv ? :am;
-        %tmp.78 = getv ? :Graphics;
-        %tmp.79 = getv %tmp.78 :TEXT_JUSTIFY_LEFT;
-        invoke %tmp.69 %tmp.70(%tmp.71, %tmp.72, %tmp.74, %tmp.76, %tmp.79);
+        %tmp.56 = lgetv %dc;
+        %tmp.57 = getv function %tmp.56 :drawText;
+        %tmp.58 = 0;
+        %tmp.59 = 0;
+        %tmp.61 = lgetv %fontsize.3;
+        %tmp.63 = getv ? :am;
+        %tmp.65 = getv ? :Graphics;
+        %tmp.66 = getv %tmp.65 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.56 %tmp.57(%tmp.58, %tmp.59, %tmp.61, %tmp.63, %tmp.66);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SSGlanceApp.mc" 241 8 ]
-        %tmp.80 = lgetv %dc;
-        %tmp.81 = getv function %tmp.80 :drawText;
-        %tmp.82 = 0;
-        %tmp.83 = lgetv %dc;
-        %tmp.84 = getv function %tmp.83 :getHeight;
-        %tmp.85 = invoke %tmp.83 %tmp.84();
-        %tmp.86 = 2.0;
-        %tmp.87 = div %tmp.85 %tmp.86;
-        %tmp.89 = lgetv %fontsize.3;
-        %tmp.91 = getv ? :pm;
-        %tmp.93 = getv ? :Graphics;
-        %tmp.94 = getv %tmp.93 :TEXT_JUSTIFY_LEFT;
-        invoke %tmp.80 %tmp.81(%tmp.82, %tmp.87, %tmp.89, %tmp.91, %tmp.94);
+        %tmp.67 = lgetv %dc;
+        %tmp.68 = getv function %tmp.67 :drawText;
+        %tmp.69 = 0;
+        %tmp.70 = lgetv %dc;
+        %tmp.71 = getv function %tmp.70 :getHeight;
+        %tmp.72 = invoke %tmp.70 %tmp.71();
+        %tmp.73 = 2.0;
+        %tmp.74 = div %tmp.72 %tmp.73;
+        %tmp.76 = lgetv %fontsize.3;
+        %tmp.78 = getv ? :pm;
+        %tmp.80 = getv ? :Graphics;
+        %tmp.81 = getv %tmp.80 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.67 %tmp.68(%tmp.69, %tmp.74, %tmp.76, %tmp.78, %tmp.81);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SSGlanceApp_mc_172_26_245_4_stop:
     }
 }

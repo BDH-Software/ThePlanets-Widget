@@ -13,6 +13,7 @@
     <!-- OPTIONS-->
     <!-- <string id="planets_Options1">Sun|Mercury|Venus|Earth|Moon|Mars|AsteroidA|AsteroidB|Jupiter|Saturn|Uranus|Neptune|Pluto|Ceres|Chiron|Eris|Gonggong|Quaoar|Makemake|Haumea</string> -->
     <string id="planets_Options1" scope="glance">Sun|Mercury|Venus|Earth|Moon|Mars|Jupiter|Saturn|Uranus|Neptune|Pluto|Ceres</string>
+    <string id="help_strings">A: = AM, morning planets|P: = PM, evening planets|AM/PM Planets in Glance..|..listed in order outwards..|..from the Sun.|Use START/UP/DOWN..|..in both screens..|..to move time forward..|..OR go faster/slower.</string>
     <!-- <string id="planets_Options2">Sun|Mercury|Venus|Earth|Moon|Mars|AsteroidA|AsteroidB|Jupiter|Saturn|Uranus|Neptune|Pluto</string>
     <string id="planets_Options3">Sun|Mercury|Earth|Moon|Ceres|AsteroidA|AsteroidB|Chiron|Pluto|Eris|Gonggong|Quaoar|Makemake|Haumea</string> -->
 

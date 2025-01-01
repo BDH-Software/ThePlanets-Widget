@@ -1668,7 +1668,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ThePlanets_Widget_source_SolarS
         %tmp.82 = getv ? :allPlanets;
         %tmp.83 = getv function %tmp.82 :slice;
         %tmp.84 = 5;
-        %tmp.85 = 7;
+        %tmp.85 = 8;
         %tmp.86 = invoke %tmp.82 %tmp.83(%tmp.84, %tmp.85);
         invoke %tmp.79 %tmp.80(%tmp.86);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ThePlanets-Widget\source\SolarSystemView.mc" 916 8 ]
