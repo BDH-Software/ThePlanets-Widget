@@ -11,6 +11,7 @@ This is the glance/widget version of The Planets.
  * _START_ starts & stops time
  * _UP/DOWN_ move time forward/backward OR, if time is _STARTED_, makes time move faster/slower
  * _MENU_ allows you to change several options & see help/planet abbreviations, including: Show more or fewer planets, make planet size larger or smaller, show planet labels or not, view help tips & planet abbreviations.
+ * _TO EXIT_: Press BACK 2X.
 
 **HOW THE GLANCE WORKS**
  - Glance shows a two-line summary of which planets are up in the evening (P:) and the morning (A:).  Something like this:
