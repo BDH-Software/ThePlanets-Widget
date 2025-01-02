@@ -1,4 +1,4 @@
-A planetarium on your Garmin smart watch - shows positions of sun & planets in the sky, and a moving top-down views of the solar system from close, medium, and wide views.  Includes all naked-eye planets OR all major planets plus Pluto & Ceres.
+THE PLANETS is planetarium Glance & Widget for your Garmin smart watch. It shows positions of sun & planets in the sky currently & moving forward/backward by minutes, hours, days, years, or many years. Includes sun & moon and all naked-eye planets plus (optionally) Uranus, Neptune, Pluto & Ceres.
 
 It's a planetarium & naked-eye/binocular astronomy viewing guide on your wrist: What is up tonight or right now? at a glance.
 
