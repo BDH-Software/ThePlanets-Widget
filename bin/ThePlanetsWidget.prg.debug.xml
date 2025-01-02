@@ -5,14 +5,14 @@
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemApp.mc" id="3" lineNum="21" parent="globals" pc="268435494" symbol="&lt;init&gt;"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemApp.mc" id="3" lineNum="46" parent="globals" pc="268435503" symbol="&lt;init&gt;"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemSettingsView.mc" id="6" lineNum="64" parent="globals" pc="268435512" symbol="&lt;init&gt;"/>
-<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\bin\\gen\\006-B4315-00\\source\\Rez.mcgen" id="12" lineNum="30" parent="globals" pc="268435460" symbol="&lt;init&gt;"/>
-<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\bin\\gen\\006-B4315-00\\source\\Rez.mcgen" id="12" lineNum="26" parent="globals" pc="268435477" symbol="&lt;init&gt;"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\bin\\gen\\006-B4426-00\\source\\Rez.mcgen" id="12" lineNum="30" parent="globals" pc="268435460" symbol="&lt;init&gt;"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\bin\\gen\\006-B4426-00\\source\\Rez.mcgen" id="12" lineNum="26" parent="globals" pc="268435477" symbol="&lt;init&gt;"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SSGlanceApp.mc" id="13" lineNum="54" parent="globals/SSGlanceView" pc="268435525" symbol="&lt;init&gt;"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\sunriseset2.mc" id="14" lineNum="922" parent="globals" pc="268435537" symbol="equatorialLong2eclipticLong_rad"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\sunriseset2.mc" id="14" lineNum="935" parent="globals" pc="268435548" symbol="equatorialLong2eclipticLong_rad"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\sunriseset2.mc" id="14" lineNum="937" parent="globals" pc="268435605" symbol="equatorialLong2eclipticLong_rad"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemApp.mc" id="15" lineNum="84" parent="globals/SolarSystemBaseApp" pc="268435608" symbol="&lt;init&gt;"/>
-<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\bin\\gen\\006-B4315-00\\source\\Rez.mcgen" id="16" lineNum="8" parent="globals/GlanceRez" pc="268435620" symbol="&lt;init&gt;"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\bin\\gen\\006-B4426-00\\source\\Rez.mcgen" id="16" lineNum="8" parent="globals/GlanceRez" pc="268435620" symbol="&lt;init&gt;"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SSGlanceApp.mc" id="17" lineNum="59" parent="globals/SSGlanceView" pc="268435640" symbol="initialize"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SSGlanceApp.mc" id="17" lineNum="60" parent="globals/SSGlanceView" pc="268435643" symbol="initialize"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SSGlanceApp.mc" id="17" lineNum="66" parent="globals/SSGlanceView" pc="268435655" symbol="initialize"/>
@@ -508,7 +508,7 @@
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="72" lineNum="12" parent="globals/SolarSystemBaseDelegate" pc="268445173" symbol="&lt;init&gt;"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\functions.mc" id="73" lineNum="568" parent="globals" pc="268445185" symbol="deBug"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\functions.mc" id="73" lineNum="569" parent="globals" pc="268445195" symbol="deBug"/>
-<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\bin\\gen\\006-B4315-00\\source\\Rez.mcgen" id="74" lineNum="708" parent="globals/Rez" pc="268445220" symbol="&lt;init&gt;"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\bin\\gen\\006-B4426-00\\source\\Rez.mcgen" id="74" lineNum="652" parent="globals/Rez" pc="268445220" symbol="&lt;init&gt;"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SSMenuDelegate.mc" id="75" lineNum="27" parent="globals/SSMenu" pc="268445240" symbol="&lt;init&gt;"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SSMenuDelegate.mc" id="76" lineNum="62" parent="globals/SSMenuDel" pc="268445252" symbol="&lt;init&gt;"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemView.mc" id="77" lineNum="35" parent="globals/SolarSystemBaseView" pc="268445264" symbol="&lt;init&gt;"/>
@@ -2275,7 +2275,7 @@
 <entry endPc="268464929" name="T" stackId="2" startPc="268464818"/>
 <entry endPc="268464929" name="st" stackId="3" startPc="268464818"/>
 </localVars>
-<deviceInfo deviceVersion="4866e5192c0c99025597cd8e6e841f3d774b64f7" partNumber="006-B4315-00"/>
+<deviceInfo deviceVersion="35026752466eceaff46011f2f33580ace85b3091" partNumber="006-B4426-00"/>
 <annotations>
 <annotationEntry annotation="glance" class="vs" module="globals" symbol="j2000"/>
 <annotationEntry annotation="glance" class="vs" module="globals" symbol="getMars"/>

@@ -2391,7 +2391,8 @@ class SolarSystemBaseView extends WatchUi.View {
             // ##### DATE JULIAN VERSION FOR MANY YEARS PAST/FUTURE ####
             //var j2 = f.j2000Date (new_date_info.year, new_date_info.month, new_date_info.day, new_date_info.hour, new_date_info.min, 0, 0);
 
-            var targDate_days = f.j2000Date (new_date_info.year, new_date_info.month, new_date_info.day, new_date_info.hour, new_date_info.min, 0, 0) + addTime_hrs/24l;
+            //var targDate_days = f.j2000Date (new_date_info.year, new_date_info.month, new_date_info.day, new_date_info.hour, new_date_info.min, 0, 0) + addTime_hrs/24l;
+            var targDate_days = j2000Date ($.now_info.year, $.now_info.month, $.now_info.day,$.now_info.hour, $.now_info.min,$.now.timeZoneOffset/3600, $.now.dst) + addTime_hrs/24l; //So GREGORIAN malfunctions around 2100 or 2110 and similarly in the past; so we transition to using TODAY'S DATE together with the addTime.HRS instead, as Julian
             var targDate_years = (targDate_days/365.25d + 2000d).toFloat(); 
 
 
