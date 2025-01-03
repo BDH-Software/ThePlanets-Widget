@@ -11,6 +11,7 @@ enum {
     //smallerBanners = 2,
     planetSizeL = 3,
     planetSizeS = 4,
+    glanceType = 6, //don't use 5 as it's used for helpOption_enum
     lastLoc_saved = 99,
 }
 
@@ -18,7 +19,7 @@ var Options; //values added in getInitialView
 
 var defOptions; //values added in getInitialView
 
-var numOptions = 4;
+var numOptions = 5;
 
 var helpOption_enum = 5;
 
@@ -27,7 +28,8 @@ var save_menu as SSMenu?;
 class SSMenu extends WatchUi.Menu2{
     
     public function initialize(){
-        var OptionsLabels = ["Show extra planets?", "Show planet labels?", "Draw planets larger?", "Draw planets smaller?"];
+        //var OptionsLabels = ["Show extra planets?", "Show planet labels?", "Draw planets larger?", "Draw planets smaller?", "Glance Morn/Eve or Up Now?"];
+        var OptionsLabels = (WatchUi.loadResource( $.Rez.JsonData.OptionsLabels) as Array);
 
         for (var i = 0; i < numOptions; i++) {
         Menu2.addItem(new WatchUi.ToggleMenuItem(OptionsLabels[i], null, Options[i], $.Options_Dict[Options[i]]==true, null));

@@ -16,6 +16,8 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         BehaviorDelegate.initialize();
         //System.println("delegate initl..");
         _mainview = view;
+
+        /*
         $.speeds = [-24*365*10, -24*365*7, -24*365*4, -24*365*2,-24*365.2422, -24*365, //0; year multiples (added 0)
                 -24*183, -24*122, -24*91, -24*61, -24*31, -29.53059*24, -24*15, //6; 1/2, 1/4, 1/12, 1/24 of a year (added 1)
                 -24*7,-24*5, -24*3, -24*2-15/60.0, -24*2, -24*2+15/60.0, -24-15/60.0, -24, -24+15/60.0, //11; Days up to a week, with 1&2 days +1/-1 hrsso you can adjust them easily
@@ -27,6 +29,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
                 24-15/60.0, 24,24+15/60.0, 24*2-15/60.0, 24*2,24*2+15/60.0, 24*3,24*5, 24*7, //47; Days up to a week (added 0)
                 24*15,29.53059*24, 24*31, 24*61, 24*91, 24*122, 24*183, 24*300, //56;300 days 1/2, 1/4, 1/12, 1/24 of a year (added 1)
                 24*365,24*365.2422, 24 * 400, 24 * 500, 24*365*2, 24*365*4, 24*365 * 7, 24*365 * 10]; //64; year multiples (added 0)
+                */
 //var speeds_index; //the currently used speed that will be added to TIME @ each update of screen  //
 //var screen0Move_index = 33;
     }
@@ -217,6 +220,8 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         $.buttonPresses++; 
         $.last_button_time_sec = $.time_now.value();
 
+        var spds = WatchUi.loadResource( $.Rez.JsonData.speeds) as Array;
+
         /*
 
         if ($.exiting_back_button_firstpress) {
@@ -266,7 +271,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         //System.println("onNextPage... od:" + od + " in:" + in + " type==next: " + ( type == :next));
 
         if (in == 0 ) {
-            $.time_add_hrs += mult *$.speeds[$.speeds_index];
+            $.time_add_hrs += mult *spds[$.speeds_index];
             $.timeWasAdded=true;
             //WatchUi.requestUpdate();
         //} else if (in == 1 || in ==2 || (in > 2 && od ==0)){
@@ -276,7 +281,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
             if (started)  {
                 $.speeds_index +=  mult;
                 //$.speedWasChanged = true; //skipping reset on speed change, for now
-                if ($.speeds_index>= $.speeds.size()) {$.speeds_index = $.speeds.size()-1;}
+                if ($.speeds_index>= spds.size()) {$.speeds_index = $.speeds.size()-1;}
                 if ($.speeds_index<0)  {$.speeds_index=0; }
 
                 //For "Big" time movement screens, skip over all the 
@@ -288,7 +293,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
                         $.speeds_index = type == :next ? 21 : 34;}                                                                     
                 }
             } else {
-                $.time_add_hrs += mult *$.speeds[$.speeds_index];
+                $.time_add_hrs += mult *spds[$.speeds_index];
                 $.timeWasAdded=true;
             }
         }
@@ -444,7 +449,7 @@ function changeModes(previousMode){
         //$.Options_Dict[orrZoomOption_enum] = orrZoomOption_default;
         //var UUD = "Use Up/Down/";
         //var SS="Start/Stop";
-        var dMsg = f.toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
+        //var dMsg = f.toArray(WatchUi.loadResource($.Rez.Strings.delegateMessages) as String,  "|", 0);
         //var UUD = dMsg[10];
         //var SS = dMsg[11];
 

@@ -173,12 +173,13 @@ class SolarSystemBaseApp extends Application.AppBase {
 
         Options = [extraPlanets, planetLabels,
             // smallerBanners, 
-            planetSizeL, planetSizeS];
+            planetSizeL, planetSizeS, glanceType];
         defOptions = {extraPlanets => false,
                   planetLabels => true,      
                     //smallerBanners => true,
                     planetSizeL => false,
                     planetSizeS => false,
+                    glanceType => false,
                     lastLoc_saved => [38, -94],
                     };
 

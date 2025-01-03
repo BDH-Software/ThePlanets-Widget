@@ -593,10 +593,17 @@ class SolarSystemBaseView extends WatchUi.View {
         $.now_info = Time.Gregorian.info($.time_now, Time.FORMAT_SHORT);
    
 
-         if ($.view_mode>0 && !reset_date_stop && started)  {
+        /*         if ($.view_mode>0 && !reset_date_stop && started)  {
                 //deBug("speeds Index", [$.speeds_index]);
                 $.time_add_hrs += $.speeds[$.speeds_index];
-         }
+         }*/
+
+        if ($.view_mode>0 && !reset_date_stop && started)  {
+            //deBug("speeds Index", [$.speeds_index]);
+            $.speeds = WatchUi.loadResource( $.Rez.JsonData.speeds) as Array;
+            $.time_add_hrs += $.speeds[$.speeds_index];
+            $.speeds = null;
+        }
 
 
 
@@ -666,7 +673,7 @@ class SolarSystemBaseView extends WatchUi.View {
         */
     }
 
-    var r, whh_sun, vspo_rep, font, srs, sunrise_events, sunrise_events2, pp, pp2, pp_sun, moon_info, moon_info2, moon_info3, moon_info4, elp82, sun_info3,keys, now, sid, x as Lang.float, y as Lang.float, y0 as Lang.float,  z0 as Lang.float, x2 as Lang.float, y2 as Lang.float;
+    var r, whh_sun, vspo_rep, font, srs, sunrise_events, sunrise_events2, pp, pp2, pp_sun, moon_info, moon_info2, moon_info3, moon_info4, elp82, sun_info3, now, sid, x as Lang.float, y as Lang.float, y0 as Lang.float,  z0 as Lang.float, x2 as Lang.float, y2 as Lang.float;
     var ang_deg as Lang.float, ang_rad as Lang.float, size as Lang.float, mult as Lang.float, sub, key, key1, textHeight, kys, add_duration as Lang.float, col;
     var sun_adj_deg as Lang.float, hour_adj_deg as Lang.float,final_adj_deg as Lang.float, final_adj_rad as Lang.float, noon_adj_hrs as Lang.float, noon_adj_deg as Lang.float, moon_age_deg as Lang.float;
     var input as Lang.boolean;
@@ -911,7 +918,7 @@ class SolarSystemBaseView extends WatchUi.View {
         var allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
 
         //deBug("allpl", allPlanets);
-        whh = ["Ecliptic0", "Ecliptic90", "Ecliptic180", "Ecliptic270",allPlanets[4]]; //put first so they are UNDER the planets.  Moon is next so planets will go in front of it (it's large)
+        whh = ["Ec0", "Ec90", "Ec180", "Ec270",allPlanets[4]]; //put first so they are UNDER the planets.  Moon is next so planets will go in front of it (it's large)
         
         whh.addAll( allPlanets.slice(0,3)); ///so, array2 = array1 only passes a REFERENCE to the array, they are both still the same array with different names.  AARRGGgH!!
         //f.deBug("ap1", whh);
@@ -987,9 +994,6 @@ class SolarSystemBaseView extends WatchUi.View {
 
         //deBug("moon_infe: ", [$.now.hour, $.now.min, $.now.sec, $.now_info.day, $.now_info.month, $.now_info.year, $.time_now.value(), $.now_info, $.run_oneTime, $.time_add_hrs, $.speeds, $.speeds_index]);
         
-        var sm = new simpleMoon();
-        moon_info3 = sm.eclipticPos_moon ($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs); 
-        sm = null;
 
         //deBug("moon_inf", moon_info3);
 
@@ -1022,7 +1026,7 @@ class SolarSystemBaseView extends WatchUi.View {
                 if (rra_deg == 90) { ddecl = obliq_deg;}
                 if (rra_deg == 270) { ddecl = obliq_deg;}
                 //pp.put("Ecliptic"+rra_deg, [f.normalize(pp["Sun"][0] + rra_deg), ddecl]);
-                pp.put("Ecliptic"+rra_deg, [rra_deg, ddecl, 50]);
+                pp.put("Ec"+rra_deg, [rra_deg, ddecl, 50]);
          }
 
          //flattenEclipticPP(obliq_deg);     
@@ -1035,11 +1039,8 @@ class SolarSystemBaseView extends WatchUi.View {
         //pp.put("Moon", [pp["Sun"][0] + moon_info[0]]);
         //deBug("moon, ", [moon_info3[0]]);
 
-        //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-        pp.put("Moon", [moon_info3[0]]);
-        //moon_age_deg = f.normalize (equatorialLong2eclipticLong_deg(pp["Moon"][0], obliq_deg) - equatorialLong2eclipticLong_deg(pp["Sun"][0], obliq_deg)); //0-360 with 0 being new moon, 90 1st q, 180 full, 270 last q
-        //deBug("PP:", pp);
-        moon_age_deg = f.normalize ((pp["Moon"][0]) - (pp["Sun"][0])); //0-360 with 0 being new moon, 90 1st q, 180 full, 270 last q
+        
+        
         //pp["Sun"] = [sun_info3[:lat], sun_info3[:lon], sun_info3[:r]];
         //System.println("Sun info3: " + sun_info3);
         //System.println("Moon info: " + moon_info);
@@ -1049,7 +1050,7 @@ class SolarSystemBaseView extends WatchUi.View {
         //System.println("pp2: " + pp2);
 
 
-        kys = pp.keys();
+        
         //g = null;
 
         //g = new Geocentric($.now_info.year, $.now_info.month, $.now_info.day, 0, 0, $.now.timeZoneOffset/3600, $.now.dst,"ecliptic", whh_sun);
@@ -1202,8 +1203,19 @@ class SolarSystemBaseView extends WatchUi.View {
 */
         
 
+        //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+        //MOOOOON&&&&&&&&&&&&&&&&&&&&&&&&&&&
+        var sm = new simpleMoon();
+        moon_info3 = sm.eclipticPos_moon ($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs); 
+        sm = null;
 
         
+        pp.put("Moon", [moon_info3[0]]);
+        moon_info3 = null;
+
+        //moon_age_deg = f.normalize (equatorialLong2eclipticLong_deg(pp["Moon"][0], obliq_deg) - equatorialLong2eclipticLong_deg(pp["Sun"][0], obliq_deg)); //0-360 with 0 being new moon, 90 1st q, 180 full, 270 last q
+        //deBug("PP:", pp);
+        moon_age_deg = f.normalize ((pp["Moon"][0]) - (pp["Sun"][0])); //0-360 with 0 being new moon, 90 1st q, 180 full, 270 last q
         
 
 
@@ -1267,8 +1279,8 @@ class SolarSystemBaseView extends WatchUi.View {
 
         pp=null;
         pp_sun = null;
-        kys =  null;
-        keys = null;
+        //kys =  null;
+        //keys = null;
         srs = null;
         sunrise_events  = null;
         sunrise_events2 = null;
@@ -2417,7 +2429,8 @@ class SolarSystemBaseView extends WatchUi.View {
         //if (show && (sm_ret == 0 )) { //msg_ret ==0 means, don't show this when there is a special msg up
         if (true) {
             var sep = ">";
-            var ssi=$.speeds[$.speeds_index] ;
+            //var ssi=$.speeds[$.speeds_index] ;
+            var ssi = (WatchUi.loadResource( $.Rez.JsonData.speeds) as Array)[$.speeds_index];
 
             if (ssi < 0) { sep = "<";}
             if (!started || ssi == 0 || $.view_mode == 0) { sep = "|";}
@@ -2667,17 +2680,17 @@ class SolarSystemBaseView extends WatchUi.View {
 
         size *= planetSizeFactor; //factor from settings
 
-        if (key.find("Ecliptic") != null) {
+        if (key.find("Ec") != null) {
             var trisize = min_c/15.0*2.25;
             var tribase = trisize/3/2.25;
             size = min_c/60.0;
             //var fill = false;
             
-            if (key.equals("Ecliptic0") || key.equals("Ecliptic180") ) {
+            if (key.equals("Ec0") || key.equals("Ec180") ) {
                 //fillcol = Graphics.COLOR_DK_GRAY;
                 //fill = true;
                 tribase = 1.5*tribase;
-                if (key.equals("Ecliptic0")) {tribase *= 1.8; trisize *= 1.15;}
+                if (key.equals("Ec0")) {tribase *= 1.8; trisize *= 1.15;}
             }
 
             
@@ -3262,7 +3275,7 @@ class SolarSystemBaseView extends WatchUi.View {
   
             var hor_ang_rad = -Math.toRadians(sun_adj_deg - hour_adj_deg - noon_adj_deg) + sunrise_events2[:ECLIP_HORIZON];
 
-            f.deBug("hor_ang", [f.normalize(Math.toDegrees(hor_ang_rad)), sun_adj_deg, hour_adj_deg, noon_adj_deg, Math.toDegrees(sunrise_events2[:ECLIP_HORIZON])]);
+            //f.deBug("hor_ang", [f.normalize(Math.toDegrees(hor_ang_rad)), sun_adj_deg, hour_adj_deg, noon_adj_deg, Math.toDegrees(sunrise_events2[:ECLIP_HORIZON])]);
             //var temp = f.f.normalize180(Math.toDegrees(hor_ang_rad));
 
              //y0 = (90 - temp)/90.0 * 23.4 * mcob + 50 * msob;

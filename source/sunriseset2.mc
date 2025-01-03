@@ -302,7 +302,7 @@ class srs {
         var lmst_now_hr = f.normalize((gmst_now_deg - lon_deg)) / 15.0;
         ret.put(:GMST_NOW_HR, [gmst_now_deg/15.0]);
         ret.put(:LMST_NOW_HR, [lmst_now_hr]);
-        deBug("GNMST_MID_HR, GNMST_NOW_HR, LMST_HR, JD: ", [gmst_mid_deg/15.0, gmst_now_deg/15.0, lmst_now_hr, lmst_now_hr*15.0,jd]);
+        //deBug("GNMST_MID_HR, GNMST_NOW_HR, LMST_HR, JD: ", [gmst_mid_deg/15.0, gmst_now_deg/15.0, lmst_now_hr, lmst_now_hr*15.0,jd]);
 
         var tz_add = (timeZoneOffset_sec/3600.0f) + dst;
         //ret.put (:NOON,  constrain(transit_GMT_toeclip_day + tz_add/24.0) * 24.0);

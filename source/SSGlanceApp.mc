@@ -56,6 +56,7 @@ var sm;
     //private var _mainview as SSGlanceView?;
 
     var am,pm,up;
+    var ampmORup; //1 am/pm, 2 what's up, 0 alternates between them
     var glanceTimer;
 
     public function initialize() {
@@ -72,6 +73,16 @@ var sm;
                     ).toDegrees();
         }
         Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:glanceSetPosition));
+
+
+        if ((Application has :Storage)) {
+            var ret = Storage.getValue(glanceType);  
+            if (ret == null) { ampmORup = 0;}
+            else if (ret) { ampmORup = 1;}
+            else {ampmORup = 2;}
+
+
+        }
 
         //lastLoc = [39.00894, 94.44008]; //for testing only
         doCalcs();
@@ -277,7 +288,7 @@ var sm;
     }
     
     function onUpdate(dc) {
-        f.deBug("onupdate", [glance_animation_count,GL_count]);
+        //f.deBug("onupdate", [glance_animation_count,GL_count]);
 
 
         var screenwidth = dc.getWidth();
@@ -285,13 +296,13 @@ var sm;
  
         var w = dc.getTextWidthInPixels(up, 3);
         var l = up.length();
-        f.deBug("WL", [w,l,screenwidth,up]);
+        //f.deBug("WL", [w,l,screenwidth,up]);
         if (w>screenwidth) {        
             l = Math.round(up.length() *screenwidth/w.toFloat()).toNumber();
             l = l - l%3;
         }
         if (l<12) {l=12;}
-        f.deBug("WL", [w,l,up]);
+        //f.deBug("WL", [w,l,up]);
         var up1 = up.substring(0, l);
         var up2 = up.substring(l, null);
 
@@ -299,7 +310,7 @@ var sm;
         var d1 = am;
         var d2 = pm;
         //if (($.now.sec/5)%2==1) {
-        if (GL_count % 2 == 1) {
+        if (((ampmORup==0) && GL_count % 2 == 1) || (ampmORup ==2)) {
             d1 = up1;
             d2 = up2;
         }
