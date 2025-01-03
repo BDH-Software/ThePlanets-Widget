@@ -1,0 +1,19 @@
+V1.01. This is the first release of the Glance/Widget version of The Planets. Compared with the full App (elsewhere on the IQ Store) the Glance/Widget provides a more convenient way to get a quick overview of what planets are up tonight or right now.
+
+The Glance shows a two-line summary of which planets are up in the evening (P:) and the morning (A:) OR which are up now.
+
+When you click through to view the full Widget, you see a visual overview of the same, with additional information presented in visual format, including 24-hour solar clock with solar noon & midnight, rise & set times of each planet, sun, and moon, dawn/dusk & astronomical twilight times, current horizon & meridian, and Solstice & Equinox indicators, so you can see at a glance where the sun stands in relation to the seasons.
+
+The Glance screen looks something like this:
+
+* A: Me Ma Ju Sa
+* P: Mo Ve Sa Ma
+
+* That means:  In the morning, just before dawn, Mercury, Mars, Jupiter, and Saturn will be up. Planets are in order from the one closest to the Sun to furthest. In the evening, just after sunset, the Moon, Venus, Saturn, Jupiter, and Mars will be out. Again, planets are in order from the one closest to the sun to furthest.
+
+OR if set to What's Up Now mode, the Glance will look like this:
+
+* Up now: Ju Mo Sa Ve Su Me
+
+That means: Going from East to West in the current sky, along the ecliptic, you will see Jupiter, then the Moon, then Saturn, Venus, the Sun, and Mercury.
+
