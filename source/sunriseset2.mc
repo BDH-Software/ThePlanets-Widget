@@ -315,7 +315,7 @@ class srs {
             //constrain(transit_GMT_toeclip_day + tz_add/24.0) * 24.0,
             ]);
 
-        f.deBug("NOON,tz: ", [constrain(transit_GMT_DAY + tz_add/24.0) * 24.0, tz_add]);
+        //f.deBug("NOON,tz: ", [constrain(transit_GMT_DAY + tz_add/24.0) * 24.0, tz_add]);
 
 
     

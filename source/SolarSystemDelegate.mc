@@ -91,7 +91,8 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
 
                 
                 //if we stop & forward step == 0 we set it to the lowest value
-                if (($.speeds[$.speeds_index]).abs() < 0.001) {
+                var spds = WatchUi.loadResource( $.Rez.JsonData.speeds) as Array;
+                if ((spds[$.speeds_index]).abs() < 0.001) {
                     //deBug("zero & moving up!!!!!",[]);
                     handleNextPrevious (:previous); 
                 }
