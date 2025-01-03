@@ -84,7 +84,7 @@ var sm;
 
         }
 
-        //lastLoc = [39.00894, 94.44008]; //for testing only
+        lastLoc = [39.00894, 94.44008]; //for testing only
         doCalcs();
         glanceTimer= new Timer.Timer();
         GL_count = Math.rand()%2;
@@ -178,7 +178,7 @@ var sm;
         //f.deBug("angs", [sorted_ang, pp]);
         am = "A:";
         pm = "P:";
-        up = "Up now E->W:";
+        up = "Up now:";
         //var w = "W:";
         var hitsun = 0;
         var hit_ehor = false;
@@ -197,7 +197,7 @@ var sm;
 
              if (f.normalize(pp[ky]-ehor_deg) <= 180 && !hit_whor) {
                 hit_ehor = true;
-                if (up.length()>9) { up += " ";}
+                if (up.length()>8) { up += " ";}
                 up += ky.substring(0,2);
                 
 
