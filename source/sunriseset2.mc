@@ -302,7 +302,7 @@ class srs {
         var lmst_now_hr = f.normalize((gmst_now_deg - lon_deg)) / 15.0;
         ret.put(:GMST_NOW_HR, [gmst_now_deg/15.0]);
         ret.put(:LMST_NOW_HR, [lmst_now_hr]);
-        //deBug("GNMST_MID_HR, GNMST_NOW_HR, LMST_HR, JD: ", [gmst_mid_deg/15.0, gmst_now_deg/15.0, lmst_now_hr, jd]);
+        deBug("GNMST_MID_HR, GNMST_NOW_HR, LMST_HR, JD: ", [gmst_mid_deg/15.0, gmst_now_deg/15.0, lmst_now_hr, lmst_now_hr*15.0,jd]);
 
         var tz_add = (timeZoneOffset_sec/3600.0f) + dst;
         //ret.put (:NOON,  constrain(transit_GMT_toeclip_day + tz_add/24.0) * 24.0);
@@ -315,7 +315,7 @@ class srs {
             //constrain(transit_GMT_toeclip_day + tz_add/24.0) * 24.0,
             ]);
 
-        //deBug("NOON,tz: ", [constrain(transit_GMT_DAY + tz_add/24.0) * 24.0, tz_add]);
+        f.deBug("NOON,tz: ", [constrain(transit_GMT_DAY + tz_add/24.0) * 24.0, tz_add]);
 
 
     
@@ -435,7 +435,7 @@ class srs {
             /*
             /***********************************************************************/
                 //var abeH = angleBetweenEclipticAndHorizon_rad(Math.toRadians(lat_deg), Math.toRadians(lmst_now_hr*15), obliq_rad);
-                var intsectionEclipticHorizonPoints_rad = intersectionPointsEclipticHorizon_rad(Math.toRadians(lat_deg), Math.toRadians(f.normalize(lmst_now_hr*15)), obliq_rad, lat_deg);
+                var intsectionEclipticHorizonPoints_rad = intersectionPointsEclipticHorizon_rad(Math.toRadians(lat_deg), Math.toRadians(f.normalize(lmst_now_hr*15)), obliq_rad);
                 //deBug("angleBetweenEclipticAndHorizon: ", [abeH, ipEH]);
                 //deBug("abeH, ipEH: ", [abeH, ipEH]);
                 ret.put(:ECLIP_HORIZON, intsectionEclipticHorizonPoints_rad); //add angle & intersection point to the return objec
@@ -549,21 +549,7 @@ class srs {
         //return constrain(transit);
     }
 
-    //Greenwhich mean sidreal time from Meeus page 88 eq 12.4
-    //Input is julian date, does not have to be 0h
-    //Output is angle in degrees
-    function GMST_deg(jd){
-        var T=(jd-2451545.0d)/36525.0d;
-        var st=280.46061837d+360.98564736629d*(jd-2451545.0d)+0.000387933d*T*T - T*T*T/38710000.0d;
-        //deBug("GMST1: ", [st, jd, T]);
-        //st=mod(st,360);
-        //if(st<0){st+=360;}
-        st = f.normalize(st);
-        //deBug("GMST2: ", [st, jd, T]);
 
-        return st;
-        //return st*Math.PI/180.0;
-    }
 
     /*
     function exampleMeeus(){
@@ -707,9 +693,11 @@ class srs {
     RA = 6h, Dec = +23.5° is the summer solstice
     RA = 12h, Dec = 0° is the autumnal equinox
     RA = 18h, Dec = -23.5° is the winter solstice
+    
 
 
     */
+}
     /***************************************************************************
     //RETURNS ANGLE BETWEEN ECLIPTIC AND HORIZON AT CURRENT LATITUDE & TIME
     //
@@ -720,6 +708,7 @@ class srs {
 
     //All angles are input and output in radians
     /***************************************************************************/
+    (:glance)
     function angleBetweenEclipticAndHorizon_rad(lat_rad,sidereal_rad,obliquity_rad){
         //Meeus 14.3
 
@@ -739,7 +728,11 @@ class srs {
     //
     /**************************************************************************/
 
-    function intersectionPointsEclipticHorizon_rad (lat_rad, sidereal_rad, obliquity_rad,lat_deg) {
+    (:glance)
+    function intersectionPointsEclipticHorizon_rad (lat_rad, sidereal_rad, obliquity_rad) {
+
+        //f.deBug("IPEHR", [lat_rad, sidereal_rad, obliquity_rad]);
+
         ///below is something the AI suggested but I'm not 100% clear on what it is supposed to be calculating.
         //Meeus 14.3
         /*var a = Math.cos(obliquity)*Math.sin(lat) - Math.sin(obliquity)*Math.cos(lat)*Math.sin(sidereal);
@@ -755,7 +748,7 @@ class srs {
         var use_eclEHint2 = false;
         //if (sunrise_hrs== null || sunrise_hrs[0] == null || (sunrise_hrs[1]-sunrise_hrs[0]).abs() < 0.15) { use_eclEHint2 = true;}
         //use_eclEHint2 = false;
-        if (90 - lat_deg.abs()< obliq_deg) {use_eclEHint2 = true;} //for whatever reason the  two equations seem to work above & below the latitude of the arctic circle/ 90 - obliq of the ecliptic.
+        if (1.5708 - lat_rad.abs()< obliquity_rad) {use_eclEHint2 = true;} //for whatever reason the  two equations seem to work above & below the latitude of the arctic circle/ 90 - obliq of the ecliptic.
 
         var aEH_rad = angleBetweenEclipticAndHorizon_rad(lat_rad,sidereal_rad,obliquity_rad);
 
@@ -794,7 +787,7 @@ class srs {
 
                 var intm = Math.sin(horEHint_rad)/Math.sin(obliquity_rad)*Math.cos(lat_rad);
                 if (intm>=-1 && intm <=1) {
-                    if (lat_deg > 0) {eclEHint2_rad = - Math.asin(intm);}
+                    if (lat_rad > 0) {eclEHint2_rad = - Math.asin(intm);}
                     else {eclEHint2_rad = Math.PI +  Math.asin(intm);}
                 } else {use_eclEHint2 = false;}
                 
@@ -913,10 +906,12 @@ class srs {
 
         //deBug("intersectionPointEclipticHorizon aoLs: ", [Math.toDegrees(horEHint_rad), Math.toDegrees(eclEHint4_rad), Math.toDegrees(eclEHint2_rad),  Math.toDegrees(aEH_rad), Math.toDegrees(sidereal_rad), intm]);
         //return  [eclEHint_rad, horEHint_rad];
-        return [horEHint_rad.toFloat(), eclEHint_rad.toFloat(), aEH_rad.toFloat()];
+        //return [horEHint_rad.toFloat(), eclEHint_rad.toFloat(), aEH_rad.toFloat()];
+        
+        return eclEHint_rad.toFloat();
 
     }
-}
+
 
 (:glance)
 function equatorialLong2eclipticLong_rad (H0_rad, obliq_rad) {
@@ -938,8 +933,26 @@ function equatorialLong2eclipticLong_rad (H0_rad, obliq_rad) {
 
 }
 
+(:glance)
 function equatorialLong2eclipticLong_deg (H0_deg, obliq_deg) {
     return Math.toDegrees(equatorialLong2eclipticLong_rad(Math.toRadians(H0_deg), Math.toRadians(obliq_deg)));
+}
+
+//Greenwhich mean sidreal time from Meeus page 88 eq 12.4
+//Input is julian date, does not have to be 0h
+//Output is angle in degrees
+(:glance)
+function GMST_deg(jd){
+    var T=(jd-2451545.0d)/36525.0d;
+    var st=280.46061837d+360.98564736629d*(jd-2451545.0d)+0.000387933d*T*T - T*T*T/38710000.0d;
+    //deBug("GMST1: ", [st, jd, T]);
+    //st=mod(st,360);
+    //if(st<0){st+=360;}
+    st = f.normalize(st);
+    //deBug("GMST2: ", [st, jd, T]);
+
+    return st;
+    //return st*Math.PI/180.0;
 }
 
 

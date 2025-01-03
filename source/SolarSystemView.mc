@@ -30,11 +30,12 @@ var save_local_animation_count;
 var ssbv_init_count_global = 0;
 
 var small_whh, /*full_whh,*/ zoomy_whh, whh0, whh1;
+var lastLoc as Lang.float;
 
 //! This view displays the position information
 class SolarSystemBaseView extends WatchUi.View {
 
-    var lastLoc as Lang.float;
+   
     private var _lines as Array<String>;
     private var _offscreenBuffer as BufferedBitmap?;    
     
@@ -3259,7 +3260,9 @@ class SolarSystemBaseView extends WatchUi.View {
     public function drawHorizon4(dc, xct as Lang.float, yct as Lang.float, radius as Lang.float){
 
   
-            var hor_ang_rad = -Math.toRadians(sun_adj_deg - hour_adj_deg - noon_adj_deg) + sunrise_events2[:ECLIP_HORIZON][1];
+            var hor_ang_rad = -Math.toRadians(sun_adj_deg - hour_adj_deg - noon_adj_deg) + sunrise_events2[:ECLIP_HORIZON];
+
+            f.deBug("hor_ang", [f.normalize(Math.toDegrees(hor_ang_rad)), sun_adj_deg, hour_adj_deg, noon_adj_deg, Math.toDegrees(sunrise_events2[:ECLIP_HORIZON])]);
             //var temp = f.f.normalize180(Math.toDegrees(hor_ang_rad));
 
              //y0 = (90 - temp)/90.0 * 23.4 * mcob + 50 * msob;
