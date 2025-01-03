@@ -27,9 +27,25 @@ var save_menu as SSMenu?;
 
 class SSMenu extends WatchUi.Menu2{
     
+    (:hasJSON)
     public function initialize(){
         //var OptionsLabels = ["Show extra planets?", "Show planet labels?", "Draw planets larger?", "Draw planets smaller?", "Glance Morn/Eve or Up Now?"];
         var OptionsLabels = (WatchUi.loadResource( $.Rez.JsonData.OptionsLabels) as Array);
+
+        for (var i = 0; i < numOptions; i++) {
+        Menu2.addItem(new WatchUi.ToggleMenuItem(OptionsLabels[i], null, Options[i], $.Options_Dict[Options[i]]==true, null));
+        }
+
+        planetAbbreviation_index = 0;
+        var pA = getPlanetAbbreviation();
+        Menu2.addItem(new WatchUi.MenuItem(pA[0], pA[1],helpOption_enum, {}));
+        save_menu = self;
+    }
+
+    (:noJSON)
+    public function initialize(){
+        var OptionsLabels = ["Show extra planets?", "Show planet labels?", "Draw planets larger?", "Draw planets smaller?", "Glance Morn/Eve or Up Now?"];
+        //var OptionsLabels = (WatchUi.loadResource( $.Rez.JsonData.OptionsLabels) as Array);
 
         for (var i = 0; i < numOptions; i++) {
         Menu2.addItem(new WatchUi.ToggleMenuItem(OptionsLabels[i], null, Options[i], $.Options_Dict[Options[i]]==true, null));

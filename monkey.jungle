@@ -1,14 +1,17 @@
 project.manifest = manifest.xml
 
 # By default, we include Lang.ByteArray (ie, exclude the parts built for 'no bytearray'))
-base.excludeAnnotations = noByteArray
+base.excludeAnnotations = noByteArray;noJSON
+# base.excludeAnnotations = noJSON
 # exclude the bytearray code from these 2.4.0 API devices
-vivoactive_hr.excludeAnnotations = hasByteArray
-fr735xt.excludeAnnotations = hasByteArray
-approachs60.excludeAnnotations = hasByteArray
-d2charlie.excludeAnnotations = hasByteArray
-edge_520.excludeAnnotations = hasByteArray
-rino7xx.excludeAnnotations = hasByteArray
-edge_1000.excludeAnnotations = hasByteArray
-edge820.excludeAnnotations = hasByteArray
-oregon7xx.excludeAnnotations = hasByteArray
+vivoactive_hr.excludeAnnotations = hasByteArray;noJSON
+fr735xt.excludeAnnotations = hasByteArray;noJSON
+approachs60.excludeAnnotations = hasByteArray;noJSON
+d2charlie.excludeAnnotations = hasByteArray;noJSON
+edge_520.excludeAnnotations = hasByteArray;noJSON
+rino7xx.excludeAnnotations = hasByteArray;noJSON
+edge_1000.excludeAnnotations = hasByteArray;noJSON
+edge820.excludeAnnotations = hasByteArray;noJSON
+#Oregon FOR SOME REASON doesn't have JSON while ALL THE OTHERS do
+oregon7xx.excludeAnnotations = hasByteArray;hasJSON
+#oregon7xx.excludeAnnotations = hasJSON
