@@ -77,9 +77,9 @@ var sm;
 
         if ((Application has :Storage)) {
             var ret = Storage.getValue(glanceType);  
-            var ret2 = Storage.getValue(glanceAlternate);  
-            if (ret2) { ampmORup = 0;}
-            else if (ret) { ampmORup = 1;}
+            //var ret2 = Storage.getValue(glanceAlternate);  
+            //if (ret2) { ampmORup = 0;}
+            if (ret) { ampmORup = 1;}
             else {ampmORup = 2;}
         }
 
@@ -267,8 +267,8 @@ var sm;
         //Options_Dict = null;
         //allPlanets = null;
         //latlonOption_value = null;
-        planetSizeOption_values = null;
-        refreshOption_values = null;
+        //planetSizeOption_values = null;
+        //refreshOption_values = null;
         
 
         now_info = null;

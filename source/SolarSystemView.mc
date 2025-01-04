@@ -55,7 +55,7 @@ class SolarSystemBaseView extends WatchUi.View {
 
         ssbv_init_count_global ++;        
         ssbv_init_count = ssbv_init_count_global;
-        System.println("SsView init #"+ssbv_init_count);
+        //System.println("SsView init #"+ssbv_init_count);
 
         //speeds_index = 19; //inited in app.mc where the var is located
         view_mode = 0;
@@ -78,7 +78,7 @@ class SolarSystemBaseView extends WatchUi.View {
 
         //_planetIcon = WatchUi.loadResource($.Rez.Drawables.Jupiter) as BitmapResource;        
         //allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
-
+/*
         planetSizeOption_values=[
             0.5, 
             0.75, 
@@ -88,7 +88,7 @@ class SolarSystemBaseView extends WatchUi.View {
             3.0,
             3.5
 
-        ];
+        ];*/
         
         //startAnimationTimer($.hz);
 
@@ -177,10 +177,10 @@ class SolarSystemBaseView extends WatchUi.View {
     var animationTimer=null;
     public function startAnimationTimer(hertz){
         var now2 = System.getClockTime();
-        System.println ("AnimTimer:" 
+        /*System.println ("AnimTimer:" 
             +  now2.hour.format("%02d") + ":" +
             now2.min.format("%02d") + ":" +
-            now2.sec.format("%02d"));
+            now2.sec.format("%02d"));*/
 
         if (animationTimer != null) {
             try {
@@ -230,10 +230,10 @@ class SolarSystemBaseView extends WatchUi.View {
     //! Load your resources here
     //! @param dc Device context
     public function onLayout(dc as Dc) as Void {
-        System.println ("onLayout at " 
+        /*System.println ("onLayout at " 
             +  $.now.hour.format("%02d") + ":" +
             $.now.min.format("%02d") + ":" +
-            $.now.sec.format("%02d"));
+            $.now.sec.format("%02d")); */
             
 
         thisSys = System.getDeviceSettings();
@@ -893,7 +893,7 @@ class SolarSystemBaseView extends WatchUi.View {
         obliq_deg=  f.calc_obliq_deg ($.now_info, $.now);
    
         r = (xc < yc) ? xc : yc;
-        r = .85 * r * eclipticSizeFactor; //was .9 but edge of screen a bit crowded???
+        r = .85 * r; //was .9 but edge of screen a bit crowded???
 
         font = Graphics.FONT_TINY;
         textHeight = dc.getFontHeight(font);
@@ -1234,8 +1234,8 @@ class SolarSystemBaseView extends WatchUi.View {
 
         sid = 0;
         
-        eclipticSizeFactor = 1.0;
-        planetSizeFactor = 1.75;
+        var eclipticSizeFactor = 1.0;
+        var planetSizeFactor = 1.75;
         if ( $.Options_Dict[planetSizeS]) {planetSizeFactor = 0.95;}    
         else if ( $.Options_Dict[planetSizeL] ) { planetSizeFactor = 2.5;}
         if (planetSizeFactor> 2.0) {eclipticSizeFactor = .9; }
@@ -1266,7 +1266,7 @@ class SolarSystemBaseView extends WatchUi.View {
             x = r* Math.cos(ang_rad) + xc;
             y = r* Math.sin(ang_rad) + yc;
                     //array is:  [x,y,z, radius (of orbit)]
-            drawPlanet(dc, key, [x, y,0, r], 2, ang_rad, :ecliptic, null, null);   
+            drawPlanet(dc, key, [x, y,0, r], 2, ang_rad, :ecliptic, null, null, planetSizeFactor);   
             
         }
 
@@ -2405,7 +2405,7 @@ class SolarSystemBaseView extends WatchUi.View {
             //var j2 = f.j2000Date (new_date_info.year, new_date_info.month, new_date_info.day, new_date_info.hour, new_date_info.min, 0, 0);
 
             //var targDate_days = f.j2000Date (new_date_info.year, new_date_info.month, new_date_info.day, new_date_info.hour, new_date_info.min, 0, 0) + addTime_hrs/24l;
-            var targDate_days = j2000Date ($.now_info.year, $.now_info.month, $.now_info.day,$.now_info.hour, $.now_info.min,$.now.timeZoneOffset/3600, $.now.dst) + addTime_hrs/24l; //So GREGORIAN malfunctions around 2100 or 2110 and similarly in the past; so we transition to using TODAY'S DATE together with the addTime.HRS instead, as Julian
+            var targDate_days = f.j2000Date ($.now_info.year, $.now_info.month, $.now_info.day,$.now_info.hour, $.now_info.min,$.now.timeZoneOffset/3600, $.now.dst) + addTime_hrs/24l; //So GREGORIAN malfunctions around 2100 or 2110 and similarly in the past; so we transition to using TODAY'S DATE together with the addTime.HRS instead, as Julian
             var targDate_years = (targDate_days/365.25d + 2000d).toFloat(); 
 
 
@@ -2484,7 +2484,7 @@ class SolarSystemBaseView extends WatchUi.View {
     var fillcol= Graphics.COLOR_BLACK;
     //var col = Graphics.COLOR_WHITE;
 
-    public function drawPlanet(dc, key, xyr, base_size, ang_rad, type, big_small, small_whh) {
+    public function drawPlanet(dc, key, xyr, base_size, ang_rad, type, big_small, small_whh, planetSizeFactor) {
         //System.println("key: " + key);
 
         $.drawPlanetCount++;
@@ -2978,7 +2978,7 @@ class SolarSystemBaseView extends WatchUi.View {
         }
         */
         var drawThis=false;
-        if ($.Options_Dict[planetLabels]){
+        //if ($.Options_Dict[planetLabels]){
 
             var mlt = 4;
             //if ($.Options_Dict[labelDisplayOption_enum]==3) {mlt = 8;}
@@ -3032,7 +3032,7 @@ class SolarSystemBaseView extends WatchUi.View {
 
 
             } 
-        }
+        //}
     }
     
     /*

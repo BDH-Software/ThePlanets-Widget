@@ -7,12 +7,12 @@ import Toybox.Position;
 
 enum {
     extraPlanets =  0,
-    planetLabels = 1,
+    //planetLabels = 1,
     //smallerBanners = 2,
     planetSizeL = 3,
     planetSizeS = 4,
     glanceType = 6, //don't use 5 as it's used for helpOption_enum
-    glanceAlternate = 7,
+    //glanceAlternate = 7,
     lastLoc_saved = 99,
 }
 
@@ -20,7 +20,7 @@ var Options; //values added in getInitialView
 
 var defOptions; //values added in getInitialView
 
-var numOptions = 6;
+var numOptions = 4;
 
 var helpOption_enum = 5;
 
@@ -45,7 +45,7 @@ class SSMenu extends WatchUi.Menu2{
 
     (:noJSON)
     public function initialize(){
-        var OptionsLabels = ["Show extra planets?", "Show planet labels?", "Draw planets larger?", "Draw planets smaller?", "Glance Morn/Eve or Up Now?"];
+        var OptionsLabels = ["Show extra planets?", "Draw planets larger?", "Draw planets smaller?", "Glance AM/PM or Up Now?"];
         //var OptionsLabels = (WatchUi.loadResource( $.Rez.JsonData.OptionsLabels) as Array);
 
         for (var i = 0; i < numOptions; i++) {
@@ -63,6 +63,7 @@ class SSMenu extends WatchUi.Menu2{
     // Function to generate planet abbreviation and name
     function getPlanetAbbreviation() {
         var allPlanets = f.toArray(WatchUi.loadResource($.Rez.Strings.planets_Options1) as String,  "|", 0);
+
         var helpSTR = (f.toArray(WatchUi.loadResource($.Rez.Strings.help_strings) as String,  "|", 0)).addAll(allPlanets.slice(1,15)); //start @ 1 to skip sun
         if (helpSTR.size()%2==1) { helpSTR.add(""); }
         
@@ -97,22 +98,22 @@ class SSMenuDel extends WatchUi.Menu2InputDelegate {
             Storage.setValue(ret, menuItem.isEnabled());   
 
             //f.deBug("menu", [Options_Dict[extraPlanets], Options_Dict]);   
-            if (ret == planetSizeL && menuItem.isEnabled) {                
-                $.Options_Dict[planetSizeS] =false;
-                Storage.setValue(planetSizeS, false);
-                var r2 =  save_menu.findItemById(planetSizeS);
+            if ((ret == planetSizeL || ret == planetSizeS ) && menuItem.isEnabled) {                
+                $.Options_Dict[7 - ret] =false;
+                Storage.setValue(7 - ret, false);
+                var r2 =  save_menu.findItemById(7 - ret);
                 //f.deBug("r2", r2);
                 var x = save_menu.getItem(r2);
                 //f.deBug("xr2", x);
                 x.setEnabled(false);
             }   
-            if (ret == planetSizeS && menuItem.isEnabled) {                
+            /*if (ret == planetSizeS && menuItem.isEnabled) {                
                 $.Options_Dict[planetSizeL] =false;
                 Storage.setValue(planetSizeL, false);
                 var r2 =  save_menu.findItemById(planetSizeL);
                 var x = save_menu.getItem(r2);
                 x.setEnabled(false);
-            }
+            }*/
             /*
             if (ret == glanceType && menuItem.isEnabled) {                
                 $.Options_Dict[glanceAlternate] =false;
@@ -151,7 +152,7 @@ class SSMenuDel extends WatchUi.Menu2InputDelegate {
         //solarSystemView_class = null;
 
 
-        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
         //switchToView(solarSystemView_class, solarSystemBase_class._solarSystemDelegate, WatchUi.SLIDE_IMMEDIATE);
         //switchToView.popView(WatchUi.SLIDE_IMMEDIATE);
         //System.exit();
@@ -160,6 +161,6 @@ class SSMenuDel extends WatchUi.Menu2InputDelegate {
         
          //since we usually/often get memory probs when returning from menu, we just exit the app
          
-         return false;
+         return true;
     }
 }

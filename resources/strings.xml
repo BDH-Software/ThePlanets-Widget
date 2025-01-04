@@ -5,10 +5,10 @@
     
     <string id="help_strings">Help &amp; Planet Abbreviations:|In Glance,..|A: = AM, morn planets|P: = PM, eve planets.|AM/PM Planets in|Glance are listed..|..in order outwards|from the Sun.|UP NOW planets are listed|in order East->West.|In the widget:|Use START, UP..|..DOWN in both screens|to move time OR..|..go faster/slower.|Planet Abbreviations:</string>
 
-    <string id="changeModeOption_short">Exit|Sky (now)|(Use SEL/UP/DOWN):|Time incr 24 hrs</string>
+    <string id="changeModeOption_short">|Sky (now)|(Use SEL/UP/DOWN):|Time incr 24 hrs</string>
 
-    <string id="planetsOption">All objects|Only visible planets</string>
+    <!-- <string id="planetsOption">All objects|Only visible planets</string> -->
 
-    <string id="delegateMessages">==THE PLANETS==|SELECT: Next mode|BACK: Exit|or: UP/DOWN|Current (|Next (|...)|SEL: |BACK: Exit|or: UP/DOWN|(Use Up/|Down/Start)|==Current Sky (by hr)==|==Current Sky (by day)==</string>
+    <!-- <string id="delegateMessages">==THE PLANETS==|SELECT: Next mode|BACK: Exit|or: UP/DOWN|Current (|Next (|...)|SEL: |BACK: Exit|or: UP/DOWN|(Use Up/|Down/Start)|==Current Sky (by hr)==|==Current Sky (by day)==</string> -->
 
 </resources>

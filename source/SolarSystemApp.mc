@@ -12,8 +12,8 @@ import Toybox.Application.Storage;
 import Toybox.System;
 import Toybox.Math;
 
-var page = 0;
-var pages_total = 25;
+//var page = 0;
+//var pages_total = 25;
 //var geo_cache;
 //var sunrise_cache;
 //var moon;
@@ -21,7 +21,7 @@ var pages_total = 25;
 var Options_Dict = {};
 
 var vspo87a;
-var vsop_cache;
+//var vsop_cache;
 var allOrbitParms = null;
     //var view_mode = [0, 1,2,3,4,5]; //manual move ecl, minuts ecl, day ecl, inner orr, mid orr, full orr
     var view_mode = 1;
@@ -123,7 +123,7 @@ class SolarSystemBaseApp extends Application.AppBase {
     //! Handle app startup
     //! @param state Startup arguments
     public function onStart(state as Dictionary?) as Void { 
-        f.deBug("onstart",[]); 
+        //f.deBug("onstart",[]); 
         //System.println("onStart...");
         $.started = false;
         $.run_oneTime = true;
@@ -134,10 +134,11 @@ class SolarSystemBaseApp extends Application.AppBase {
         $.now = System.getClockTime(); //before ANY routines or functions run, so all can have access if necessary        
         $.time_now = Time.now();
         $.now_info = Time.Gregorian.info($.time_now, Time.FORMAT_SHORT);
+        /*
         System.println ("onStart at " 
             +  $.now.hour.format("%02d") + ":" +
             $.now.min.format("%02d") + ":" +
-            $.now.sec.format("%02d") + " " + now_info.year + "-" + now_info.month + "-" + now_info.day);
+            $.now.sec.format("%02d") + " " + now_info.year + "-" + now_info.month + "-" + now_info.day);*/
         
 
         //readStorageValues();
@@ -172,19 +173,20 @@ class SolarSystemBaseApp extends Application.AppBase {
 
     //! Return the initial view for the app
     //! @return Array [View]
-    public function getInitialSSView() as [Views] or [Views, InputDelegates] {
+    public function getInitialView() as [Views] or [Views, InputDelegates] {
         deBug("initialview",[]);
 
-        Options = [extraPlanets, planetLabels,
+        Options = [extraPlanets, //planetLabels,
             // smallerBanners, 
-            planetSizeL, planetSizeS, glanceType, glanceAlternate];
+            planetSizeL, planetSizeS, glanceType, //glanceAlternate
+            ];
         defOptions = {extraPlanets => false,
-                  planetLabels => true,      
+                  //planetLabels => true,      
                     //smallerBanners => true,
                     planetSizeL => false,
                     planetSizeS => false,
                     glanceType => false,
-                    glanceAlternate => false,
+                    //glanceAlternate => false,
                     lastLoc_saved => [38, -94],
                     };
 
@@ -227,6 +229,7 @@ class SolarSystemBaseApp extends Application.AppBase {
         return [_solarSystemView, _solarSystemDelegate];
     }
 
+/*
     public function getInitialView() as [Views] or [Views, InputDelegates] {        
 
         return [new SSInitView(), new SSInitDel()];
@@ -234,7 +237,7 @@ class SolarSystemBaseApp extends Application.AppBase {
         //_solarSystemDelegate = null;
         //_solarSystemView = null;
 
-    }
+    }*/
 
     function getGlanceView() {
         f.deBug("getglanceview",[]);

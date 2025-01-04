@@ -138,11 +138,11 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         if (firstSelect) { 
             
             WatchUi.pushView(solarSystemView_class, solarSystemDelegate_class, WatchUi.SLIDE_LEFT);
-            f.deBug("firstSelect",null);
+            //f.deBug("firstSelect",null);
             firstSelect = false;
             return false;
         }
-        f.deBug("secondSelect",null);
+        //f.deBug("secondSelect",null);
 
         
         return true;
@@ -162,7 +162,10 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         //$.change_mode_select_button_firstpress = false;
         if (buttonPresses == 1) {return true;} //1st buttonpress just gets out of intro titles
 
-        if ($.view_mode > 1) { return false;} // just exit
+        if ($.view_mode > 1) { 
+            popView(WatchUi.SLIDE_RIGHT);
+            return false;
+            } // just exit
 
         $.view_mode=2;
         $.timeWasAdded=true; //makes the message appear/one screenredraw, like when pressing up/down & started==false
@@ -441,7 +444,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
          if ((WatchUi has :Menu2)) {
                //System.exit();
                //pushView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
-               switchToView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
+               pushView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_LEFT);
                return true;
         } else {
             return false;
