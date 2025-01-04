@@ -303,7 +303,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
             if (started)  {
                 $.speeds_index +=  mult;
                 //$.speedWasChanged = true; //skipping reset on speed change, for now
-                if ($.speeds_index>= spds.size()) {$.speeds_index = $.speeds.size()-1;}
+                if ($.speeds_index>= spds.size()) {$.speeds_index = spds.size()-1;}
                 if ($.speeds_index<0)  {$.speeds_index=0; }
 
                 //For "Big" time movement screens, skip over all the 

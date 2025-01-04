@@ -1442,82 +1442,82 @@
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="304" parent="globals/SolarSystemBaseDelegate" pc="268473206" symbol="handleNextPrevious"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="306" parent="globals/SolarSystemBaseDelegate" pc="268473226" symbol="handleNextPrevious"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="306" parent="globals/SolarSystemBaseDelegate" pc="268473253" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="307" parent="globals/SolarSystemBaseDelegate" pc="268473295" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="307" parent="globals/SolarSystemBaseDelegate" pc="268473316" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="311" parent="globals/SolarSystemBaseDelegate" pc="268473336" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="312" parent="globals/SolarSystemBaseDelegate" pc="268473437" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="313" parent="globals/SolarSystemBaseDelegate" pc="268473479" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="314" parent="globals/SolarSystemBaseDelegate" pc="268473518" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="315" parent="globals/SolarSystemBaseDelegate" pc="268473560" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="318" parent="globals/SolarSystemBaseDelegate" pc="268473605" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="319" parent="globals/SolarSystemBaseDelegate" pc="268473641" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="345" parent="globals/SolarSystemBaseDelegate" pc="268473658" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="345" parent="globals/SolarSystemBaseDelegate" pc="268473679" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="346" parent="globals/SolarSystemBaseDelegate" pc="268473699" symbol="handleNextPrevious"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="44" parent="globals/SolarSystemBaseDelegate" pc="268473717" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="47" parent="globals/SolarSystemBaseDelegate" pc="268473719" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="49" parent="globals/SolarSystemBaseDelegate" pc="268473741" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="50" parent="globals/SolarSystemBaseDelegate" pc="268473764" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="52" parent="globals/SolarSystemBaseDelegate" pc="268473778" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="54" parent="globals/SolarSystemBaseDelegate" pc="268473811" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="54" parent="globals/SolarSystemBaseDelegate" pc="268473828" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="56" parent="globals/SolarSystemBaseDelegate" pc="268473834" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="57" parent="globals/SolarSystemBaseDelegate" pc="268473860" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="58" parent="globals/SolarSystemBaseDelegate" pc="268473879" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="59" parent="globals/SolarSystemBaseDelegate" pc="268473902" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="63" parent="globals/SolarSystemBaseDelegate" pc="268473938" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="65" parent="globals/SolarSystemBaseDelegate" pc="268473951" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="90" parent="globals/SolarSystemBaseDelegate" pc="268473973" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="91" parent="globals/SolarSystemBaseDelegate" pc="268474006" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="101" parent="globals/SolarSystemBaseDelegate" pc="268474019" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="104" parent="globals/SolarSystemBaseDelegate" pc="268474040" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="107" parent="globals/SolarSystemBaseDelegate" pc="268474060" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="138" parent="globals/SolarSystemBaseDelegate" pc="268474070" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="140" parent="globals/SolarSystemBaseDelegate" pc="268474081" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="142" parent="globals/SolarSystemBaseDelegate" pc="268474118" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="143" parent="globals/SolarSystemBaseDelegate" pc="268474128" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="148" parent="globals/SolarSystemBaseDelegate" pc="268474134" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="465" parent="globals/SolarSystemBaseDelegate" pc="268474137" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="466" parent="globals/SolarSystemBaseDelegate" pc="268474141" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="469" parent="globals/SolarSystemBaseDelegate" pc="268474154" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="485" parent="globals/SolarSystemBaseDelegate" pc="268474165" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="489" parent="globals/SolarSystemBaseDelegate" pc="268474180" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="490" parent="globals/SolarSystemBaseDelegate" pc="268474192" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="491" parent="globals/SolarSystemBaseDelegate" pc="268474204" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="492" parent="globals/SolarSystemBaseDelegate" pc="268474223" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="498" parent="globals/SolarSystemBaseDelegate" pc="268474295" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="500" parent="globals/SolarSystemBaseDelegate" pc="268474301" symbol="onKey"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="156" parent="globals/SolarSystemBaseDelegate" pc="268474304" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="157" parent="globals/SolarSystemBaseDelegate" pc="268474306" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="158" parent="globals/SolarSystemBaseDelegate" pc="268474328" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="159" parent="globals/SolarSystemBaseDelegate" pc="268474351" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="161" parent="globals/SolarSystemBaseDelegate" pc="268474365" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="163" parent="globals/SolarSystemBaseDelegate" pc="268474398" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="163" parent="globals/SolarSystemBaseDelegate" pc="268474415" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="165" parent="globals/SolarSystemBaseDelegate" pc="268474421" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="166" parent="globals/SolarSystemBaseDelegate" pc="268474442" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="167" parent="globals/SolarSystemBaseDelegate" pc="268474459" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="170" parent="globals/SolarSystemBaseDelegate" pc="268474465" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="171" parent="globals/SolarSystemBaseDelegate" pc="268474482" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="172" parent="globals/SolarSystemBaseDelegate" pc="268474496" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="173" parent="globals/SolarSystemBaseDelegate" pc="268474519" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="174" parent="globals/SolarSystemBaseDelegate" pc="268474533" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="230" parent="globals/SolarSystemBaseDelegate" pc="268474550" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="231" parent="globals/SolarSystemBaseDelegate" pc="268474566" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="16" parent="globals/SolarSystemBaseDelegate" pc="268474569" symbol="initialize"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="17" parent="globals/SolarSystemBaseDelegate" pc="268474571" symbol="initialize"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="18" parent="globals/SolarSystemBaseDelegate" pc="268474589" symbol="initialize"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="19" parent="globals/SolarSystemBaseDelegate" pc="268474610" symbol="initialize"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="36" parent="globals/SolarSystemBaseDelegate" pc="268474620" symbol="initialize"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="140" lineNum="433" parent="globals/SolarSystemBaseDelegate" pc="268474631" symbol="onHide"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="140" lineNum="434" parent="globals/SolarSystemBaseDelegate" pc="268474633" symbol="onHide"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="141" lineNum="360" parent="globals/SolarSystemBaseDelegate" pc="268474655" symbol="onNextPage"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="141" lineNum="361" parent="globals/SolarSystemBaseDelegate" pc="268474657" symbol="onNextPage"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="141" lineNum="362" parent="globals/SolarSystemBaseDelegate" pc="268474674" symbol="onNextPage"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="142" lineNum="419" parent="globals/SolarSystemBaseDelegate" pc="268474677" symbol="onPreviousMode"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="142" lineNum="420" parent="globals/SolarSystemBaseDelegate" pc="268474679" symbol="onPreviousMode"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="142" lineNum="421" parent="globals/SolarSystemBaseDelegate" pc="268474700" symbol="onPreviousMode"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="142" lineNum="422" parent="globals/SolarSystemBaseDelegate" pc="268474717" symbol="onPreviousMode"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="307" parent="globals/SolarSystemBaseDelegate" pc="268473285" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="307" parent="globals/SolarSystemBaseDelegate" pc="268473306" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="311" parent="globals/SolarSystemBaseDelegate" pc="268473326" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="312" parent="globals/SolarSystemBaseDelegate" pc="268473427" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="313" parent="globals/SolarSystemBaseDelegate" pc="268473469" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="314" parent="globals/SolarSystemBaseDelegate" pc="268473508" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="315" parent="globals/SolarSystemBaseDelegate" pc="268473550" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="318" parent="globals/SolarSystemBaseDelegate" pc="268473595" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="319" parent="globals/SolarSystemBaseDelegate" pc="268473631" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="345" parent="globals/SolarSystemBaseDelegate" pc="268473648" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="345" parent="globals/SolarSystemBaseDelegate" pc="268473669" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="135" lineNum="346" parent="globals/SolarSystemBaseDelegate" pc="268473689" symbol="handleNextPrevious"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="44" parent="globals/SolarSystemBaseDelegate" pc="268473707" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="47" parent="globals/SolarSystemBaseDelegate" pc="268473709" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="49" parent="globals/SolarSystemBaseDelegate" pc="268473731" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="50" parent="globals/SolarSystemBaseDelegate" pc="268473754" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="52" parent="globals/SolarSystemBaseDelegate" pc="268473768" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="54" parent="globals/SolarSystemBaseDelegate" pc="268473801" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="54" parent="globals/SolarSystemBaseDelegate" pc="268473818" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="56" parent="globals/SolarSystemBaseDelegate" pc="268473824" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="57" parent="globals/SolarSystemBaseDelegate" pc="268473850" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="58" parent="globals/SolarSystemBaseDelegate" pc="268473869" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="59" parent="globals/SolarSystemBaseDelegate" pc="268473892" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="63" parent="globals/SolarSystemBaseDelegate" pc="268473928" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="65" parent="globals/SolarSystemBaseDelegate" pc="268473941" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="90" parent="globals/SolarSystemBaseDelegate" pc="268473963" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="91" parent="globals/SolarSystemBaseDelegate" pc="268473996" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="101" parent="globals/SolarSystemBaseDelegate" pc="268474009" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="104" parent="globals/SolarSystemBaseDelegate" pc="268474030" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="107" parent="globals/SolarSystemBaseDelegate" pc="268474050" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="138" parent="globals/SolarSystemBaseDelegate" pc="268474060" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="140" parent="globals/SolarSystemBaseDelegate" pc="268474071" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="142" parent="globals/SolarSystemBaseDelegate" pc="268474108" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="143" parent="globals/SolarSystemBaseDelegate" pc="268474118" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="136" lineNum="148" parent="globals/SolarSystemBaseDelegate" pc="268474124" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="465" parent="globals/SolarSystemBaseDelegate" pc="268474127" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="466" parent="globals/SolarSystemBaseDelegate" pc="268474131" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="469" parent="globals/SolarSystemBaseDelegate" pc="268474144" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="485" parent="globals/SolarSystemBaseDelegate" pc="268474155" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="489" parent="globals/SolarSystemBaseDelegate" pc="268474170" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="490" parent="globals/SolarSystemBaseDelegate" pc="268474182" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="491" parent="globals/SolarSystemBaseDelegate" pc="268474194" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="492" parent="globals/SolarSystemBaseDelegate" pc="268474213" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="498" parent="globals/SolarSystemBaseDelegate" pc="268474285" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="137" lineNum="500" parent="globals/SolarSystemBaseDelegate" pc="268474291" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="156" parent="globals/SolarSystemBaseDelegate" pc="268474294" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="157" parent="globals/SolarSystemBaseDelegate" pc="268474296" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="158" parent="globals/SolarSystemBaseDelegate" pc="268474318" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="159" parent="globals/SolarSystemBaseDelegate" pc="268474341" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="161" parent="globals/SolarSystemBaseDelegate" pc="268474355" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="163" parent="globals/SolarSystemBaseDelegate" pc="268474388" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="163" parent="globals/SolarSystemBaseDelegate" pc="268474405" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="165" parent="globals/SolarSystemBaseDelegate" pc="268474411" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="166" parent="globals/SolarSystemBaseDelegate" pc="268474432" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="167" parent="globals/SolarSystemBaseDelegate" pc="268474449" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="170" parent="globals/SolarSystemBaseDelegate" pc="268474455" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="171" parent="globals/SolarSystemBaseDelegate" pc="268474472" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="172" parent="globals/SolarSystemBaseDelegate" pc="268474486" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="173" parent="globals/SolarSystemBaseDelegate" pc="268474509" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="174" parent="globals/SolarSystemBaseDelegate" pc="268474523" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="230" parent="globals/SolarSystemBaseDelegate" pc="268474540" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="138" lineNum="231" parent="globals/SolarSystemBaseDelegate" pc="268474556" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="16" parent="globals/SolarSystemBaseDelegate" pc="268474559" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="17" parent="globals/SolarSystemBaseDelegate" pc="268474561" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="18" parent="globals/SolarSystemBaseDelegate" pc="268474579" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="19" parent="globals/SolarSystemBaseDelegate" pc="268474600" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="139" lineNum="36" parent="globals/SolarSystemBaseDelegate" pc="268474610" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="140" lineNum="433" parent="globals/SolarSystemBaseDelegate" pc="268474621" symbol="onHide"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="140" lineNum="434" parent="globals/SolarSystemBaseDelegate" pc="268474623" symbol="onHide"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="141" lineNum="360" parent="globals/SolarSystemBaseDelegate" pc="268474645" symbol="onNextPage"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="141" lineNum="361" parent="globals/SolarSystemBaseDelegate" pc="268474647" symbol="onNextPage"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="141" lineNum="362" parent="globals/SolarSystemBaseDelegate" pc="268474664" symbol="onNextPage"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="142" lineNum="419" parent="globals/SolarSystemBaseDelegate" pc="268474667" symbol="onPreviousMode"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="142" lineNum="420" parent="globals/SolarSystemBaseDelegate" pc="268474669" symbol="onPreviousMode"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="142" lineNum="421" parent="globals/SolarSystemBaseDelegate" pc="268474690" symbol="onPreviousMode"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ThePlanets-Widget\\source\\SolarSystemDelegate.mc" id="142" lineNum="422" parent="globals/SolarSystemBaseDelegate" pc="268474707" symbol="onPreviousMode"/>
 </pcToLineNum>
 <symbolTable>
 <entry id="102" method="true" symbol="getEarth"/>
@@ -2338,13 +2338,13 @@
 <entry arg="true" endPc="268472652" name="d" stackId="1" startPc="268472558"/>
 <entry arg="true" endPc="268472884" name="swipe" stackId="1" startPc="268472859"/>
 <entry arg="true" endPc="268472910" name="tap" stackId="1" startPc="268472885"/>
-<entry arg="true" endPc="268473716" name="type" stackId="1" startPc="268472911"/>
-<entry endPc="268473715" name="mult" stackId="2" startPc="268472915"/>
-<entry endPc="268473715" name="spds" stackId="3" startPc="268472915"/>
-<entry endPc="268473715" name="in" stackId="4" startPc="268472915"/>
-<entry arg="true" endPc="268474303" name="keyEvent" stackId="1" startPc="268474137"/>
-<entry endPc="268474303" name="keyvent" stackId="2" startPc="268474141"/>
-<entry arg="true" endPc="268474630" name="view" stackId="1" startPc="268474569"/>
+<entry arg="true" endPc="268473706" name="type" stackId="1" startPc="268472911"/>
+<entry endPc="268473705" name="mult" stackId="2" startPc="268472915"/>
+<entry endPc="268473705" name="spds" stackId="3" startPc="268472915"/>
+<entry endPc="268473705" name="in" stackId="4" startPc="268472915"/>
+<entry arg="true" endPc="268474293" name="keyEvent" stackId="1" startPc="268474127"/>
+<entry endPc="268474293" name="keyvent" stackId="2" startPc="268474131"/>
+<entry arg="true" endPc="268474620" name="view" stackId="1" startPc="268474559"/>
 </localVars>
 <deviceInfo partNumber="006-B3888-00"/>
 <annotations>
@@ -3055,31 +3055,31 @@
 <param id="tap"/>
 <documentation/>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268473716" name="handleNextPrevious" parent="SolarSystemBaseDelegate" startPc="268472911">
+<functionEntry accessMode="public" endPc="268473706" name="handleNextPrevious" parent="SolarSystemBaseDelegate" startPc="268472911">
 <param id="type"/>
 <documentation/>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268474136" name="onSelect" parent="SolarSystemBaseDelegate" startPc="268473717">
+<functionEntry accessMode="public" endPc="268474126" name="onSelect" parent="SolarSystemBaseDelegate" startPc="268473707">
 <documentation><![CDATA[<div class="description"> Handle the select button<br/> <div class="returns">Returns  true if handled, false otherwise</div><br/></div>]]></documentation>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268474303" name="onKey" parent="SolarSystemBaseDelegate" startPc="268474137">
+<functionEntry accessMode="public" endPc="268474293" name="onKey" parent="SolarSystemBaseDelegate" startPc="268474127">
 <param id="keyEvent"/>
 <documentation/>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268474568" name="onBack" parent="SolarSystemBaseDelegate" startPc="268474304">
+<functionEntry accessMode="public" endPc="268474558" name="onBack" parent="SolarSystemBaseDelegate" startPc="268474294">
 <documentation><![CDATA[<div class="description"> Handle the select button<br/> <div class="returns">Returns  true if handled, false otherwise</div><br/></div>]]></documentation>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268474630" name="initialize" parent="SolarSystemBaseDelegate" startPc="268474569">
+<functionEntry accessMode="public" endPc="268474620" name="initialize" parent="SolarSystemBaseDelegate" startPc="268474559">
 <param id="view"/>
 <documentation><![CDATA[<div class="description"> Constructor<br/></div>]]></documentation>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268474654" name="onHide" parent="SolarSystemBaseDelegate" startPc="268474631">
+<functionEntry accessMode="public" endPc="268474644" name="onHide" parent="SolarSystemBaseDelegate" startPc="268474621">
 <documentation/>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268474676" name="onNextPage" parent="SolarSystemBaseDelegate" startPc="268474655">
+<functionEntry accessMode="public" endPc="268474666" name="onNextPage" parent="SolarSystemBaseDelegate" startPc="268474645">
 <documentation><![CDATA[<div class="description"> Handle going to the next view<br/> <div class="returns">Returns  true if handled, false otherwise</div><br/></div>]]></documentation>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268474719" name="onPreviousMode" parent="SolarSystemBaseDelegate" startPc="268474677">
+<functionEntry accessMode="public" endPc="268474709" name="onPreviousMode" parent="SolarSystemBaseDelegate" startPc="268474667">
 <documentation/>
 </functionEntry>
 </functions>
