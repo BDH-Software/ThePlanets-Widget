@@ -1,3 +1,6 @@
+WIDGET - REMOVED OREGON 7XX from device list because it is the ONLY device that won't accept a json.xml file
+
+
 NEW TODO:
 
  - Screen doesn't refresh on BACK button

@@ -13,5 +13,5 @@ rino7xx.excludeAnnotations = hasByteArray;noJSON
 edge_1000.excludeAnnotations = hasByteArray;noJSON
 edge820.excludeAnnotations = hasByteArray;noJSON
 #Oregon FOR SOME REASON doesn't have JSON while ALL THE OTHERS do
-oregon7xx.excludeAnnotations = hasByteArray;hasJSON
+#oregon7xx.excludeAnnotations = hasByteArray;hasJSON
 #oregon7xx.excludeAnnotations = hasJSON

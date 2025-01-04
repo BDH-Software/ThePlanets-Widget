@@ -166,7 +166,7 @@ var sm;
                 
 
                 for (var j=0;j<=sorted_ang.size();j++) {
-                    var myStats = System.getSystemStats();
+                    //var myStats = System.getSystemStats();
                     //System.println("Mem" + myStats.totalMemory + " " + myStats.usedMemory + " " + myStats.freeMemory);
                     //f.deBug("PP", [keys, ky, pp[ky], j, sorted_ang]);
                     if (sorted_ang[j] == null || pp[ky] < pp[keys[sorted_ang[j]]]) {

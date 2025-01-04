@@ -7,6 +7,7 @@ var settings_view, settings_delegate;
 //var exiting_back_button_firstpress=false;
 //var change_mode_select_button_firstpress = false;
 var EBBF_next_mode = 1;
+var firstSelect = true;
 
 //! Handle input on initial view
 class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
@@ -14,7 +15,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
     //! Constructor
     public function initialize(view) {
         BehaviorDelegate.initialize();
-        //System.println("delegate initl..");
+        System.println("delegate initl..");
         _mainview = view;
 
         /*
@@ -32,6 +33,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
                 */
 //var speeds_index; //the currently used speed that will be added to TIME @ each update of screen  //
 //var screen0Move_index = 33;
+    firstSelect = true;
     }
     var last_animation_count = 0;
     var animation_retry_tally = 0;
@@ -40,6 +42,9 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
     //! Handle the select button
     //! @return true if handled, false otherwise
     public function onSelect() as Boolean {
+
+
+        f.deBug("onSelect",null);
 
         $.buttonPresses++;
         $.timeWasAdded=true;
@@ -91,8 +96,10 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
 
                 
                 //if we stop & forward step == 0 we set it to the lowest value
-                var spds = WatchUi.loadResource( $.Rez.JsonData.speeds) as Array;
-                if ((spds[$.speeds_index]).abs() < 0.001) {
+                //var spds = WatchUi.loadResource( $.Rez.JsonData.speeds) as Array;
+                //if ((spds[$.speeds_index]).abs() < 0.001) {
+                if ($.speeds_index==34) { //OREGON7XXX can't handle JSON so we have ARRGGHH here; whatever don't change that index =34 is the ZERO
+            
                     //deBug("zero & moving up!!!!!",[]);
                     handleNextPrevious (:previous); 
                 }
@@ -128,6 +135,15 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
             }
         }
 
+        if (firstSelect) { 
+            
+            WatchUi.pushView(solarSystemView_class, solarSystemDelegate_class, WatchUi.SLIDE_LEFT);
+            f.deBug("firstSelect",null);
+            firstSelect = false;
+            return false;
+        }
+        f.deBug("secondSelect",null);
+
         
         return true;
     }
@@ -138,6 +154,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
     //if in view_mode 1, go to 2
     //if in 2, EXIT
     public function onBack() as Boolean {
+        f.deBug("onBack",null);
         $.buttonPresses++;
         $.timeWasAdded=true;
         //$.LORR_show_horizon_line = false;
@@ -212,6 +229,7 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function handleNextPrevious (type){
+        f.deBug("NextPrev",null);
         //_view.nextSensor();
         //$.show_intvl = false;
         //_mainview.$.time_add_hrs -= _mainview.time_add_inc;
@@ -341,6 +359,12 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
       return true;
     }
 
+    public function onNextMode() as Boolean {
+        System.println("onNextMODE");
+      handleNextPrevious (:next);   
+      return true;
+    }
+
     //! Handle going to the previous view
     //! @return true if handled, false otherwise
     public function onPreviousPage() as Boolean {
@@ -389,6 +413,12 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         
     }
 
+    public function onPreviousMode() as Boolean {
+        System.println("onPrevMODE");
+      handleNextPrevious (:previous);   
+      return true;
+    }
+
     /*
     function onTap(clickEvent) {
         System.println("Click1: " + clickEvent.getCoordinates()); // e.g. [36, 40]
@@ -404,6 +434,29 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
     function onShow(){
         System.println("Show");   
         
+    }
+
+    function onMenu(){
+        System.println("Menu");
+         if ((WatchUi has :Menu2)) {
+               //System.exit();
+               //pushView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
+               switchToView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
+               return true;
+        } else {
+            return false;
+        }
+        
+    }
+
+    function onSwipe(swipe){
+        System.println("Swipe");
+        return false;        
+    }
+
+    function onTap(tap){
+        System.println("Tap");
+        return false;
     }
     
     function onKey(keyEvent) {
