@@ -77,14 +77,13 @@ var sm;
 
         if ((Application has :Storage)) {
             var ret = Storage.getValue(glanceType);  
-            if (ret == null) { ampmORup = 0;}
+            var ret2 = Storage.getValue(glanceAlternate);  
+            if (ret2) { ampmORup = 0;}
             else if (ret) { ampmORup = 1;}
             else {ampmORup = 2;}
-
-
         }
 
-        lastLoc = [39.00894, 94.44008]; //for testing only
+        //lastLoc = [39.00894, 94.44008]; //for testing only
         doCalcs();
         glanceTimer= new Timer.Timer();
         GL_count = Math.rand()%2;
@@ -140,14 +139,25 @@ var sm;
         //f.deBug("hor_ang", [f.normalize(Math.toDegrees(hor_ang_rad)), sun_adj_deg, hour_adj_deg, noon_adj_deg]);
 
         //var moon_age_deg = f.normalize ((pp["Moon"][0]) - (pp["Sun"][0]));
+        var whor_deg = f.normalize(Math.toDegrees(hor_ang_rad));
+        var ehor_deg = f.normalize(whor_deg+180);
+        //var whor_rad = hor_ang_rad;
+        //var ehor_rad = f.normalize(whor_deg+180);
+        pp.put("W", [hor_ang_rad]);
+        pp.put("E", [hor_ang_rad + Math.PI]);
 
         var keys = pp.keys();
         var sorted_ang = new Array<Number> [keys.size()];
         for (var i = 0; i < keys.size(); i++) {
             var ky = keys[i];
-            var ang_rad =  -equatorialLong2eclipticLong_rad(Math.toRadians(pp[ky][0]) , Math.toRadians(obliq_deg)); 
+            //var ang_rad =  -equatorialLong2eclipticLong_rad(Math.toRadians(pp[ky][0]) , Math.toRadians(obliq_deg)); 
+            var ang_rad = pp[ky][0];
+            if (!ky.equals("E") && !ky.equals("W")) {ang_rad =  -equatorialLong2eclipticLong_rad(Math.toRadians(pp[ky][0]) , Math.toRadians(obliq_deg)); }
+            
 
             pp.put(ky,(f.normalize(Math.toDegrees(ang_rad))).toNumber());
+
+           //f.debug("ang:",[ky,pp[ky]]);
             //pp.put(ky,(f.normalize(Math.toDegrees(pp[ky][0]))*10).toNumber());
             
             //Create a sorted list of keys while we're at it..
@@ -185,26 +195,35 @@ var sm;
         var hit_whor = false;
         var sun = 0;
         var sun_ang;
-        var whor_deg = f.normalize(Math.toDegrees(hor_ang_rad));
-        var ehor_deg = f.normalize(whor_deg+180);
+        
+        
         //f.deBug("ew", [whor_deg, ehor_deg]);
         
 
         for (var i = 0; i < sorted_ang.size() * 2; i++) {
             var ky = keys[sorted_ang[i % sorted_ang.size()]];
             //var ang_rad = -srs.equatorialLong2eclipticLong_rad(Math.to Radians(pp[ky][0]), Math.toRadians(obliq_deg));  
-            //f.deBug("ky", [i,ky]);  
+           //f.debug("ky", [i,ky,pp[ky]]);  
+           //f.debug("HEreg:", [f.normalize(pp[ky] - ehor_deg), hit_whor, hit_ehor, ky]);
 
-             if (f.normalize(pp[ky]-ehor_deg) <= 180 && !hit_whor) {
+            if (ky.equals("E")) { //FIRST time we hit the EAST horizon
+                hit_ehor = true;
+                continue;
+            } else if (hit_ehor && ky.equals("W")) { //First time we hit WEST horizon AFTER hitting EAST
+                hit_whor = true;
+                continue;
+            }
+            
+            if (f.normalize(pp[ky]-ehor_deg) <= 180 && hit_ehor && !hit_whor) {
+               //f.debug("adding:", ky);
                 hit_ehor = true;
                 if (up.length()>8) { up += " ";}
                 up += ky.substring(0,2);
                 
 
-            }
-            if (f.normalize(pp[ky] - whor_deg) <180 && hit_ehor) {
-                hit_whor = true;
-            }   
+            }               
+
+           //f.debug("UN:", [f.normalize(pp[ky] - ehor_deg),f.normalize(pp[ky] - whor_deg)]);
 
             if (ky.equals("Sun")) {
                 //if (hitsun) {break;}
@@ -213,7 +232,7 @@ var sm;
                 sun = i;
                 continue;
             }
-            //f.deBug("ky", [i,ky,pp[ky], hitsun]);     
+           //f.debug("ky", [i,ky,pp[ky], hitsun]);     
             if (hitsun ==1) {
                 //f.deBug("norm1", [f.normalize(pp[ky] - sun_ang), pp[ky], ky, sun_ang]);
                 if (f.normalize(pp[ky] - sun_ang) < 300) 
@@ -261,7 +280,7 @@ var sm;
     }
 
     function onShow(){
-        f.deBug("onShow",0);
+        //f.deBug("onShow",0);
         //WatchUi.requestUpdate();
         
         
@@ -269,7 +288,7 @@ var sm;
     }
 
     function onHide(){
-        f.deBug("onHide",0);
+        //f.deBug("onHide",0);
         //WatchUi.requestUpdate();
         
         
@@ -280,7 +299,7 @@ var sm;
 
     function glanceTimerCallback() as Void {
         glance_animation_count++;
-        f.deBug("glanceTimer", [glance_animation_count,GL_count]);
+        //f.deBug("glanceTimer", [glance_animation_count,GL_count]);
         GL_count++;
         WatchUi.requestUpdate();
 

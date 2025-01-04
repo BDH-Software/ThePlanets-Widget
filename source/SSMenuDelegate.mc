@@ -12,6 +12,7 @@ enum {
     planetSizeL = 3,
     planetSizeS = 4,
     glanceType = 6, //don't use 5 as it's used for helpOption_enum
+    glanceAlternate = 7,
     lastLoc_saved = 99,
 }
 
@@ -19,7 +20,7 @@ var Options; //values added in getInitialView
 
 var defOptions; //values added in getInitialView
 
-var numOptions = 5;
+var numOptions = 6;
 
 var helpOption_enum = 5;
 
@@ -112,6 +113,24 @@ class SSMenuDel extends WatchUi.Menu2InputDelegate {
                 var x = save_menu.getItem(r2);
                 x.setEnabled(false);
             }
+            /*
+            if (ret == glanceType && menuItem.isEnabled) {                
+                $.Options_Dict[glanceAlternate] =false;
+                Storage.setValue(glanceAlternate, false);
+                var r2 =  save_menu.findItemById(glanceAlternate);
+                //f.deBug("r2", r2);
+                var x = save_menu.getItem(r2);
+                //f.deBug("xr2", x);
+                x.setEnabled(false);
+            }   
+            if (ret == glanceAlternate && menuItem.isEnabled) {                
+                $.Options_Dict[glanceType] =false;
+                Storage.setValue(glanceType, false);
+                var r2 =  save_menu.findItemById(glanceType);
+                var x = save_menu.getItem(r2);
+                x.setEnabled(false);
+            }
+            */
 
 
         } else {
@@ -121,14 +140,26 @@ class SSMenuDel extends WatchUi.Menu2InputDelegate {
                 var pA = save_menu.getPlanetAbbreviation();
                 menuItem.setLabel(pA[0]);
                 menuItem.setSubLabel(pA[1]);
+                pA = null;
             }
         }
     }
 
     function onBack() {
-        save_menu = null;
+        
+        //save_menu = null;
+        //solarSystemView_class = null;
+
 
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-        WatchUi.requestUpdate(); //often the screen is black after return from Menu, at least in the sim
+        //switchToView(solarSystemView_class, solarSystemBase_class._solarSystemDelegate, WatchUi.SLIDE_IMMEDIATE);
+        //switchToView.popView(WatchUi.SLIDE_IMMEDIATE);
+        //System.exit();
+        //WatchUi.requestUpdate(); //often the screen is black after return from Menu, at least in the sim
+        return true;
+        
+         //since we usually/often get memory probs when returning from menu, we just exit the app
+         
+         //return false;
     }
 }

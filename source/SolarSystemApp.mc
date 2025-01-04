@@ -54,6 +54,7 @@ var time_add_hrs = 0.0; //cumulation of all time to be added to time.NOW when a 
 var show_intvl = 0; //whether or not to show current SPEED on display
 var animSinceModeChange = 0; //used to tell when to blank screen etc.
 var solarSystemView_class as SolarSystemBaseView?; //saved instance of main class 
+//var solarSystemBase_class as SolarSystemBaseApp?;
 
 //enum {exitApp, resetDate, orrZoomOption, thetaOption, labelDisplayOption, refreshOption, screen0MoveOption, planetSizeOption, planetsOption, helpOption, helpBanners}
 
@@ -87,13 +88,15 @@ class SolarSystemBaseApp extends Application.AppBase {
     //var view_mode = [ECLIPTIC_STATIC, ECLIPTIC_MOVE, SMALL_ORRERY, MED_ORRERY, LARGE_ORRERY];
 
 
-    private var _solarSystemView as SolarSystemBaseView;
-    private var _solarSystemDelegate as SolarSystemBaseDelegate;
+    var _solarSystemView as SolarSystemBaseView;
+    var _solarSystemDelegate as SolarSystemBaseDelegate;
 
     //! Constructor
     public function initialize() {
         AppBase.initialize();
         System.println("init starting...");
+
+        //$.solarSystemBase_class = self;
         
         //geo_cache = new Geocentric_cache();
         
@@ -173,13 +176,14 @@ class SolarSystemBaseApp extends Application.AppBase {
 
         Options = [extraPlanets, planetLabels,
             // smallerBanners, 
-            planetSizeL, planetSizeS, glanceType];
+            planetSizeL, planetSizeS, glanceType, glanceAlternate];
         defOptions = {extraPlanets => false,
                   planetLabels => true,      
                     //smallerBanners => true,
                     planetSizeL => false,
                     planetSizeS => false,
                     glanceType => false,
+                    glanceAlternate => true,
                     lastLoc_saved => [38, -94],
                     };
 

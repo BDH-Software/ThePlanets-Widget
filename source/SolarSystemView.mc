@@ -832,8 +832,8 @@ class SolarSystemBaseView extends WatchUi.View {
         //System.println("Sunrise_set: " + sunrise_events);
 
         //lastLoc = [59.00894, -94.44008]; //for testing
-        var sr = new srs();
-        sunrise_events2 = sr.getRiseSetfromDate_hr($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs,lastLoc[0], lastLoc[1], pp["Sun"]);
+        //var sr = new srs();
+        sunrise_events2 = srs.getRiseSetfromDate_hr($.now_info, $.now.timeZoneOffset, $.now.dst, time_add_hrs,lastLoc[0], lastLoc[1], pp["Sun"]);
         
 
         //System.println("Sunrise_set2%%%%%%%: " + sunrise_events2);
@@ -851,9 +851,9 @@ class SolarSystemBaseView extends WatchUi.View {
         //sun_adj_deg = (270 - pp["Sun"][0]);// 
 
         //&&&&&&&&&&&&&&&&&&&&&&&&
-        sun_adj_deg = (270 - sr.equatorialLong2eclipticLong_deg(pp["Sun"][0], obliq_deg));// 
+        sun_adj_deg = (270 - srs.equatorialLong2eclipticLong_deg(pp["Sun"][0], obliq_deg));// 
 
-        sr = null;
+        //sr = null;
 
         //sun_adj_deg = 270 - pp["Sun"][0];// 
         
@@ -1255,9 +1255,9 @@ class SolarSystemBaseView extends WatchUi.View {
             //&&&&&&&&&&&&&&&&&&&&&&&&
             //ang_deg =  -pp[key][0] - final_adj_deg;
             //ang_rad = Math.toRadians(ang_deg);
-            var sr = new srs();
-            ang_rad =  -sr.equatorialLong2eclipticLong_rad(Math.toRadians(pp[key][0]) , Math.toRadians(obliq_deg)) - final_adj_rad;
-            sr = null;
+            //var sr = new srs();
+            ang_rad =  -srs.equatorialLong2eclipticLong_rad(Math.toRadians(pp[key][0]) , Math.toRadians(obliq_deg)) - final_adj_rad;
+            //sr = null;
 
             //var ang_rad2 = -Math.toRadians(pp[key][0]) - final_adj_rad;
 
@@ -2676,11 +2676,11 @@ class SolarSystemBaseView extends WatchUi.View {
             if (size<0.5) {size=0.5;} //keep it from comppletely disappearing no matter what
         }
         */
-        //System.println("size2 " + key + " " + size + " " + min_size);
+        //System.println("size2 " + key + " " + size + " " + min_size);        
 
         size *= planetSizeFactor; //factor from settings
 
-        if (key.find("Ec") != null) {
+        if (key.substring(0,2).equals("Ec")) {
             var trisize = min_c/15.0*2.25;
             var tribase = trisize/3/2.25;
             size = min_c/60.0;
@@ -3000,7 +3000,8 @@ class SolarSystemBaseView extends WatchUi.View {
             if ((textDisplay_count * mlt2) % (mlt*hez).toNumber() < hez || drawThis) {
             
                 //if (type == :ecliptic) {
-                    if (!key.equals("Sun") && key.find("Eclipt")==null)  {
+                //f.deBug("key",key.substring(0,2));
+                    if (!key.equals("Sun") && !key.substring(0,2).equals("Ec"))  {
                         sub = findSpot(-pp[key][0]+sid);
                         mult = 0.8 - (.23 * sub);
                         x2 = mult*r* Math.cos(ang_rad) + xc;

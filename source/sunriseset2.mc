@@ -103,12 +103,13 @@ class sunRiseSet_cache2{
 */
 
 
-class srs {
+//class srs {
+module srs {
     enum {
-        GMST_MID_HR,
+        //GMST_MID_HR,
         TRANSIT_GMT_HR,
-        GMST_NOW_HR,
-        LMST_NOW_HR,
+        //GMST_NOW_HR,
+        //LMST_NOW_HR,
         ASTRO_DAWN,
         //NAUTIC_DAWN,
         DAWN,
@@ -290,18 +291,18 @@ class srs {
         //Greenwhich mean sidereal time @ midnight of today
         var gmst_mid_deg=f.normalize(GMST_deg(Math.floor(jd_mid)+.5));
         //deBug("gmst: ", [gmst, jd, Math.floor(jd)+.5]);
-        ret.put(:GMST_MID_HR, gmst_mid_deg/15.0);
+        //ret.put(:GMST_MID_HR, gmst_mid_deg/15.0);
         //deBug("gmst, jd : ", [gmst_mid_deg, jd]);
         //today's solar transit time in GMT
         var transit_GMT_DAY=f.normalize(sun_RD[0] + lon_deg - gmst_mid_deg)/360.0;
-        ret.put(:TRANSIT_GMT_HR, transit_GMT_DAY*24.0);
+        //ret.put(:TRANSIT_GMT_HR, transit_GMT_DAY*24.0);
         //var transit_GMT_toeclip_day = transit_GMT_DAY*Math.PI*2.0;
         //deBug("transit: ", [transit_GMT_DAY*24.0]);
 
         var gmst_now_deg = f.normalize(GMST_deg(jd));
         var lmst_now_hr = f.normalize((gmst_now_deg - lon_deg)) / 15.0;
-        ret.put(:GMST_NOW_HR, [gmst_now_deg/15.0]);
-        ret.put(:LMST_NOW_HR, [lmst_now_hr]);
+        //ret.put(:GMST_NOW_HR, [gmst_now_deg/15.0]);
+        //ret.put(:LMST_NOW_HR, [lmst_now_hr]);
         //deBug("GNMST_MID_HR, GNMST_NOW_HR, LMST_HR, JD: ", [gmst_mid_deg/15.0, gmst_now_deg/15.0, lmst_now_hr, lmst_now_hr*15.0,jd]);
 
         var tz_add = (timeZoneOffset_sec/3600.0f) + dst;

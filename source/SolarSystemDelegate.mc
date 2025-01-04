@@ -4,8 +4,8 @@ import Toybox.Math;
 import Toybox.System;
 
 var settings_view, settings_delegate;
-var exiting_back_button_firstpress=false;
-var change_mode_select_button_firstpress = false;
+//var exiting_back_button_firstpress=false;
+//var change_mode_select_button_firstpress = false;
 var EBBF_next_mode = 1;
 
 //! Handle input on initial view
@@ -397,7 +397,14 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
     */
+    function onHide(){
+        System.println("Hide");   
+    }
 
+    function onShow(){
+        System.println("Show");   
+        
+    }
     
     function onKey(keyEvent) {
         var keyvent =  keyEvent.getKey();
@@ -407,8 +414,8 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
 
             //$.buttonPresses++;
             //$.last_button_time_sec = $.time_now.value();
-            $.exiting_back_button_firstpress=false;\
-            $.change_mode_select_button_firstpress = false;
+            //$.exiting_back_button_firstpress=false;
+            //$.change_mode_select_button_firstpress = false;
             //settings_view = new $.SolarSystemSettingsView();
             //settings_delegate = new $.SolarSystemSettingsDelegate();
         
@@ -421,7 +428,8 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
             //for devices that can't handle Menu2, pushing menu just does nothing.
             if ((WatchUi has :Menu2)) {
                //System.exit();
-               pushView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
+               //pushView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
+               switchToView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
             }
             
 

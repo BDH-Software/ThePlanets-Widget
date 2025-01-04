@@ -1,0 +1,33 @@
+<resources>
+    <bitmap id="LauncherIcon" filename="images/jupiter-cassini-icon-brighter-60x60.png" />
+    
+    <!--
+    <checkbox-menu id="pMenu" title="Options">
+
+    <checkbox-menu-item id="exPlan" label="Show extra planets?" checked="false"/>
+    
+    <checkbox-menu-item id="pLabe" label="Show planet labels?" checked="false"/>
+    <checkbox-menu-item id="sBann" label="Show smaller banners?" checked="false"/>
+    
+    <checkbox-menu-item id="lPlan" label="Larger Planets?" 
+     checked="false"/>
+     <checkbox-menu-item id="sPlan" label="Smaller Planets?" 
+     checked="false">
+        <param name="alignment">Ui.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT</param>
+    </checkbox-menu-item>
+    </checkbox-menu>
+    -->
+
+    <!--
+
+    <checkbox-menu id="CheckMenu" title="Strings.CheckMenuTitle?">
+    <checkbox-menu-item id="defaultAlign" label="Strings.CheckDefaultLabel?" 
+     checked="true" />
+    <checkbox-menu-item id="right" label="Strings.CheckRightLabel" subLabel="Strings.CheckRightSubLabel"
+     checked="false">
+        <param name="alignment">Ui.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT</param>
+    </checkbox-menu-item>
+</checkbox-menu>
+-->
+    
+</resources>
