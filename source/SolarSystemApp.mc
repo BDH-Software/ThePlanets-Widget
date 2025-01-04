@@ -183,7 +183,7 @@ class SolarSystemBaseApp extends Application.AppBase {
                     planetSizeL => false,
                     planetSizeS => false,
                     glanceType => false,
-                    glanceAlternate => true,
+                    glanceAlternate => false,
                     lastLoc_saved => [38, -94],
                     };
 
