@@ -55,6 +55,7 @@ var show_intvl = 0; //whether or not to show current SPEED on display
 var animSinceModeChange = 0; //used to tell when to blank screen etc.
 var solarSystemView_class as SolarSystemBaseView?; //saved instance of main class 
 var solarSystemDelegate_class as SolarSystemBaseDelegate?;
+var SSBaseApp_class as SolarSystemBaseApp?;
 
 //enum {exitApp, resetDate, orrZoomOption, thetaOption, labelDisplayOption, refreshOption, screen0MoveOption, planetSizeOption, planetsOption, helpOption, helpBanners}
 
@@ -96,7 +97,7 @@ class SolarSystemBaseApp extends Application.AppBase {
         AppBase.initialize();
         System.println("init starting...");
 
-        //$.solarSystemBase_class = self;
+        $.SSBaseApp_class = self;
         
         //geo_cache = new Geocentric_cache();
         
@@ -171,7 +172,7 @@ class SolarSystemBaseApp extends Application.AppBase {
 
     //! Return the initial view for the app
     //! @return Array [View]
-    public function getInitialView() as [Views] or [Views, InputDelegates] {
+    public function getInitialSSView() as [Views] or [Views, InputDelegates] {
         deBug("initialview",[]);
 
         Options = [extraPlanets, planetLabels,
@@ -224,8 +225,14 @@ class SolarSystemBaseApp extends Application.AppBase {
             now.min.format("%02d") + ":" +
             now.sec.format("%02d"));*/
         return [_solarSystemView, _solarSystemDelegate];
-        _solarSystemDelegate = null;
-        _solarSystemView = null;
+    }
+
+    public function getInitialView() as [Views] or [Views, InputDelegates] {        
+
+        return [new SSInitView(), new SSInitDel()];
+        //return [_solarSystemView, _solarSystemDelegate];
+        //_solarSystemDelegate = null;
+        //_solarSystemView = null;
 
     }
 

@@ -156,10 +156,10 @@ class SSMenuDel extends WatchUi.Menu2InputDelegate {
         //switchToView.popView(WatchUi.SLIDE_IMMEDIATE);
         //System.exit();
         //WatchUi.requestUpdate(); //often the screen is black after return from Menu, at least in the sim
-        return true;
+        //return true;
         
          //since we usually/often get memory probs when returning from menu, we just exit the app
          
-         //return false;
+         return false;
     }
 }

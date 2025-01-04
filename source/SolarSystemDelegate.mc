@@ -482,6 +482,10 @@ class SolarSystemBaseDelegate extends WatchUi.BehaviorDelegate {
             if ((WatchUi has :Menu2)) {
                //System.exit();
                //pushView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
+               
+               popView();
+               popView();
+               $.SSBaseApp_class._solarSystemView = null;
                switchToView(new SSMenu(), new SSMenuDel(), WatchUi.SLIDE_IMMEDIATE);
             }
             
