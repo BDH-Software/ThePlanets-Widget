@@ -323,7 +323,7 @@ var sm;
         if (l<12) {l=12;}
         //f.deBug("WL", [w,l,up]);
         var up1 = up.substring(0, l);
-        var up2 = up.substring(l, null);
+        var up2 = up.substring(l, 1000);
 
         //$.now = System.getClockTime();
         var d1 = am;
@@ -414,7 +414,7 @@ var sm;
 
 (:glance)
 function glanceSetPosition(pinfo){
-    Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:setPosition));
+    //Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:glanceSetPosition));
     if (pinfo!= null && pinfo.position != null) { lastLoc = pinfo.position.toDegrees(); }
 }
 

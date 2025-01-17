@@ -2544,7 +2544,9 @@ class SolarSystemBaseView extends WatchUi.View {
                 } else
             if (key.equals("Uranus")) {
                 size =b_size *jup_size * 0.3627755289;
-                col = Graphics.COLOR_BLUE;
+                //col = Graphics.COLOR_BLUE;
+                //col = #1199ff
+                col = 0x1199ff;
                 fillcol = Graphics.COLOR_GREEN;
                 } else
             if (key.equals("Earth")) {
@@ -2803,7 +2805,10 @@ class SolarSystemBaseView extends WatchUi.View {
             case "Uranus" :
                 
                 //dc.drawLine(x, y+4*size/5, x, y-4*size/5);
-                dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);                //
+                //col = #1199ff
+                //col = #0066cc
+                //dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_TRANSPARENT);                
+                dc.setColor(0x0066cc, Graphics.COLOR_TRANSPARENT);                //
                 dc.fillCircle (x, y, size/3);  
                 if (size>4) {drawARC (dc, 0, 24, x, y,3*size/4.0, pen, null);}
                 break;
